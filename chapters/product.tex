@@ -82,9 +82,11 @@ Il sistema è composto da due principali sezioni:
 \end{itemize}
 
 \subsection{Configurazione ambiente del progetto}
-Microservice
-\subsection{Infrastruttura}
-Da capire
+buildspec -> cartella con configuraazione dei build, per codebuild primo step, builda sia portal che il middleware
+quando finsice la build ti attacca allo step di deploy, definite in infra. 
+PEr il portale costrutto cloudfrontdistribution -> genera il template di aws clodfront e esegue il deploy degli asset statici su s3. S3 container
+Secondo costrutto -> throndockerlambda e questo crea la lambda con quando viene invocata avvia un docker con all'interno il mio middleware.
+
 
 
 

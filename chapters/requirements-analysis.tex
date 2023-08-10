@@ -5,35 +5,37 @@
  vanno ad illustrare le funzionalità tramite casi d'uso e requisiti identificati, con l'obiettivo di creare un'immagine
  più chiara e definita del sistema.
  }\\
-
+ 
 \section{Descrizione dell'applicazione}
 
-\section{Casi d'uso}
+\section{Casi d'uso}\label{sec:usecase}
 
 La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requisiti. 
-% \begin{figure}[!h] 
-%     \centering 
-%     \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale} 
-%     \caption{Use Case - UC0: Scenario principale}
-% \end{figure}
+\begin{figure}[h] 
+    \centering 
+    \includegraphics[width=0.9\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/scenario-principale.jpg}
+    \caption{Scenario principale}\label{fig:usecase-scenario-principale}
+\end{figure}
+
+\clearpage
 
 \subsection{Notazione utilizzata}
 
 \subsection{Attori}
 
-
+UC
 \subsection{Descrizione del sistema}
 
 % UC 1 - Inserimento ambiente di staging
-\begin{usecase}{}{}\label{uc:}
-    \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
+\begin{usecase}{1}{Inserimento ambiente di staging}\label{uc:inserimento-ambiente-di-staging}
+    \usecaseactors{Utente non autenticato}
+    \usecasepre{L'utente non è autenticato e non ha ancora avviato l'applicazione web}
+    \usecasedesc{L'utente vuole avviare l'applicazione web e deve scegliere in che ambiente di staging farlo}
+    \usecasepost{L'utente avvia l'applicazione nell'ambiente di staging scelto}
 
     \usecasemain{}
         \begin{enumerate}
-            \item 
+            \item L'utente seleziona il link del portale a seconda dell'ambiente di staging che vuole avviare (development, quality e production)
         \end{enumerate}
 
 \end{usecase}
@@ -145,7 +147,7 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 \end{usecase}
 
 % UC 4.2 - Visualizzazione client-id di default per l'ambiente scelto
-\begin{usecase}{4.2}{Visualizzazione client-id di default per l'ambiente scelto}\label{uc:visualizzazione-client-id-di-default-per-lambiente-scelto}
+\begin{usecase}{4.2}{Visualizzazione client-id di default}\label{uc:visualizzazione-client-id-di-default}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
     \usecasedesc{L'utente visualizza il client id di default impostato nell'ambiente corrente}
@@ -188,8 +190,7 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
     \usecasegen{}
         \begin{enumerate}
-            \item Visualizzaazione lista endpoint disponibili UC5.1;
-            \item Visualizzazione sezione models dell'endpoint UC5.2. %?????????????????????????????????????????????
+            \item Visualizzaazione lista endpoint disponibili UC5.1.
         \end{enumerate}
 
 
@@ -209,13 +210,13 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
             \item L'utente visualizza la lista completa di endpoint disponibili per l'API che ha selezionato.
         \end{enumerate}
 
+    \usecasegen{}
+        \begin{enumerate}
+            \item Visualizzazione dettaglio singolo endpoint UC5.1.1.
+        \end{enumerate}
 
 \end{usecase}
 
-%
-% Visualizzazione models???
-% categorie di endpoints??
-%
 
 % UC 5.1.1 Visualizzazione dettaglio singolo endpoint
 \begin{usecase}{5.1.1}{Visualizzazione dettaglio singolo endpoint}\label{uc:visualizzazione-dettaglio-singolo-endpoint}
@@ -230,12 +231,16 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
             \item L'utente visualizza i dettagli disponibili per l'endpoint selezionato.
         \end{enumerate}
 
+    \usecaseext{}
+        \begin{enumerate}
+            \item Visualizzazione lista di possibili risposte per endpoint UC6.
+        \end{enumerate}
 
 \end{usecase}
 
 
-% UC 
-\begin{usecase}{}{}\label{uc:}
+% UC 6 Visualizzazione lista di possibili risposte per endpoint
+\begin{usecase}{6}{Visualizzazione lista di possibili risposte per endpoint}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -250,8 +255,8 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 \end{usecase}
 
 
-% UC 6 Download singola API
-\begin{usecase}{6}{Download singola API}\label{uc:download-singola-api}
+% UC 7 Download singola API
+\begin{usecase}{7}{Download singola API}\label{uc:download-singola-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed ha selezionato una API dalla lista di API disponibili}
     \usecasedesc{L'utente vuole poter scaricare in formato yaml un API dal portale}
@@ -266,10 +271,9 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
 \end{usecase}
 
-% Visualizzazione descrizione del dettaglio endpoint / api
 
-% UC 7 Try it out di un endpoint
-\begin{usecase}{7}{Try it out di un endpoint}\label{uc:try-it-out-di-un-endpoint}
+% UC 8 Try it out di un endpoint
+\begin{usecase}{8}{Try it out di un endpoint}\label{uc:try-it-out-di-un-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel portale}
     \usecasedesc{L'utente vuole poter provare l'endpoint selezionato}
@@ -284,22 +288,21 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione errore nella prova dell'endpoint selezionato UC8;
-            \item Visualizzazione risposta dell'endpoint selezionato UC9;
-            \item Visualizzazione lista di possibili risposte per l'endpoint selezionato UC10.
+            \item Visualizzazione errore nella prova dell'endpoint selezionato UC9;
+            \item Visualizzazione risposta endpoint UC10;
         \end{enumerate}
 
     \usecasegen{}
         \begin{enumerate}
-            \item Inserimento parametri per try it out endpoint UC7.1;
-            \item Definire campi aggiuntivi per try it out endpoint UC7.2.
+            \item Inserimento parametri per try it out endpoint UC8.1;
+            \item Definire campi aggiuntivi per try it out endpoint UC8.2.
         \end{enumerate}
 
 \end{usecase}
 
 
-% UC 7.1 Inserimento parametri necessari per la prova dell'endpoint     
-\begin{usecase}{7.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-per-try-it-out-endpoint}
+% UC 8.1 Inserimento parametri necessari per la prova dell'endpoint     
+\begin{usecase}{8.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-per-try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione di inserimento dei parametri}
     \usecasedesc{L'utente vuole poter inserire i parametri necessari per la prova dell'endpoint}
@@ -314,8 +317,8 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 \end{usecase}
 
 
-% UC 7.2 Definire campi aggiuntivi per try it out endpoint
-\begin{usecase}{}{}\label{uc:}
+% UC 8.2 Definire campi aggiuntivi per try it out endpoint
+\begin{usecase}{8.2}{Definire campi aggiuntivi per try it out endpoint}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -328,23 +331,8 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
 \end{usecase}
 
-% UC 8 Visualizzazione errore nella prova dell'endpoint selezionato
-\begin{usecase}{8}{Visualizzazione errore nella prova dell'endpoint selezionato}\label{uc:visualizzazione-errore-nella-prova-dell-endpoint-selezionato}
-    \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
-
-    \usecasemain{}
-        \begin{enumerate}
-            \item 
-        \end{enumerate}
-
-\end{usecase}
-
-
-% UC 9 Visualizzazione risposta dell'endpoint selezionato
-\begin{usecase}{}{}\label{uc:}
+% UC 9 Visualizzazione errore nella prova dell'endpoint selezionato
+\begin{usecase}{9}{Visualizzazione errore nella prova dell'endpoint selezionato}\label{uc:visualizzazione-errore-nella-prova-dell-endpoint-selezionato}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -358,8 +346,8 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 \end{usecase}
 
 
-% UC 10 Visualizzazione lista di possibili risposte per l'endpoint selezionato
-\begin{usecase}{}{}\label{uc:}
+% UC 10 Visualizzazione risposta endpoint
+\begin{usecase}{10}{Visualizzazione risposta endpoint}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -392,14 +380,14 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
     \usecasegen{}
         \begin{enumerate}
-            \item Inserimento client-id per ricerca UC11.1.
+            \item Inserimento client-id UC11.1.
         \end{enumerate}
 
 \end{usecase}
 
 
-% % UC 11.1 Inserimento client-id per ricerca
-\begin{usecase}{}{}\label{uc:}
+% % UC 11.1 Inserimento client-id 
+\begin{usecase}{11.1}{Inserimento client-id}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -414,7 +402,7 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
 
 % % UC 12 Visualizzazione messaggio di errore di ricerca
-\begin{usecase}{}{}\label{uc:}
+\begin{usecase}{12}{Visualizzazione messaggio di errore di ricerca}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -429,7 +417,7 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
 
 % UC 13 Ricerca per api
-\begin{usecase}{}{}\label{uc:}
+\begin{usecase}{13}{Ricerca per API}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -442,7 +430,7 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione messaggio di errore di ricerca UC 12.
+            \item Visualizzazione messaggio di errore di ricerca UC12.
         \end{enumerate}
 
     \usecasegen{}
@@ -470,24 +458,36 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
 
 
-% % UC 14 Filtrare lista di risultati per client-id
-% \begin{usecase}{}{}\label{uc:}
-%     \usecaseactors{Utente autenticato}
-%     \usecasepre{}
-%     \usecasedesc{}
-%     \usecasepost{}
+% UC 14 Filtrare lista di risultati 
+\begin{usecase}{14}{Filtrare lista di risultati}\label{uc:}
+    \usecaseactors{Utente autenticato}
+    \usecasepre{}
+    \usecasedesc{}
+    \usecasepost{}
 
-%     \usecasemain{}
-%         \begin{enumerate}
-%             \item 
-%         \end{enumerate}
+    \usecasemain{}
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
 
-% \end{usecase}
+\end{usecase}
 
+% UC 15 Visualizzazione risultati ultima ricerca
+\begin{usecase}{15}{Visualizzazione risultati ultima ricerca}\label{uc:}
+    \usecaseactors{Utente autenticato}
+    \usecasepre{}
+    \usecasedesc{}
+    \usecasepost{}
 
+    \usecasemain{}
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
 
-% UC 15 Reset client-id corrente
-\begin{usecase}{}{}\label{uc:}
+\end{usecase}
+
+% UC 16 Reset client-id corrente
+\begin{usecase}{16}{Reset client-id corrente}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -500,14 +500,29 @@ La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requ
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione messaggio di errore reset UC 16.
+            \item Visualizzazione messaggio di errore reset UC 17.
         \end{enumerate}
 
 \end{usecase}
 
 
-% UC 16 Logout
-\begin{usecase}{}{}\label{uc:}
+% UC 17 Visualizzazione messaggio di errore reset
+\begin{usecase}{17}{Visualizzazione messaggio di errore reset}\label{uc:}
+    \usecaseactors{Utente autenticato}
+    \usecasepre{}
+    \usecasedesc{}
+    \usecasepost{}
+
+    \usecasemain{}
+        \begin{enumerate}
+            \item 
+        \end{enumerate}
+
+\end{usecase}
+
+
+% UC 18 Logout
+\begin{usecase}{18}{Logout}\label{uc:}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
