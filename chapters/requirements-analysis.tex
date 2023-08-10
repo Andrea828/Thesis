@@ -101,7 +101,7 @@ UC
 \begin{usecase}{3}{Visualizzazione messggio di errore login}\label{uc:visualizzazione-errore-login}
     \usecaseactors{Utente non autenticato}
     \usecasepre{L'utente ha inserito una tra le due credenziali email o password in modo errato}
-    \usecasedesc{L'utente ha inserito una tra le due credenziali errate}
+    \usecasedesc{L'utente deve inserire delle credenziali corrette per poter effettuare il login correttamente}
     \usecasepost{L'utente ha inserito una tra le due credenziali errate}
 
     \usecasemain{}
@@ -126,8 +126,8 @@ UC
     \usecasegen{}
         \begin{enumerate}
             \item Visualizzazione lista APIs disponibili UC4.1;
-            \item Visualizzazione client-id di default per l'ambiente scelto UC4.2.
-            \item Visualizzazione dettagli utente autenticato UC4.3. % ?????????????????????????
+            \item Visualizzazione client-id di default UC4.2;
+            \item Visualizzazione dettagli utente autenticato UC4.3.
         \end{enumerate}
 
 \end{usecase}
@@ -146,7 +146,7 @@ UC
 
 \end{usecase}
 
-% UC 4.2 - Visualizzazione client-id di default per l'ambiente scelto
+% UC 4.2 - Visualizzazione client-id di default
 \begin{usecase}{4.2}{Visualizzazione client-id di default}\label{uc:visualizzazione-client-id-di-default}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
@@ -162,7 +162,7 @@ UC
 
 
 % % UC 4.3 Visualizzazione dettagli utente autenticato
-\begin{usecase}{}{}\label{uc:}
+\begin{usecase}{4.3}{Visualizzazione dettagli utente autenticato}\label{uc:visualizzazione-dettagli-utente-autenticato}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -184,8 +184,8 @@ UC
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca su una delle API presenti nella lista di API disponibili;
-            \item L'utente visualizza la pagina di dettaglio di una singola API tra quelle presenti nel portale.
+            \item L'utente clicca su una delle API presenti nella lista di API disponibili all'interno del portale.
+            \item L'utente visualizza la pagina di dettaglio della singola API selezionata.
         \end{enumerate}
 
     \usecasegen{}
@@ -206,7 +206,7 @@ UC
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza la pagina di dettaglio di una singola API tra quelle presenti nel portale;
+            % \item L'utente visualizza la pagina di dettaglio di una singola API tra quelle presenti nel portale;
             \item L'utente visualizza la lista completa di endpoint disponibili per l'API che ha selezionato.
         \end{enumerate}
 
@@ -240,17 +240,16 @@ UC
 
 
 % UC 6 Visualizzazione lista di possibili risposte per endpoint
-\begin{usecase}{6}{Visualizzazione lista di possibili risposte per endpoint}\label{uc:}
+\begin{usecase}{6}{Visualizzazione lista di possibili risposte per endpoint}\label{uc:visualizzazione-risposte-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
+    \usecasepre{L'utente è autenticato, sta visualizzando la sezione di dettaglio di un singolo endpoint}
+    \usecasedesc{L'utente vuole visualizzare la lista dei possibili risultati possibili per l'endpoint selezionato}
+    \usecasepost{L'utente visualizza la lista delle possibili risposte disponibili per l'endpoint che ha selezionato}
 
     \usecasemain{}
         \begin{enumerate}
-            \item 
+            \item L'utente visualizza i dettagli riguardanti le possibili risposte che l'endpoint selezionato può ritornare.
         \end{enumerate}
-
 
 \end{usecase}
 
@@ -272,8 +271,8 @@ UC
 \end{usecase}
 
 
-% UC 8 Try it out di un endpoint
-\begin{usecase}{8}{Try it out di un endpoint}\label{uc:try-it-out-di-un-endpoint}
+% UC 8 Try it out endpoint
+\begin{usecase}{8}{Try it out endpoint}\label{uc:try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel portale}
     \usecasedesc{L'utente vuole poter provare l'endpoint selezionato}
@@ -302,7 +301,7 @@ UC
 
 
 % UC 8.1 Inserimento parametri necessari per la prova dell'endpoint     
-\begin{usecase}{8.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-per-try-it-out-endpoint}
+\begin{usecase}{8.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione di inserimento dei parametri}
     \usecasedesc{L'utente vuole poter inserire i parametri necessari per la prova dell'endpoint}
@@ -318,51 +317,52 @@ UC
 
 
 % UC 8.2 Definire campi aggiuntivi per try it out endpoint
-\begin{usecase}{8.2}{Definire campi aggiuntivi per try it out endpoint}\label{uc:}
+\begin{usecase}{8.2}{Definire campi aggiuntivi per try it out endpoint}\label{uc:definire-campi-try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
+    \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione dei parametri aggiuntivi}
+    \usecasedesc{L'utente vuole poter definire dei campi aggiuntivi ai parametri già esistenti, per poi andare a provare la chiamata verso l'endpoint}
+    \usecasepost{L'utente ha creato dei parametri aggiuntivi per la chiamata verso l'endpoint}
 
     \usecasemain{}
         \begin{enumerate}
-            \item 
+            \item L'utente è nella sezione di aggiunta dei parametri aggiuntivi, nel try it out dell'endpoint selezionato;
+            \item L'utente definisce dei parametri da aggiungere a quelli già esistenti.
         \end{enumerate}
 
 \end{usecase}
 
 % UC 9 Visualizzazione errore nella prova dell'endpoint selezionato
-\begin{usecase}{9}{Visualizzazione errore nella prova dell'endpoint selezionato}\label{uc:visualizzazione-errore-nella-prova-dell-endpoint-selezionato}
+\begin{usecase}{9}{Visualizzazione errore nella prova dell'endpoint selezionato}\label{uc:visualizzazione-errore-prova-endpoint-selezionato}
     \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
+    \usecasepre{L'utente è autenticato, è nella sezione di prova di un endpoint ed ha inserito dei parametri errati}
+    \usecasedesc{L'utente deve inserire dei parametri corretti per poter provare l'endpoint senza riscontrare errori} 
+    \usecasepost{L'utente ha inserito dei parametri parzialmente o in modo scorretto e non può procedere con l'esecuzione della chiamata}
 
     \usecasemain{}
         \begin{enumerate}
-            \item 
+            \item L'utente visualizza un messaggio di errore che lo avvisa che i parametri inseriti non sono corretti, o risultano incompleti.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 10 Visualizzazione risposta endpoint
-\begin{usecase}{10}{Visualizzazione risposta endpoint}\label{uc:}
+\begin{usecase}{10}{Visualizzazione risposta endpoint}\label{uc:visualizzazione-risposta-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{}
-    \usecasedesc{}
-    \usecasepost{}
+    \usecasepre{L'utente è autenticato, è nella sezione di prova di un endpoint ed ha inserito dei parametri corretti}
+    \usecasedesc{L'utente vule visualizzare la risposta dell'endpoint }
+    \usecasepost{L'utente visualizza la risposta adeguata alla chiamata verso l'endpoint, in base ai parametri inseriti}
 
     \usecasemain{}
         \begin{enumerate}
-            \item 
+            \item L'utente visualizza la risposta dell'endpoint, uno tra quelle possibili contenute nella descrizione dell'endpoint. La risposta varia in base ai parametri inseriti.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 11 Ricerca per client-id
-\begin{usecase}{}{}\label{uc:}
+\begin{usecase}{11}{Ricerca per client-id}\label{uc:ricerca-client-id}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
@@ -435,15 +435,14 @@ UC
 
     \usecasegen{}
         \begin{enumerate}
-            \item Inserimento nome api per ricerca UC13.1.
+            \item Inserimento nome api UC13.1.
         \end{enumerate}
 
 \end{usecase}
 
 
-
-% UC 13.1 Inserimento nome api per ricerca
-\begin{usecase}{}{}\label{uc:}
+% UC 13.1 Inserimento nome api
+\begin{usecase}{13.1}{Inserimento nome api}\label{uc:inserimento-nome-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{}
     \usecasedesc{}
