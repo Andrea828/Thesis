@@ -8,23 +8,47 @@
  
 \section{Descrizione dell'applicazione}
 
+Il progetto consiste nel creare un portale che permetta la consultazione di tutte le API Thron con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
+Il prodotto verrà utilizzato internamente all'azienda, all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.
+
 \section{Casi d'uso}\label{sec:usecase}
+Questa sezione illustra i casi d'uso individuati nel corso dell'analisi dei requisiti del progetto che sono stati definiti utilizzando il linguaggio Unified Modeling Language (UML).
+Ogni caso d'uso offre una panoramica chiara dei diversi attori coinvolti e delle intereazioni che essi intraprendono nel contesto del sistema.\\
 
-La seguente sezione illustra i casi d'uso individuati durante l'analisi dei requisiti. 
-\begin{figure}[h] 
-    \centering 
-    \includegraphics[width=0.9\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/scenario-principale.jpg}
-    \caption{Scenario principale}\label{fig:usecase-scenario-principale}
-\end{figure}
+Ogni caso d'uso è indentificato da un codice univoco, che segue la seguente notazione:
+\begin{center}
+    \textbf{UC[Codice-padre].[Codice-figlio]}
+  \end{center}
 
-\clearpage
-
-\subsection{Notazione utilizzata}
+% \clearpage
 
 \subsection{Attori}
+Gli attori individuati nel sistema sono i seguenti visibili in figura \ref{fig:attori-individuati}, più in dettaglio:
+\begin{itemize}
+    \item Utente non autenticato: è un utente che non è autenticato nel sistema e non può accedere alle funzionalità del portale;
+    \item Utente autenticato: è un utente che è autenticato nel sistema e che può accedere alle funzionalità del portale.
+\end{itemize}
 
-UC
+\begin{figure}[h] 
+    \centering 
+    \includegraphics[width=0.5\columnwidth, alt={Attori individuati nel sistema}]{images/usecase/attori.jpg}
+    \caption{Attori individuati}\label{fig:attori-individuati}
+\end{figure}\\
+
+% \clearpage
+
+
 \subsection{Descrizione del sistema}
+
+Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso individuati nel sistema e le relazioni tra di essi.
+\begin{figure}[h] 
+    \centering 
+    \includegraphics[width=0.9\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/riassunto.jpg}
+    \caption{Scenario principale}\label{fig:usecase-scenario-principale}
+\end{figure}\\
+
+% \clearpage
+
 
 % UC 1 - Inserimento ambiente di staging
 \begin{usecase}{1}{Inserimento ambiente di staging}\label{uc:inserimento-ambiente-di-staging}
@@ -43,9 +67,9 @@ UC
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{ L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al portale. Inoltre l'utente non è autenticato e si trova nella pagina di login}
-    \usecasedesc{L'utente vuole accedere al portale e deve inserire le proprie credenziali per accedervi}
-    \usecasepost{L'utente è autenticato correttamente e può procedere con l'utilizzo di tutte le funzionalità disponibili all'interno del portale}
+    \usecasepre{ L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasedesc{L'utente vuole accedere al sistema e deve inserire le proprie credenziali per accedervi}
+    \usecasepost{L'utente è autenticato correttamente e può procedere con l'utilizzo di tutte le funzionalità disponibili all'interno del sistema}
 
     \usecasemain{}
         \begin{enumerate}
@@ -78,8 +102,8 @@ UC
 % UC 2.1 - Inserimento e-mail
 \begin{usecase}{2.1}{Inserimento e-mail}\label{uc:inserimento-email}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al portale. Inoltre l'utente non è autenticato e si trova nella pagina di login}
-    \usecasedesc{L'utente deve inserire la propria e-mail per autenticarsi al portale}
+    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasedesc{L'utente deve inserire la propria e-mail per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria e-mail, può quindi procedere a completare il processo di autenticazione}
 
     \usecasemain{}
@@ -93,8 +117,8 @@ UC
 % UC 2.2 - Inserimento password
 \begin{usecase}{2.2}{Inserimento password}\label{uc:inserimento-password}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al portale. Inoltre l'utente non è autenticato e si trova nella pagina di login}
-    \usecasedesc{L'utente deve inserire la propria password per autenticarsi al portale}
+    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasedesc{L'utente deve inserire la propria password per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria password e può concludere il processo di autenticazione}
 
     \usecasemain{}
@@ -191,8 +215,8 @@ UC
 
 \end{usecase}
 
-% UC 5 Visualizzazione dettaglio singola API
-\begin{usecase}{5}{Visualizzazione dettaglio singola API}\label{uc:visualizzazione-dettaglio-singola-api}
+% UC 5 Visualizzazione dettagli singola API
+\begin{usecase}{5}{Visualizzazione dettagli singola API}\label{uc:visualizzazione-dettagli-singola-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato e si trova nella pagina principale del portale}
     \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di una singola API}
@@ -265,8 +289,8 @@ UC
 \end{usecase}
 
 
-% UC 6 Visualizzazione lista di possibili risposte per endpoint
-\begin{usecase}{6}{Visualizzazione lista di possibili risposte per endpoint}\label{uc:visualizzazione-risposte-endpoint}
+% UC 6 Visualizzazione lista di possibili risposte endpoint
+\begin{usecase}{6}{Visualizzazione lista di possibili risposte endpoint}\label{uc:visualizzazione-risposte-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta visualizzando la sezione di dettaglio di un singolo endpoint}
     \usecasedesc{L'utente vuole visualizzare la lista dei possibili risultati possibili per l'endpoint selezionato}
@@ -526,7 +550,7 @@ Inoltre viene fatta una classificazione dei requisiti in base alla priorità ass
 Ciascun requisito è identificato da un codice univoco, che segue la seguente notazione:
 \begin{center}
     \textbf{R[Priorità][Tipo][Codice]}
-  \end{center}
+\end{center}
   dove:
   \begin{itemize}
   \item \textbf{Priorità} indica il livello di priorità assegnato: obbligatorio (\textbf{O}), desiderabile (\textbf{D}) e opzionale (\textbf{Z}) ;
@@ -541,13 +565,13 @@ facilitarne la tracciabilità.
 
 \subsubsection{Requisiti funzionali}
 
-\renewcommand{\arraystretch}{1.1} % Adjust the spacing inside the cells
-% Redefine column type to center the content
-\newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
+% \renewcommand{\arraystretch}{1.1} % Adjust the spacing inside the cells
+% % Redefine column type to center the content
+% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
 
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti funzionali}\label{tab:requisiti-funzionali}
-\begin{longtable}{|C{2cm}|C{7.0cm}|C{2cm}|}
+\begin{longtable}{|c|p{0.6\textwidth}|c|}
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
@@ -607,12 +631,12 @@ RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione 
 
 \subsubsection{Requisiti qualitativi}
 
-\renewcommand{\arraystretch}{1.1} 
-\newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
+% \renewcommand{\arraystretch}{1.1} 
+% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
 
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti qualitativi}\label{tab:requisiti-qualitativi}
-\begin{longtable}{|C{2cm}|C{7.0cm}|C{2cm}|}
+\begin{longtable}{|c|p{0.6\textwidth}|c|}
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
@@ -630,22 +654,22 @@ RQD-5 &L'applicativo deve essere accessibile utilizzando i principali browser & 
 
 \subsubsection{Requisiti di vincolo}
 
-\renewcommand{\arraystretch}{1.1} 
-\newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
+% \renewcommand{\arraystretch}{1.1} 
+% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
 
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti di vincolo}\label{tab:requisiti-vincolo}
-\begin{longtable}{|C{2cm}|C{7.0cm}|C{2cm}|}
+\begin{longtable}{|c|p{0.6\textwidth}|c|}
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
-RVO-1 &L'applicazione deve essere sviluppata utilizzando il framework Vue.js 3, usando Typescript come linguaggio di programmazione & UC1 \\
+RVO-1 & L'applicazione deve essere sviluppata utilizzando il framework Vue.js 3, usando Typescript come linguaggio di programmazione & UC1 \\
 \hline
-RVO-2 &I componenti devono essere scritti utilizzando le Composition API di Vue.js 3 & UC1 \\
+RVO-2 & I componenti devono essere scritti utilizzando le Composition API di Vue.js 3 & UC1 \\
 \hline
-RVD-3 &I componenti di base devono essere implementati utilizzando la libreria THRON Components &UC2 \\
+RVD-3 & I componenti di base devono essere implementati utilizzando la libreria THRON Components & UC2 \\
 \hline
-RVZ-4 &L'interfaccia dell'applicazione deve seguire il design system THRON  &UC2 \\
+RVZ-4 & L'interfaccia dell'applicazione deve seguire il design system THRON & UC2 \\
 \hline
 \end{longtable}
 \end{center}

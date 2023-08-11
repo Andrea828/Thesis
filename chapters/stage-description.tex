@@ -6,18 +6,44 @@
 \section{Introduzione al progetto}
 
 \section{Obiettivi dello stage}
+In questa sezione vengono elencati gli obiettivi prefissati da raggiungere durante lo stage, suddivisi in obbligatori, desiderabili e opzionali.
 
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
+Si farà riferimento ai requisiti secondo le seguenti notazioni:
+\begin{itemize}
+    \item \textbf{OB}: per i requisiti obbligatori, vincolanti in quanto obiettivo primario richiesto;
+    \item \textbf{DE}: per i requisiti desiderabili, non vincolanti o strettamente necessari, ma dal riconoscibile valore aggiunto;
+    \item \textbf{OP}: per i requisiti opzionali, rappresentanti valore aggiunto non strettamente competitivo.
+\end{itemize}
+Le sigle precedentemente indicate saranno seguite da una coppia sequenziale di numeri, che identificano univocamente ogni requisito.
 
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator} 
-\end{risk}
+\subsection*{\normalsize\textit{\uline{Obbligatori}}}
+\begin{itemize}
+    \item \textbf{OB1}: Realizzazione di un portale che consenta la consultazione degli OpenAPIs schemas dei servizi pubblici e privati offerti da THRON;
+    \item \textbf{OB2}: Rendere possibile l'utilizzo delle API direttamente dal portale (con inserimento manuale del token di autenticazione);
+    \item \textbf{OB3}: Documentazione delle funzionalità implementate;
+    \item \textbf{OB4}: Realizzazione di test di unità delle funzionalità implementate.
+\end{itemize}
+
+\subsection*{\normalsize\textit{\uline{Desiderabili}}}
+\begin{itemize}
+    \item \textbf{DE1}:  Implementare la funzionalità di recupero automatico degli OpenAPI schemas;
+    \item \textbf{DE2}: Implementare la funzionalità di autenticazione al portale.
+\end{itemize}
+
+\subsection*{\normalsize\textit{\uline{Opzionali}}}
+\begin{itemize}
+    \item \textbf{OP1}: Implementare la funzionalità di download dello schema di uno specifico servizio (formato YAML);
+    \item \textbf{OP2}: Implementare la funzionalità di recupero automatico del token di autenticazione per l'utilizzo della API direttamente dal portale.
+\end{itemize}
 
 \section{Analisi preventiva dei rischi}
+Durante la fase iniziale sono stati individuati dei possibili rischi a cui si poteva andare incontro. Per contrastare ciò, si è cercato di porre rimedio con delle contromisure appropriate.
+% stack tecnologico
+\begin{enumerate}
+    \item \textbf{Stack tecnologico}: per ovviare a questo rischio, è stato previsto un periodo di formazione iniziale, durante il quale è stato possibile studiare le tecnologie da utilizzare e sperimentarle in piccoli progetti di prova;
+\end{enumerate}
 
+% ritardi nello svilippo
 
 
 
