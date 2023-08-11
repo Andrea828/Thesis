@@ -584,7 +584,7 @@ RFO-8 &Il sistema deve permettere il try it out di un singolo endpoint all'utent
 \hline
 RFO-8.1 &Il sistema deve permettere l'inserimento dei parametri necessari per il try it out di un endpoint & UC8.1 \\
 \hline
-RFO-8.2 &Il sistema deve permettere la possibilità di definire dei campi aggiuntivi per il try it out di un endpoint & UC8.2 \\
+RFD-8.2 &Il sistema deve permettere la possibilità di definire dei campi aggiuntivi per il try it out di un endpoint & UC8.2 \\
 \hline
 RFO-9 &Il sistema deve avvisare l'utente tramite un messaggio di errore che i parametri inseriti non sono corretti o incompleti & UC9 \\
 \hline
@@ -596,9 +596,9 @@ RFO-12 &Il sistema deve avvisare l'utente tramite un messaggio di errore che la 
 \hline
 RFO-13 &Il sistema deve permettere all'utente di poter effettuare una ricerca per API & UC13 \\
 \hline
-RFO-14 &Il sistema deve permettedere il reset del client-id corrente & UC14 \\
+RFD-14 &Il sistema deve permettedere il reset del client-id corrente & UC14 \\
 \hline
-RFO-15 &Il sistema deve aavvisare l'utente tramite un messaggio di errore che il client-id è già di default & UC15 \\
+RFO-15 &Il sistema deve avvisare l'utente tramite un messaggio di errore che il client-id è già di default & UC15 \\
 \hline
 RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione  & UC16 \\
 \hline
@@ -620,9 +620,9 @@ RQO-1 &Il progetto deve essere accompagno da documentazione tecnica e funzionale
 \hline
 RQO-2 &La parte frontend del progetto deve essere coperto da test di unità & Interno \\
 \hline
-RQO-3 &L'applicazione web deve avere un'interfaccia responsive & Interno \\
+RQZ-3 &L'applicazione web deve avere un'interfaccia responsive & Interno \\
 \hline
-RQO-5 &L'applicativo deve essere accessibile utilizzando i principali browser & Interno \\
+RQD-5 &L'applicativo deve essere accessibile utilizzando i principali browser & Interno \\
 \hline
 \end{longtable}
 \end{center}
@@ -639,7 +639,13 @@ RQO-5 &L'applicativo deve essere accessibile utilizzando i principali browser & 
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
-RVO-1 & & UC1 \\
+RVO-1 &L'applicazione deve essere sviluppata utilizzando il framework Vue.js 3, usando Typescript come linguaggio di programmazione & UC1 \\
+\hline
+RVO-2 &I componenti devono essere scritti utilizzando le Composition API di Vue.js 3 & UC1 \\
+\hline
+RVD-3 &I componenti di base devono essere implementati utilizzando la libreria THRON Components &UC2 \\
+\hline
+RVZ-4 &L'interfaccia dell'applicazione deve seguire il design system THRON  &UC2 \\
 \hline
 \end{longtable}
 \end{center}
