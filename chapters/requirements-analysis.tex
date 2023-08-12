@@ -9,32 +9,43 @@
 \section{Descrizione dell'applicazione}
 
 Il progetto consiste nel creare un portale che permetta la consultazione di tutte le API Thron con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
-Il prodotto verrà utilizzato internamente all'azienda, all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.
+Il prodotto verrà utilizzato internamente all'azienda, più precisamente all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.\\
+% Infatti l'idea principale che ha portato alla realizzazione di questo progetto è stata quella di combattere l'inefficienza nel tempo dovuta al fatto che ogni sviluppatore, doveva impiegare del tempo per recuperare le API che gli servivano, per poi provarle e testarle.
+Il portale è disponibili in tre ambienti di staging: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
+La differenza principale tra ogni suddivisione è che i client sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un client di produzione involontariamente, che può causare problemi di sicurezza ed evitare prove indesiderate, dato che per esempio una chiamata delete su un client di produzione, cancellerebbe effettivamente un dato al cliente.\\
+Ogni API, è formata da più endpoint al suo interno, che possono essere provati singolarmente. Ogni endpoint, ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
+Alcune chiamate come le POST o DELETE avranno dei parametri obbligatori da inserire, mentre altre chiamate come le GET, avranno dei parametri opzionali.\\
+In caso l'utente voglia provare le diverse chiamate al di fuori del portale, è possibile scaricare le API in formato YAML, così da poter usare strumenti di terze parti.
+
 
 \section{Casi d'uso}\label{sec:usecase}
 Questa sezione illustra i casi d'uso individuati nel corso dell'analisi dei requisiti del progetto che sono stati definiti utilizzando il linguaggio Unified Modeling Language (UML).
 Ogni caso d'uso offre una panoramica chiara dei diversi attori coinvolti e delle intereazioni che essi intraprendono nel contesto del sistema.\\
-
 Ogni caso d'uso è indentificato da un codice univoco, che segue la seguente notazione:
+
 \begin{center}
     \textbf{UC[Codice-padre].[Codice-figlio]}
   \end{center}
 
 % \clearpage
 
+% visibili in figura \ref{fig:attori-individuati}, più in dettaglio:
 \subsection{Attori}
-Gli attori individuati nel sistema sono i seguenti visibili in figura \ref{fig:attori-individuati}, più in dettaglio:
+Gli attori individuati nel sistema sono i seguenti:
 \begin{itemize}
-    \item Utente non autenticato: è un utente che non è autenticato nel sistema e non può accedere alle funzionalità del portale;
-    \item Utente autenticato: è un utente che è autenticato nel sistema e che può accedere alle funzionalità del portale.
+    \item \textbf{Utente non autenticato}: è un utente che non è autenticato nel sistema e non può accedere alle funzionalità del portale;
+    \item \textbf{Utente autenticato}: è un utente che è autenticato nel sistema e che può accedere alle funzionalità del portale;
+    \item \textbf{Microsoft 365}: è un servizio di autenticazione di Microsoft che permette di autenticarsi tramite account aziendale.
+
 \end{itemize}
 
-\begin{figure}[h] 
-    \centering 
-    \includegraphics[width=0.5\columnwidth, alt={Attori individuati nel sistema}]{images/usecase/attori.jpg}
-    \caption{Attori individuati}\label{fig:attori-individuati}
-\end{figure}\\
+% \begin{figure}[h] 
+%     \centering 
+%     \includegraphics[width=0.1\columnwidth, alt={Attori individuati nel sistema}]{images/usecase/attori.jpg}
+%     \caption{Attori individuati}\label{fig:attori-individuati}
+% \end{figure}
 
+% \clearpage
 % \clearpage
 
 
@@ -43,11 +54,11 @@ Gli attori individuati nel sistema sono i seguenti visibili in figura \ref{fig:a
 Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso individuati nel sistema e le relazioni tra di essi.
 \begin{figure}[h] 
     \centering 
-    \includegraphics[width=0.9\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/riassunto.jpg}
+    \includegraphics[width=0.85\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/scenario-principale-prova.jpg}
     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
-\end{figure}\\
+\end{figure}
 
-% \clearpage
+\clearpage
 
 
 % UC 1 - Inserimento ambiente di staging
@@ -66,7 +77,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
-    \usecaseactors{Utente non autenticato}
+    \usecaseactors{Utente non autenticato, Microsoft 365}
     \usecasepre{ L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente vuole accedere al sistema e deve inserire le proprie credenziali per accedervi}
     \usecasepost{L'utente è autenticato correttamente e può procedere con l'utilizzo di tutte le funzionalità disponibili all'interno del sistema}
@@ -74,7 +85,8 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \usecasemain{}
         \begin{enumerate}
             \item L'utente inserisce la propria e-mail;
-            \item L'utente inserisce la propria password.
+            \item L'utente inserisce la propria password;
+            \item Microsoft 365 verifica le credenziali inserite, in base ai permessi configurati.
         \end{enumerate}
 
     \usecaseext{}
@@ -92,7 +104,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.9\columnwidth, alt={Caso d'uso relativo al login}]{images/usecase/UC2.jpg}
+    \includegraphics[width=0.9\columnwidth, alt={Caso d'uso relativo al login}]{images/usecase/UC2prova.jpg}
     \caption{UC2 Login}\label{fig:uc:login}
   \end{figure}
   
@@ -128,7 +140,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 \end{usecase}
 
-
+\clearpage
 % UC 3 - Visualizzazione messggio di errore login
 \begin{usecase}{3}{Visualizzazione messggio di errore login}\label{uc:visualizzazione-errore-login}
     \usecaseactors{Utente non autenticato}
@@ -138,7 +150,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza un messaggio di errore che lo informa che una delle credenziali che ha inserito per autenticarsi al portale è sbagliata.
+            \item L'utente visualizza un messaggio di errore che lo informa che una delle credenziali che ha inserito per autenticarsi al sistema è sbagliata.
         \end{enumerate}
 
 \end{usecase}
@@ -147,13 +159,13 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 4 - Visualizzazione home page
 \begin{usecase}{4}{Visualizzazione home page}\label{uc:visualizzasioen-home-page}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
-    \usecasedesc{L'utente vuole visualizzare la pagina principale del portale}
-    \usecasepost{L'utente ha visualizzato la pagina principale del portale}
+    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
+    \usecasedesc{L'utente vuole visualizzare la pagina principale}
+    \usecasepost{L'utente ha visualizzato la pagina principale}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza la pagina principale del portale.
+            \item L'utente visualizza la pagina principale.
         \end{enumerate}
 
     \usecasegen{}
@@ -171,14 +183,15 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \caption{UC4 Visualizzazione home page}\label{fig:uc:visualizzazione-home-page}
   \end{figure}
 
+  \pagebreak
+
 
 % UC 4.1 - Visualizzazione lista APIs disponibili
 \begin{usecase}{4.1}{Visualizzazione lista APIs disponibili}\label{uc:visualizzazione-lista-apis-disponibili}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
-    \usecasedesc{L'utente vuole visualizzare la lista di API disponibili per la consultazione all'interno del portale}
+    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
+    \usecasedesc{L'utente vuole visualizzare la lista di API disponibili per la consultazione all'interno del sistema}
     \usecasepost{L'utente ha visualizzato la lista di API disponibili all'interno del sistema}
-
     \usecasemain{}
         \begin{enumerate}
             \item L'utente visualizza la lista di API disponibili all'interno del sistema.
@@ -189,7 +202,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 4.2 - Visualizzazione client-id di default
 \begin{usecase}{4.2}{Visualizzazione client-id di default}\label{uc:visualizzazione-client-id-di-default}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
+    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
     \usecasedesc{L'utente vuole visualizzare il client id di default impostato nell'ambiente corrente}
     \usecasepost{L'utente ha visualizzato il client id di default impostato nell'ambiente corrente in cui si trova}
 
@@ -200,11 +213,12 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 \end{usecase}
 
+\clearpage
 
 % % UC 4.3 Visualizzazione dettagli utente autenticato
 \begin{usecase}{4.3}{Visualizzazione dettagli utente autenticato}\label{uc:visualizzazione-dettagli-utente-autenticato}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale del portale}
+    \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
     \usecasedesc{L'utente vuole visualizzare i propri dati personali, ovvero del proprio utente autenticato}
     \usecasepost{L'utente visualizza i dati personali del proprio account autenticato nel sistema}
 
@@ -218,7 +232,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 5 Visualizzazione dettagli singola API
 \begin{usecase}{5}{Visualizzazione dettagli singola API}\label{uc:visualizzazione-dettagli-singola-api}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato e si trova nella pagina principale del portale}
+    \usecasepre{L'utente è autenticato e si trova nella pagina principale}
     \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di una singola API}
     \usecasepost{L'utente ha visualizzato la pagina di dettaglio di una singola API tra quelle presenti nel sistema}
 
@@ -241,6 +255,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \caption{UC5 Visualizzazione dettaglio singola API}\label{fig:uc:visualizzazione-dettaglio-singola-api}
   \end{figure}
 
+  \pagebreak
 
 % UC 5.1 Visualizzazione lista endpoint disponibili
 \begin{usecase}{5.1}{Visualizzazione lista endpoint disponibili}\label{uc:visualizzazione-lista-endpoint-disponibili}
@@ -266,6 +281,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \includegraphics[width=0.9\columnwidth, alt={Caso d'uso relativo al visualizzazione della lista di endpoint disponibili}]{images/usecase/UC5.1.jpg}
     \caption{UC5.1 Visualizzazione lista endpoint disponibili}\label{fig:uc:visualizzazione-lista-endpoint-disponibili}
   \end{figure}
+  \pagebreak
 
 
 % UC 5.1.1 Visualizzazione dettaglio singolo endpoint
@@ -283,7 +299,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione lista di possibili risposte per endpoint UC6.
+            \item Visualizzazione lista di possibili risposte endpoint UC6.
         \end{enumerate}
 
 \end{usecase}
@@ -324,7 +340,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 8 Try it out endpoint
 \begin{usecase}{8}{Try it out endpoint}\label{uc:try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel portale}
+    \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel sistema}
     \usecasedesc{L'utente vuole poter provare l'endpoint selezionato}
     \usecasepost{L'utente ha provato l'endpoint selezionato}
 
@@ -355,8 +371,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \caption{UC8 Try it out endpoint}\label{fig:uc:try-it-out-endpoint}
 \end{figure}
 
-\newpage
-
+\\
 
 % UC 8.1 Inserimento parametri necessari per la prova dell'endpoint     
 \begin{usecase}{8.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-try-it-out-endpoint}
@@ -367,7 +382,6 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente è nella sezione di prova dell'endpoint che ha selezionato;
             \item L'utente inserisce i parametri richiesti per la chiamata verso l'endpoint selezionato.
         \end{enumerate}
 
@@ -383,7 +397,6 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente è nella sezione di aggiunta dei parametri aggiuntivi, nel try it out dell'endpoint selezionato;
             \item L'utente definisce dei parametri da aggiungere a quelli già esistenti.
         \end{enumerate}
 
@@ -418,6 +431,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 \end{usecase}
 
+\clearpage
 
 % UC 11 Ricerca per client-id
 \begin{usecase}{11}{Ricerca per client-id}\label{uc:ricerca-client-id}
@@ -445,20 +459,20 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % % UC 12 Visualizzazione messaggio di errore di ricerca
 \begin{usecase}{12}{Visualizzazione messaggio di errore di ricerca}\label{uc:visualizzazione-errore-ricerca}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato e ha cercato un client-id o un API inesistente nell'applicazione}
-    \usecasedesc{L'utente deve inserire un client-id o un API esistenti nell'applicazione per poter effettuare la ricerca. Inoltre il client-id deve esistere per l'ambiente selezionato}
-    \usecasepost{L'utente ha inserito un client-id o un API inesistente nell'applicazione e visualizza un messaggio di errore}
+    \usecasepre{L'utente è autenticato e ha cercato un client-id o un API inesistente nel sistema}
+    \usecasedesc{L'utente deve inserire un client-id o un API esistente nel sistema per poter effettuare la ricerca. Inoltre il client-id deve esistere per l'ambiente selezionato}
+    \usecasepost{L'utente ha inserito un client-id o un API inesistente nel sistema e visualizza un messaggio di errore}
 
     \usecasemain{}
         \begin{enumerate}
             \item L'utente visualizza un messaggio di errore che lo informa che la ricerca effettuata non ha prodotto nessun risultato, indicando che ciò è dovuto al fatto
-            che il client-id o l'API cercata non è presente nell'applicazione, oppure non esiste quel client-id per l'ambiente selezionato.
+            che il client-id o l'API cercata non è presente nel sistema, oppure non esiste quel client-id per l'ambiente selezionato.
         \end{enumerate}
 
 \end{usecase}
 
-
-% UC 13 Ricerca per api
+\clearpage
+% UC 13 Ricerca per API
 \begin{usecase}{13}{Ricerca per API}\label{uc:ricerca-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato e sta navigando all'interno del sistema}
@@ -494,6 +508,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
             \item Il sistema resetta il client-id corrente ed imposta il client-id al valore di default a seconda dell'ambiente selezionato.
         \end{enumerate}
 
+        \clearpage
     \usecaseext{}
         \begin{enumerate}
             \item Visualizzazione messaggio di errore reset UC15.
@@ -511,7 +526,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza un messaggio di errorer che lo informa che il client-id corrente è quello di default per l'ambiente selezionato e non può essere resettato.
+            \item L'utente visualizza un messaggio di errore che lo informa che il client-id corrente è quello di default per l'ambiente selezionato e non può essere resettato.
         \end{enumerate}
 
 \end{usecase}
@@ -519,7 +534,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 % UC 16 Logout
 \begin{usecase}{16}{Logout}\label{uc:}
-    \usecaseactors{Utente autenticato}
+    \usecaseactors{Utente autenticato, Microsoft 365}
     \usecasepre{L'utente è autenticato e vuole uscire dalla sessione corrente}
     \usecasedesc{L'utente vuole effettuare il logout dal sistema}
     \usecasepost{L'utente effettua il logout dal sistema terminando la sessione corrente, non è più autenticato e viene reindirizzato alla pagina di login}
@@ -527,21 +542,21 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \usecasemain{}
         \begin{enumerate}
             \item L'utente clicca il bottone per effettuare il logout;
-            \item Il sistema effettua il logout dell'utente terminando la sessione e reindirizzandolo alla pagina di login.
+            \item Microsoft 365 effettua il logout dell'utente terminando la sessione.
         \end{enumerate}
 
 \end{usecase}
 
-
+\clearpage
 
 \section{Tracciamento dei requisiti}
 
 In questa sezione vengono riportati i requisiti indiduati durante il progetto di stage.
 Questo capitolo si sofferma in particolare sulla classificazione dei requisiti in tre categorie principali:
 \begin{itemize}
-    \item Requisiti funzionali: delineano le funzionalità che il sistema deve offrire. Essi delineano le azioni specifiche che il sistema deve eseguire, le risposte attese a determinati input e le dinamiche genreali delle operazioni;
-    \item Requisiti qualitativi: definiscono gli aspetti legati alla qualità, all'usabilità e alle prestazioni del sistema;
-    \item Requisiti di vincolo: delineano le restrizioni e i parametri che il sistema deve rispettare durante lo sviluppo e l'implementanzione. 
+    \item \textbf{Requisiti funzionali}: delineano le funzionalità che il sistema deve offrire. Essi delineano le azioni specifiche che il sistema deve eseguire, le risposte attese a determinati input e le dinamiche genreali delle operazioni;
+    \item\textbf{Requisiti qualitativi}: definiscono gli aspetti legati alla qualità, all'usabilità e alle prestazioni del sistema;
+    \item \textbf{Requisiti di vincolo}: delineano le restrizioni e i parametri che il sistema deve rispettare durante lo sviluppo e l'implementanzione. 
 \end{itemize}
 
 Inoltre viene fatta una classificazione dei requisiti in base alla priorità assegnata a ciascun requisito.
@@ -549,7 +564,7 @@ Inoltre viene fatta una classificazione dei requisiti in base alla priorità ass
 \subsubsection{Notazione}
 Ciascun requisito è identificato da un codice univoco, che segue la seguente notazione:
 \begin{center}
-    \textbf{R[Priorità][Tipo][Codice]}
+    \textbf{R[Priorità][Tipo]-[Codice]}
 \end{center}
   dove:
   \begin{itemize}
@@ -642,7 +657,7 @@ RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione 
 \hline
 RQO-1 &Il progetto deve essere accompagno da documentazione tecnica e funzionale & Interno \\
 \hline
-RQO-2 &La parte frontend del progetto deve essere coperto da test di unità & Interno \\
+RQO-2 &La parte frontend del progetto deve essere coperta da test di unità & Interno \\
 \hline
 RQZ-3 &L'applicazione web deve avere un'interfaccia responsive & Interno \\
 \hline
