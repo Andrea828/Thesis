@@ -78,7 +78,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
     \usecaseactors{Utente non autenticato, Microsoft 365}
-    \usecasepre{ L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasepre{ L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente vuole accedere al sistema e deve inserire le proprie credenziali per accedervi}
     \usecasepost{L'utente è autenticato correttamente e può procedere con l'utilizzo di tutte le funzionalità disponibili all'interno del sistema}
 
@@ -114,7 +114,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 2.1 - Inserimento e-mail
 \begin{usecase}{2.1}{Inserimento e-mail}\label{uc:inserimento-email}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasepre{L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente deve inserire la propria e-mail per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria e-mail, può quindi procedere a completare il processo di autenticazione}
 
@@ -129,7 +129,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 % UC 2.2 - Inserimento password
 \begin{usecase}{2.2}{Inserimento password}\label{uc:inserimento-password}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasepre{L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente deve inserire la propria password per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria password e può concludere il processo di autenticazione}
 
@@ -203,12 +203,12 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 \begin{usecase}{4.2}{Visualizzazione client-id di default}\label{uc:visualizzazione-client-id-di-default}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
-    \usecasedesc{L'utente vuole visualizzare il client id di default impostato nell'ambiente corrente}
-    \usecasepost{L'utente ha visualizzato il client id di default impostato nell'ambiente corrente in cui si trova}
+    \usecasedesc{L'utente vuole visualizzare il client-id di default impostato nell'ambiente corrente}
+    \usecasepost{L'utente ha visualizzato il client-id di default impostato nell'ambiente corrente in cui si trova}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza il client id di default impostato nell'ambiente corrente in cui si trova.
+            \item L'utente visualizza il client-id di default impostato nell'ambiente corrente in cui si trova.
         \end{enumerate}
 
 \end{usecase}
@@ -324,12 +324,12 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 \begin{usecase}{7}{Download singola API}\label{uc:download-singola-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed ha selezionato una API dalla lista di API disponibili nel sistema}
-    \usecasedesc{L'utente vuole poter scaricare in formato yaml un API dal portale}
-    \usecasepost{L'utente ha scaricato in formato yaml un API dal portale}
+    \usecasedesc{L'utente vuole poter scaricare in formato YAML un API dal portale}
+    \usecasepost{L'utente ha scaricato in formato YAML un API dal portale}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente scarica il formato yaml di un API dal portale, tra quelle disponibili;
+            \item L'utente scarica il formato YAML di un API dal portale, tra quelle disponibili;
             \item Una nuova pagina si apre e il download dell'API viene eseguito;
             \item Il nome del file è già impostato con il nome dell'API scaricata.
         \end{enumerate}
@@ -496,7 +496,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 
 % UC 14 Reset client-id corrente
-\begin{usecase}{14}{Reset client-id corrente}\label{uc:reset-clientid}
+\begin{usecase}{14}{Reset client-id corrente}\label{uc:reset-client-id}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, sta navigando all'interno del sistema e ha già selezionato un client-id che non è quello di default} 
     \usecasedesc{L'utente vuole poter resettare il client-id corrente e tornare al client-id di default per l'ambiente selezionato}
@@ -605,7 +605,7 @@ RFO-4 &Il sistema deve reindirizzare l'utente alla pagina principale, dopo che i
 \hline
 RFO-4.1 &L'utente deve poter visualizzare la lista di API disponibili nel sistema & UC4.1 \\
 \hline
-RFO-4.2 &L'utente deve poter visualizzare la lista di client id di default impostata nell'ambiente di staging in cui si trova & UC4.2 \\
+RFO-4.2 &L'utente deve poter visualizzare la lista di client-id di default impostata nell'ambiente di staging in cui si trova & UC4.2 \\
 \hline
 RFO-4.3 &L'utente deve poter visualizzare i dettagli relativi al suo account & UC4.3 \\
 \hline
