@@ -11,9 +11,9 @@
 Il progetto consiste nel creare un portale che permetta la consultazione di tutte le API Thron con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
 Il prodotto verrà utilizzato internamente all'azienda, più precisamente all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.\\
 % Infatti l'idea principale che ha portato alla realizzazione di questo progetto è stata quella di combattere l'inefficienza nel tempo dovuta al fatto che ogni sviluppatore, doveva impiegare del tempo per recuperare le API che gli servivano, per poi provarle e testarle.
-Il portale è disponibili in tre ambienti di staging: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
-La differenza principale tra ogni suddivisione è che i client sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un client di produzione involontariamente, che può causare problemi di sicurezza ed evitare prove indesiderate, dato che per esempio una chiamata delete su un client di produzione, cancellerebbe effettivamente un dato al cliente.\\
-Ogni API, è formata da più endpoint al suo interno, che possono essere provati singolarmente. Ogni endpoint, ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
+Il portale è disponibile in tre ambienti di staging: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
+La differenza principale tra ogni suddivisione è che i client sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un client di produzione involontariamente, che può causare problemi di sicurezza. Inoltre è utile per evitare prove indesiderate, dato che per esempio una chiamata delete su un client di produzione cancellerebbe effettivamente un dato.\\
+Ogni API è formata da più endpoint al suo interno, che possono essere provati singolarmente. Ogni endpoint ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
 Alcune chiamate come le POST o DELETE avranno dei parametri obbligatori da inserire, mentre altre chiamate come le GET, avranno dei parametri opzionali.\\
 In caso l'utente voglia provare le diverse chiamate al di fuori del portale, è possibile scaricare le API in formato YAML, così da poter usare strumenti di terze parti.
 
@@ -421,7 +421,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 \begin{usecase}{10}{Visualizzazione risposta endpoint}\label{uc:visualizzazione-risposta-endpoint}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato, è nella sezione di prova di un endpoint ed ha inserito dei parametri corretti}
-    \usecasedesc{L'utente vule visualizzare la risposta dell'endpoint}
+    \usecasedesc{L'utente vuole visualizzare la risposta dell'endpoint}
     \usecasepost{L'utente visualizza la risposta adeguata alla chiamata verso l'endpoint, in base ai parametri inseriti}
 
     \usecasemain{}
@@ -554,9 +554,9 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 In questa sezione vengono riportati i requisiti indiduati durante il progetto di stage.
 Questo capitolo si sofferma in particolare sulla classificazione dei requisiti in tre categorie principali:
 \begin{itemize}
-    \item \textbf{Requisiti funzionali}: delineano le funzionalità che il sistema deve offrire. Essi delineano le azioni specifiche che il sistema deve eseguire, le risposte attese a determinati input e le dinamiche genreali delle operazioni;
+    \item \textbf{Requisiti funzionali}: delineano le funzionalità che il sistema deve offrire. Essi delineano le azioni specifiche che il sistema deve eseguire, le risposte attese a determinati input e le dinamiche generali delle operazioni;
     \item\textbf{Requisiti qualitativi}: definiscono gli aspetti legati alla qualità, all'usabilità e alle prestazioni del sistema;
-    \item \textbf{Requisiti di vincolo}: delineano le restrizioni e i parametri che il sistema deve rispettare durante lo sviluppo e l'implementanzione. 
+    \item \textbf{Requisiti di vincolo}: delineano le restrizioni e i parametri che il sistema deve rispettare durante lo sviluppo e l'implementazione. 
 \end{itemize}
 
 Inoltre viene fatta una classificazione dei requisiti in base alla priorità assegnata a ciascun requisito.
@@ -635,7 +635,7 @@ RFO-12 &Il sistema deve avvisare l'utente tramite un messaggio di errore che la 
 \hline
 RFO-13 &Il sistema deve permettere all'utente di poter effettuare una ricerca per API & UC13 \\
 \hline
-RFD-14 &Il sistema deve permettedere il reset del client-id corrente & UC14 \\
+RFD-14 &Il sistema deve permettere il reset del client-id corrente & UC14 \\
 \hline
 RFO-15 &Il sistema deve avvisare l'utente tramite un messaggio di errore che il client-id è già di default & UC15 \\
 \hline
@@ -655,7 +655,7 @@ RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione 
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
-RQO-1 &Il progetto deve essere accompagno da documentazione tecnica e funzionale & Interno \\
+RQO-1 &Il progetto deve essere accompagnato da documentazione tecnica e funzionale & Interno \\
 \hline
 RQO-2 &La parte frontend del progetto deve essere coperta da test di unità & Interno \\
 \hline
