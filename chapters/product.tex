@@ -191,11 +191,34 @@ Questi file sono progettati per semplificare compiti ripetitivi, astrazioni comp
 Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stage.
 
 \paragraph{Auth}\label{par:auth-utils}
+Il file Auth è un utils per la gestione dell'autenticazione utilizzando come supporto la libreria Azure msal. Essa è utile
+per interfacciarsi all'autenticazione verso il servizio Azure Active Directory.\\
+Auth è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del token di accesso.
+(Ha senso spiegare funzionamento silent token?)
+
 \paragraph{Debounce}\label{par:debounce}
+Il file Debounce è un utils che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
+un certo intervallo di tempo in cui non si verificano chiamate.\\
+Questo utils è stato utilizzato per ritardare l'esecuzione della chiamata POST per il filtraggio dei risultati della ricerca. 
+In questo modo, quando l'utente digita nella barra di ricerca, la chiamata POST viene eseguita ogni 300 millisecondi, ignorando le chiamate precedenti.
+
 \paragraph{EndpointApiCall}\label{par:endpoint-api-call}
+L'utils EndpointApiCall è una funzione che ho creato per gestire le chiamate ai vari endpoint del middleware, per ottenere
+i dati relativi alle API disponibili nel sistema.
+Queste chiamate necessitano di token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
+
 \paragraph{GetClients}\label{par:get-clients}
+L'utils GetClients è una funzione progettata per effettuare una richiesta Http GET al progetto del middleware, al fine di
+ottenere la lista dei client disponibili nel sistema. Questa funzione è stata utilizzata per popolare la lista dei client disponibili
+per la ricerca, in modo da poter selezionare uno dei client disponibile, in base all'ambiente di staging.
+La chiamata necessita di un token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
+
 \paragraph{GetResults}\label{par:get-results}
+
+
 \paragraph{MsGraphApiCall}\label{par:ms-graph-api-call}
+
+
 \paragraph{SwaggerUtils}\label{par:swagger-utils}
 % da capire
 
