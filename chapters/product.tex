@@ -92,9 +92,15 @@ Più precisamente, il progetto segue la seguente struttura:
 \subsubsection*{\normalsize\textit{\uline{Buildspec}}}
 La cartella buildspec contiene i file di configurazione per la build dell'applicazione su AWS CodeBuild.
 Questo è il primo step del processo di deploy, in quanto viene eseguito la build sia del middleware che del portale.
-La cartella è formata a sua volta da tre file: buildspecdevelopment, buildspecquality e buildspecproduction. 
+La cartella è formata a sua volta da tre file: buildspec-development, buildspec-quality e buildspec-production. 
 Ognuno di questi file configura la build dell'applicazione in base all'ambiente di deploy.\\
 Successivamente dopo aver effettuato tutti i comandi specificati nei file buildspec, inizia lo step di deploy, specificato nella cartella Infra.
+Ognuno dei file buildspec è un file YAML, che è formato dalle seguenti sezioni:
+\begin{itemize}
+  \item La sezione env dove vengono specificate le variabili d'ambiente utilizzate nel progetto;
+  \item La sezione di pre-build dove vengono specificati i comandi da eseguire prima della build;
+  \item La sezione di build dove vengono specificati i comandi per la build del portale e del middleware.
+\end{itemize}
 
 \subsubsection*{\normalsize\textit{\uline{Infra}}}
 La cartella infra contiene i file di configurazione per il deploy dell'applicazione su AWS. È scritta utilizzando il linguaggio di programmazione Python.\\
@@ -106,18 +112,33 @@ Il secondo costrutto che sono andato ad utilizzare si chiama ThronDockerLambda e
 Nel caso del mio progetto, mi è servito per creare un lambda che quando viene invocata avvia un docker con all'interno il mio middleware.\\
 
 \subsection*{\normalsize\textit{\uline{Middleware}}}
-text
-
+La cartella middleware contiene il progetto backend in nest-js. Nello specifico la cartella è formata dalle seguenti sezioni:
+\begin{itemize}
+  \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari endpoint che utilizzo sulla parte frontend, lo script per il setting
+  della lambda, una cartella con gli helpers e la cartella del middleware.
+  \item La cartella test che contiene i test di unità dell'applicazione;
+  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
+  \item Una cartella node\_modules che contiene le dipendenze del progetto;
+\end{itemize}
 \subsection*{\normalsize\textit{\uline{Portal}}}
-text
+La cartella portal contiene il progetto frontend in vue-js. Nello specifico la cartella è formata dalle seguenti sezioni:
+\begin{itemize}
+  \item La cartella public che contiene il file index.html, che è il file principale dell'applicazione;
+  \item Una cartella node\_modules che contiene le dipendenze del progetto;
+  \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari componenti che utilizzo, i vari store, i vari router e i vari utils.
+  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
+\end{itemize}
 
-\subsection*{\normalsize\textit{\uline{Docker file}}}
-text
+\subsection*{\normalsize\textit{\uline{Dockerfile}}}
+Il file Dockerfile è un file docker che contiene le istruzioni per creare un'immagine che verrà utilizzata per eseguire il middleware all'interno di una lambda.\\
+Utilizzando la struttura Dockerfile, sono andato a creato un ambiente isolato in cui il middleware può essere configurato e utilizzato come parte della mia funzione 
+lambda. Quando la funzione viene invocata, avvia il Docker container e esegue il middleware all'interno dell'ambiente containerizzato, 
+garantendo che esso sia parte integrante dell'applicazione serverless.
 
-buildspec -> cartella con configuraazione dei build, per codebuild primo step, builda sia portal che il middleware
-quando finsice la build ti attacca allo step di deploy, definite in infra. 
-PEr il portale costrutto cloudfrontdistribution -> genera il template di aws clodfront e esegue il deploy degli asset statici su s3. S3 container
-Secondo costrutto -> throndockerlambda e questo crea la lambda con quando viene invocata avvia un docker con all'interno il mio middleware.
+% buildspec -> cartella con configuraazione dei build, per codebuild primo step, builda sia portal che il middleware
+% quando finsice la build ti attacca allo step di deploy, definite in infra. 
+% PEr il portale costrutto cloudfrontdistribution -> genera il template di aws clodfront e esegue il deploy degli asset statici su s3. S3 container
+% Secondo costrutto -> throndockerlambda e questo crea la lambda con quando viene invocata avvia un docker con all'interno il mio middleware.
 
 
 
