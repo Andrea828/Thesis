@@ -126,7 +126,7 @@ La cartella portal contiene il progetto frontend in vue-js. Nello specifico la c
   \item La cartella public che contiene il file index.html, che è il file principale dell'applicazione;
   \item Una cartella node\_modules che contiene le dipendenze del progetto;
   \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari componenti che utilizzo, i vari store, i vari router e i vari utils.
-  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto.
+  \item File \.env che contiene le variabili d'ambiente utilizzate nel progetto.
 \end{itemize}
 
 \subsection*{\emph{Dockerfile}}
@@ -187,7 +187,8 @@ Per questioni di chiarezza e di ordine, questa sezione è suddivisa in due parti
 
 \subsubsection{Utils}\label{subsubsec:utils}
 La cartella utils contiene una serie di file typescript che contengono funzioni, utilities o moduli che forniscono funzionalità di supporto a varie parti dell'applicazione.
-Questi file sono progettati per semplificare compiti ripetitivi, astrazioni complesse o per fornire funzionalità condivise in più componenti.\\
+Questi file sono progettati per semplificare compiti ripetitivi, astrazioni complesse o per fornire funzionalità condivise in più componenti. Ogni utils è accompagnato 
+da un file di test che ne verifica il corretto funzionamento.\\
 Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stage.
 
 \paragraph{Auth}\label{par:auth-utils}
@@ -214,10 +215,16 @@ per la ricerca, in modo da poter selezionare uno dei client disponibile, in base
 La chiamata necessita di un token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
 
 \paragraph{GetResults}\label{par:get-results}
-
+L'utils getResults è una funzione progettata per effettuare una richiesta Http POST al middleware, che sono andato ad utilizzare per ritornare 
+i risultati della ricerca. Infatti, la ricerca nel mio progetto è spostata lato beckend, che è una best practise usata in azienda.
+La chiamata è autenticata, e viene utilizzata insieme alla funzione di debounce, per ritardare l'esecuzione della chiamata POST. Come body della chiamata,
+viene passato il testo che l'utente sta scrivendo nella barra di ricerca.
 
 \paragraph{MsGraphApiCall}\label{par:ms-graph-api-call}
-
+L'utils MsGraphApiCall contine al suo interno due funzione che ho creato per effettuare chiamate all'API di Microsoft Graph. 
+La prima funzione si tratta di una chiamata GET, che viene utilizzata per ottenere i dati relativi all'utente che ha effettuato l'accesso al portale.
+La seconda funzione è sempre una chiamata GET ad un altro endpoint di Microsoft, per ottenere informazioni secondarie sull'utente, come ad esempio l'immagine del profilo.
+Entrambe le chiamate necessitano di un token, diverso dal token utilizzato per le chiamate al middleware. Infatti, questo token è specifico per le chiamate verso Microsoft Graph.
 
 \paragraph{SwaggerUtils}\label{par:swagger-utils}
 % da capire
@@ -225,6 +232,8 @@ La chiamata necessita di un token di autenticazione valido per la sessione corre
 
 \subsubsection{Config}\label{subsubsec:config}
 \paragraph{ConfigAuth}\label{par:config-auth}
+Il seguente file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso Azure Active Directory,
+come as esempio il clientId, il redirectUri o l'autority. 
 
 \subsubsection{Store}\label{subsubsec:store}
 \paragraph{Auth}\label{par:auth-store}
