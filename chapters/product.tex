@@ -89,7 +89,7 @@ Il sistema è composto da due principali sezioni:
 Il progetto di stage, necessita di cartelle per la configurazione dell'ambiente di sviluppo, per la configurazione del progetto e per la configurazione del deploy.
 Più precisamente, il progetto segue la seguente struttura:
 
-\subsubsection*{\normalsize\textit{\uline{Buildspec}}}
+\subsubsection*{\emph{Buildspec}}
 La cartella buildspec contiene i file di configurazione per la build dell'applicazione su AWS CodeBuild.
 Questo è il primo step del processo di deploy, in quanto viene eseguito la build sia del middleware che del portale.
 La cartella è formata a sua volta da tre file: buildspec\_development, buildspec\_quality e buildspec\_production. 
@@ -102,7 +102,7 @@ Ognuno dei file buildspec è un file YAML, che è formato dalle seguenti sezioni
   \item La sezione di build dove vengono specificati i comandi per la build del portale e del middleware.
 \end{itemize}
 
-\subsubsection*{\normalsize\textit{\uline{Infra}}}
+\subsubsection*{\emph{Infra}}
 La cartella infra contiene i file di configurazione per il deploy dell'applicazione su AWS. È scritta utilizzando il linguaggio di programmazione Python.\\
 La cartella è formata a sua volta da due file: app.py e stack.py. Il primo file contiene la configurazione per il deploy dell'applicazione, mentre il secondo file contiene la configurazione per il deploy dell'infrastruttura.\\
 Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare ed a configurare due costrutti, anche chiamati CDK Constructs o semplicemente Constructs, che sono delle classi che rappresentano un componente dell'infrastruttura.
@@ -111,7 +111,7 @@ In breve questo costrutto genera il template di AWS CloudFront ed esegui il depl
 Il secondo costrutto che sono andato ad utilizzare si chiama ThronDockerLambda e consente di creare una funzione lambda in cui il gestore è un'immagine docker.
 Nel caso del mio progetto, mi è servito per creare un lambda che quando viene invocata avvia un docker con all'interno il mio middleware.\\
 
-\subsection*{\normalsize\textit{\uline{Middleware}}}
+\subsection*{\emph{Middleware}}
 La cartella middleware contiene il progetto backend in nest-js. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari endpoint che utilizzo sulla parte frontend, lo script per il setting
@@ -120,7 +120,7 @@ La cartella middleware contiene il progetto backend in nest-js. Nello specifico 
   \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
   \item Una cartella node\_modules che contiene le dipendenze del progetto.
 \end{itemize}
-\subsection*{\normalsize\textit{\uline{Portal}}}
+\subsection*{\emph{Portal}}
 La cartella portal contiene il progetto frontend in vue-js. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella public che contiene il file index.html, che è il file principale dell'applicazione;
@@ -129,7 +129,7 @@ La cartella portal contiene il progetto frontend in vue-js. Nello specifico la c
   \item File .env che contiene le variabili d'ambiente utilizzate nel progetto.
 \end{itemize}
 
-\subsection*{\normalsize\textit{\uline{Dockerfile}}}
+\subsection*{\emph{Dockerfile}}
 Il file Dockerfile è un file docker che contiene le istruzioni per creare un'immagine che verrà utilizzata per eseguire il middleware all'interno di una lambda.\\
 Utilizzando la struttura Dockerfile, sono andato a creato un ambiente isolato in cui il middleware può essere configurato e utilizzato come parte della mia funzione 
 lambda. Quando la funzione viene invocata, avvia il Docker container e esegue il middleware all'interno dell'ambiente containerizzato, 
