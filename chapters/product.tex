@@ -92,7 +92,7 @@ Più precisamente, il progetto segue la seguente struttura:
 \subsubsection*{\normalsize\textit{\uline{Buildspec}}}
 La cartella buildspec contiene i file di configurazione per la build dell'applicazione su AWS CodeBuild.
 Questo è il primo step del processo di deploy, in quanto viene eseguito la build sia del middleware che del portale.
-La cartella è formata a sua volta da tre file: buildspec-development, buildspec-quality e buildspec-production. 
+La cartella è formata a sua volta da tre file: buildspec\_development, buildspec\_quality e buildspec\_production. 
 Ognuno di questi file configura la build dell'applicazione in base all'ambiente di deploy.\\
 Successivamente dopo aver effettuato tutti i comandi specificati nei file buildspec, inizia lo step di deploy, specificato nella cartella Infra.
 Ognuno dei file buildspec è un file YAML, che è formato dalle seguenti sezioni:
@@ -118,7 +118,7 @@ La cartella middleware contiene il progetto backend in nest-js. Nello specifico 
   della lambda, una cartella con gli helpers e la cartella del middleware.
   \item La cartella test che contiene i test di unità dell'applicazione;
   \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
-  \item Una cartella node\_modules che contiene le dipendenze del progetto;
+  \item Una cartella node\_modules che contiene le dipendenze del progetto.
 \end{itemize}
 \subsection*{\normalsize\textit{\uline{Portal}}}
 La cartella portal contiene il progetto frontend in vue-js. Nello specifico la cartella è formata dalle seguenti sezioni:
@@ -126,7 +126,7 @@ La cartella portal contiene il progetto frontend in vue-js. Nello specifico la c
   \item La cartella public che contiene il file index.html, che è il file principale dell'applicazione;
   \item Una cartella node\_modules che contiene le dipendenze del progetto;
   \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari componenti che utilizzo, i vari store, i vari router e i vari utils.
-  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
+  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto.
 \end{itemize}
 
 \subsection*{\normalsize\textit{\uline{Dockerfile}}}
@@ -163,9 +163,9 @@ L'architettura di Vue.js è basata sul pattern architettuturale MVVM (Model-View
 \begin{itemize}
   \item Model: rappresenta lo stato, i dati e le regole di business dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la view associata in caso di modifiche;
-  \item View: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente. La view è definita utilizzando i template Vue.js 
-  e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
-  Queste particolari direttive permettono di collegare elementi del DOM a proprietà o metodi del modello, in modo che la view possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione.
+  \item View: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente.
+  La view è definita utilizzando i template Vue.js e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
+  Queste particolari direttive permettono di collegare elementi del DOM a proprietà o metodi del modello, in modo che la view possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
   \item ViewModel: è l'intermediario tra la view e  il model. Il ViewModel gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la view.
   Il ViewModel è rappresentato da un componente Vue.js, infatti esso è un'istanza che collega il modello e la vista. All'interno di un componente è possibile definire metodi, proprietà 
   computate, metodi del ciclo di vita, gestione di eventi e molte altre funzionalità. Questo consente di definire la logica di presentazione e di manipolare i dati all'interno di un contesto definito.
@@ -181,10 +181,15 @@ Nest.js
 % \paragraph{}\label{par:}
 
 \section{Codifica}
+In questa sezione vengono descritti i componenti e le funzionalità sviluppate durante il progetto di stage. 
+Per questioni di chiarezza e di ordine, questa sezione è suddivisa in due parti: la prima rappresenta la parte frontend, mentre la seconda rappresenta la parte backend.
 \subsection{Codifica front-end}\label{subsec:codifica-front-end}
-da scrivere
 
 \subsubsection{Utils}\label{subsubsec:utils}
+La cartella utils contiene una serie di file typescript che contengono funzioni, utilities o moduli che forniscono funzionalità di supporto a varie parti dell'applicazione.
+Questi file sono progettati per semplificare compiti ripetitivi, astrazioni complesse o per fornire funzionalità condivise in più componenti.\\
+Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stage.
+
 \paragraph{Auth}\label{par:auth-utils}
 \paragraph{Debounce}\label{par:debounce}
 \paragraph{EndpointApiCall}\label{par:endpoint-api-call}
