@@ -3,7 +3,7 @@
 
 \intro{In questo capitolo saranno  descritte le attività di progettazione e codifica dell'applicativo.
 Inoltre verranno descritte le tecnologie utilizzate durante lo sviluppo del progetto, le scelte architettuturali e i componenti sviluppati.
-}\\
+}
 
 \section{Tecnologie utilizzate}
 \label{sec:tecnologie-strumenti}
@@ -53,7 +53,7 @@ Vue-router è una libreria per la gestione delle route per le applicazione Vue.j
 
 \subsection{Versionamento}\label{subsec:versionamento}
 \subsubsection{Git}\label{subsubsec:git}
-Git è un sistemadi controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto software.
+Git è un sistema di controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto software.
 \subsubsection{CodeCommit}\label{subsubsec:CodeCommit}
 AWS CodeCommit rappresenta un servizio di hosting di repository altamente scalabile, che è gestito all'interno dell'ecosistema di Amazon Web Services (AWS). 
 Con CodeCommit, è possibile ospitare repository Git privati in un ambiente sicuro e flessibile.
@@ -131,8 +131,8 @@ La cartella portal contiene il progetto frontend in vue-js. Nello specifico la c
 
 \subsection*{\emph{Dockerfile}}
 Il file Dockerfile è un file docker che contiene le istruzioni per creare un'immagine che verrà utilizzata per eseguire il middleware all'interno di una lambda.\\
-Utilizzando la struttura Dockerfile, sono andato a creato un ambiente isolato in cui il middleware può essere configurato e utilizzato come parte della mia funzione 
-lambda. Quando la funzione viene invocata, avvia il Docker container e esegue il middleware all'interno dell'ambiente containerizzato, 
+Utilizzando la struttura Dockerfile, sono andato a creare un ambiente isolato in cui il middleware può essere configurato e utilizzato come parte della mia funzione 
+lambda. Quando la funzione viene invocata, avvia il Docker container ed esegue il middleware all'interno dell'ambiente containerizzato, 
 garantendo che esso sia parte integrante dell'applicazione serverless.
 
 % buildspec -> cartella con configuraazione dei build, per codebuild primo step, builda sia portal che il middleware
@@ -163,15 +163,14 @@ L'architettura di Vue.js è basata sul pattern architettuturale MVVM (Model-View
 \begin{itemize}
   \item Model: rappresenta lo stato, i dati e le regole di business dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la view associata in caso di modifiche;
-  \item View: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente.
-  La view è definita utilizzando i template Vue.js e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
+  \item View: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente. La view è definita utilizzando i template Vue.js e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
   Queste particolari direttive permettono di collegare elementi del DOM a proprietà o metodi del modello, in modo che la view possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
   \item ViewModel: è l'intermediario tra la view e  il model. Il ViewModel gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la view.
   Il ViewModel è rappresentato da un componente Vue.js, infatti esso è un'istanza che collega il modello e la vista. All'interno di un componente è possibile definire metodi, proprietà 
   computate, metodi del ciclo di vita, gestione di eventi e molte altre funzionalità. Questo consente di definire la logica di presentazione e di manipolare i dati all'interno di un contesto definito.
 \end{itemize}
 
-In breve, l'architettura è incentrata sulla creazione e utilizzo di componenti riutilizzabili che al loro interno incorporano sia il modello che la vista. Un'aspetto che rende Vue.js
+In breve, l'architettura è incentrata sulla creazione e utilizzo di componenti riutilizzabili che al loro interno incorporano sia il modello che la vista. Un aspetto che rende Vue.js
 diverso da altri framework è proprio il concetto di reattività, infatti Vue.js è in grado di rilevare automaticamente le dipendenze tra i componenti, in modo da poter aggiornare automaticamente.
 
 \subsection{Architettura back-end}\label{subsec:architettura-back-end}
@@ -233,42 +232,65 @@ Entrambe le chiamate necessitano di un token, diverso dal token utilizzato per l
 \subsubsection{Config}\label{subsubsec:config}
 \paragraph{ConfigAuth}\label{par:config-auth}
 Il seguente file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso Azure Active Directory,
-come as esempio il clientId, il redirectUri o l'autority. 
+come il clientId, il redirectUri o l'autority.  
 
-\subsubsection{Store}\label{subsubsec:store}
+\subsubsection{Stores}\label{subsubsec:store}
+La cartella stores contiene i vari store utilizzati all'interno del progetto in vue.js. Gli store sono utili per gestire lo stato dell'applicazione,
+in modo da poterlo condividere tra più componenti.\\
+Di seguito sono descritti gli store che ho sviluppato durante il progetto di stage.
+
 \paragraph{Auth}\label{par:auth-store}
+Il seguente store è stato creato per gestire lo stato dell'autenticazione utente e l'interazione con un servizio di autenticazione esterno.
+Esso utilizza al suo interno l'utils Auth che ho descritto in precedenza, e contiene delle variabili reattive per la gestione dello stato dell'autenticazione
+e per la gestione dei token.\\
+Ho scritto lo store Auth utilizzando uno stile di programmazione basato su funzione closure di JavaScript. Questo approccio consente di incapsulare
+lo stato dell'autenticazione consentendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
+
 \paragraph{Store}\label{par:store}
+Il seguente store, a differenza del precedente, utilizza Pinia, una libreria apposita per la gestione dello stato.
+Esso è utilizzato per la gestione delle API e client-id disponibili nell'applicazione. Infatti, lo store inizializza le variabili reattive per la gestione
+delle API e dei client-id, effettuando una chiamata al middleware, utilizzando gli utils appositi definiti precedentemente.
 
 \subsubsection{Router}\label{subsubsec:router}
+La cartella router contiene le rotte definite nel progetto, ovvero le route che l'utente può visitare all'interno dell'applicazione e un helper per la gestione del router.
 \paragraph{CustomNavigation}\label{par:custom-navigation}
-
-% -----------------------------------------------------------------------------------------------
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=0.6\textwidth, alt={}]{images/frontend/}
-%   \caption{}\label{fig:}
-% \end{figure}
+Il seguente file rappresenta una classe con due metodi: il primo utilizzato nel flusso di autenticazione, più precisamente nelle richieste con pop-up,
+mentre il secondo è utilizazto per convertire qualsiasi URI di reindirizzamento completoq in un URI di reindirizzamento relativo, in modo che il Vue Router
+possa gestire correttamente il reindirizzamento in modo sicuro.
 
 \subsubsection{Views}\label{subsubsec:views}
+La seguente sezione contiene le views, ovvero le pagine dell'applicazione.
+Di seguito sono descritte le views che ho sviluppato durante il progetto di stage.
 
 \paragraph{LoginView}\label{par:ogin-view}
-
-LoginView testo
-
+La LoginView è la prima pagina con cui l'utente interagisce. Essa contiene un bottone che permette di effettuare il login tramite pop-up, tramite un account Microsoft 365.
+La pagina consente di accedere al portale, ed è l'unica pagina di tutto il progetto che non richiede l'autenticazione.\\
+Quando un'utente non autenticato tenterà di accedere a qualsiasi altra pagina del portale, verrà sempre reindirizzamento
+automaticamente a questa view.
+La pagina al suo interno contiene un unico componente, ovvero LoginButton, che verrà descritto in seguito.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina di login dell'applicazione}]{images/frontend/LoginView.jpg}
   \caption{LoginView}\label{fig:login-view}
 \end{figure}
+Inoltre, per permettere un uso comodo anche in schermi di piccole dimensioni, o comunnque utilizzando una scheda del browser ristretta, ho sviluppato
+un design responsive, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti. 
+Ciò secondo me è necessario perchè trattandosi di un portale per la consultazione di documentazione, è possibile che l'utente 
+lo utilizzi in combinazione con altre schede del browser.
+
+
+
+da aggiugere foto design responsive
+
 
 \paragraph{HomeView}\label{par:home-view}
-
-HomeView testo
+La seguente view rappresenta la prima pagina visibile dopo aver effettuato il login, infatti dopo che l'autenticazione si è conclusa con successo, 
+l'utente viene reindirizzato a questa pagina.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
-  \caption{LoginView}\label{fig:home-view}
+  \caption{HomeView}\label{fig:home-view}
 \end{figure}
 
 \paragraph{NotFoundView}\label{par:not-found-view}
@@ -312,7 +334,7 @@ Swagger loader testo
 
 download button testo
 
-\paragraph{LogoutButtom}\label{par:logout-button}
+\paragraph{LogoutButton}\label{par:logout-button}
 
 logout button testo
 
