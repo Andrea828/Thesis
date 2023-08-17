@@ -46,7 +46,7 @@ Gli attori individuati nel sistema sono i seguenti:
 % \end{figure}
 
 % \clearpage
-% \clearpage
+\clearpage
 
 
 \subsection{Descrizione del sistema}
@@ -54,11 +54,11 @@ Gli attori individuati nel sistema sono i seguenti:
 Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso individuati nel sistema e le relazioni tra di essi.
 \begin{figure}[h] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/scenario-principale.jpg}
+    \includegraphics[width=1.2\columnwidth, alt={Scenario principale dei casi d'uso individuati}]{images/usecase/scenario-principale.jpg}
     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
 \end{figure}
 
-\clearpage
+% \clearpage
 
 
 % UC 1 - Inserimento ambiente di sviluppo
@@ -75,6 +75,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 
 \end{usecase}
 
+\clearpage
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
     \usecaseactors{Utente non autenticato, Microsoft 365}
@@ -94,7 +95,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
         \item Visualizzazione messaggio di errore login UC3.
     \end{enumerate}
 
-    \usecasegen{}
+    \usecasegen{Come da figura \ref{fig:uc:login}:}
     \begin{enumerate}
         \item Inserimento e-mail UC2.1;
         \item Inserimento password UC2.2.
@@ -108,8 +109,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
     \caption{UC2 Login}\label{fig:uc:login}
   \end{figure}
   
-%   \newpage
-
+\newpage
 
 % UC 2.1 - Inserimento e-mail
 \begin{usecase}{2.1}{Inserimento e-mail}\label{uc:inserimento-email}
@@ -168,7 +168,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
             \item L'utente visualizza la pagina principale.
         \end{enumerate}
 
-    \usecasegen{}
+    \usecasegen{Come da figura \ref{fig:uc:visualizzazione-home-page}:}
         \begin{enumerate}
             \item Visualizzazione lista APIs disponibili UC4.1;
             \item Visualizzazione client-id di default UC4.2;
@@ -242,7 +242,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
             \item L'utente visualizza la pagina di dettaglio della singola API selezionata.
         \end{enumerate}
 
-    \usecasegen{}
+    \usecasegen{Come da figura \ref{fig:uc:visualizzazione-dettaglio-singola-api}:}
         \begin{enumerate}
             \item Visualizzazione lista endpoint disponibili UC5.1.
         \end{enumerate}
@@ -269,7 +269,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
             \item L'utente visualizza la lista completa di endpoint disponibili per l'API che ha selezionato.
         \end{enumerate}
 
-    \usecasegen{}
+    \usecasegen{Come da figura \ref{fig:uc:visualizzazione-lista-endpoint-disponibili}:}
         \begin{enumerate}
             \item Visualizzazione dettaglio singolo endpoint UC5.1.1.
         \end{enumerate}
@@ -357,7 +357,7 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
             \item Visualizzazione risposta endpoint UC10.
         \end{enumerate}
 
-    \usecasegen{}
+    \usecasegen{Come da figura \ref{fig:uc:try-it-out-endpoint}:}
         \begin{enumerate}
             \item Inserimento parametri per try it out endpoint UC8.1;
             \item Definire campi aggiuntivi per try it out endpoint UC8.2.
