@@ -11,7 +11,7 @@
 Il progetto consiste nel creare un portale che permetta la consultazione di tutte le API Thron con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
 Il prodotto verrà utilizzato internamente all'azienda, più precisamente all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.\\
 % Infatti l'idea principale che ha portato alla realizzazione di questo progetto è stata quella di combattere l'inefficienza nel tempo dovuta al fatto che ogni sviluppatore, doveva impiegare del tempo per recuperare le API che gli servivano, per poi provarle e testarle.
-Il portale è disponibile in tre ambienti di staging: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
+Il portale è disponibile in tre ambienti di sviluppo: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
 La differenza principale tra ogni suddivisione è che i client sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un client di produzione involontariamente, che può causare problemi di sicurezza. Inoltre è utile per evitare prove indesiderate, dato che per esempio una chiamata delete su un client di produzione cancellerebbe effettivamente un dato.\\
 Ogni API è formata da più endpoint al suo interno, che possono essere provati singolarmente. Ogni endpoint ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
 Alcune chiamate come le POST o DELETE avranno dei parametri obbligatori da inserire, mentre altre chiamate come le GET, avranno dei parametri opzionali.\\
@@ -61,16 +61,16 @@ Di seguito viene illustrato un diagramma riassuntivo che mostra i casi d'uso ind
 \clearpage
 
 
-% UC 1 - Inserimento ambiente di staging
-\begin{usecase}{1}{Inserimento ambiente di staging}\label{uc:inserimento-ambiente-di-staging}
+% UC 1 - Inserimento ambiente di sviluppo
+\begin{usecase}{1}{Inserimento ambiente di sviluppo}\label{uc:inserimento-ambiente-di-sviluppo}
     \usecaseactors{Utente non autenticato}
     \usecasepre{L'utente non è autenticato e non ha ancora avviato l'applicazione web}
-    \usecasedesc{L'utente vuole avviare l'applicazione web e deve scegliere in che ambiente di staging farlo}
-    \usecasepost{L'utente avvia l'applicazione nell'ambiente di staging scelto}
+    \usecasedesc{L'utente vuole avviare l'applicazione web e deve scegliere in che ambiente di sviluppo farlo}
+    \usecasepost{L'utente avvia l'applicazione nell'ambiente di sviluppo scelto}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente seleziona il link del portale a seconda dell'ambiente di staging che vuole avviare (development, quality e production)
+            \item L'utente seleziona il link del portale a seconda dell'ambiente di sviluppo che vuole avviare (development, quality e production)
         \end{enumerate}
 
 \end{usecase}
@@ -590,7 +590,7 @@ facilitarne la tracciabilità.
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
-RFO-1 &L'utente deve scegliere l'ambiente di staging & UC1 \\
+RFO-1 &L'utente deve scegliere l'ambiente di sviluppo & UC1 \\
 \hline
 RFO-2 &Il sistema deve permettere l'autenticazione ad un utente con un account valido & UC2 \\
 \hline
@@ -605,7 +605,7 @@ RFO-4 &Il sistema deve reindirizzare l'utente alla pagina principale, dopo che i
 \hline
 RFO-4.1 &L'utente deve poter visualizzare la lista di API disponibili nel sistema & UC4.1 \\
 \hline
-RFO-4.2 &L'utente deve poter visualizzare la lista di client-id di default impostata nell'ambiente di staging in cui si trova & UC4.2 \\
+RFO-4.2 &L'utente deve poter visualizzare la lista di client-id di default impostata nell'ambiente di sviluppo in cui si trova & UC4.2 \\
 \hline
 RFO-4.3 &L'utente deve poter visualizzare i dettagli relativi al suo account & UC4.3 \\
 \hline
