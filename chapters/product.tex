@@ -82,6 +82,16 @@ Il sistema è composto da due principali sezioni:
   Lo sviluppo di questa parte del sistema è stato realizzato utilizzando il framework Nest.js. 
 \end{itemize}
 
+\subsection{Ambienti di sviluppo}
+Gli ambienti di staging sono ambienti di test che vengono utilizzati per testare le funzionalità dell'applicazione prima di rilasciarla in produzione.
+% A livello aziendale sono stati definiti tutte e tre come ambienti di staging e sono stati denominati come segue:
+A livello aziendale sono stati definiti tre ambienti di cui i primi due di staging, denominati come segue:
+\begin{itemize}
+  \item \textbf{Development}: consente di validare a livello tecnico le funzionalità;
+  \item \textbf{Quality}: consente di validare a livello funzionale o di implementazione le funzionalità;
+  \item \textbf{Production}: ambiente di produzione in cui viene rilasciata la funzionalità.
+\end{itemize}
+
 \subsection{Configurazione ambiente del progetto}
 Il progetto di stage, necessita di cartelle per la configurazione dell'ambiente di sviluppo, per la configurazione del progetto e per la configurazione del deploy.
 Più precisamente, il progetto segue la seguente struttura:
@@ -182,7 +192,7 @@ Per questioni di chiarezza e di ordine, questa sezione è suddivisa in due parti
 \subsection{Codifica front-end}\label{subsec:codifica-front-end}
 
 \subsubsection{Utils}\label{subsubsec:utils}
-La cartella utils contiene una serie di file typescript che contengono funzioni, utilities o moduli che forniscono funzionalità di supporto a varie parti dell'applicazione.
+La cartella utils contiene una serie di file typescript che rappresentano funzioni, utilities o moduli che forniscono funzionalità di supporto a varie parti dell'applicazione.
 Questi file sono progettati per semplificare compiti ripetitivi, astrazioni complesse o per fornire funzionalità condivise in più componenti. Ogni utils è accompagnato 
 da un file di test che ne verifica il corretto funzionamento.\\
 Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stage.
