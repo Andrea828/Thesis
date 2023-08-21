@@ -32,8 +32,6 @@ che permette di caricare i moduli in modo asincrono, riducendo i tempi di compil
 \subsubsection{Sass}\label{subsubsec:sass}
 Sass è un'estensione di CSS che offre funzionalità aggiuntive e avanzate per semplificare e organizzare il modo in cui viene scritto e gestito il codice CSS.
 Può essere considerato un preprocessore CSS, in quanto viene compilato in CSS prima di essere interpretato dal browser. Sass inoltre permette di utilizzare funzionalità non disponibili in CSS nativo, offrendo una serie di funzioni, variabili, mixin e altro.\\
-% Il codice in Sass utilizza una sintassi più leggibile e mantenibile rispetto a quella di CSS, 
-% e successivamente il preprocessore si occupa di tradurlo in CSS valido.
 Insieme a sass, ho utilizzato bem, ovvero una metodologia di naming convention utilizzata nel mondo dello sviluppo web.
 
 \subsection{Backend}\label{subsec:backend}
@@ -43,7 +41,7 @@ Il framework NestJS combina concetti e caratteristiche provenienti da diversi pa
 
 \subsection{Altre tecnologie di supporto}\label{subsec:altre-tecnologie-di-supporto}
 \subsubsection{Node.js}\label{subsubsec:node.js}
-Node.jsè un ambiente di runtime JavaScript open-source progettato per eseguire codice lato server. Per gestire le dipendenze del mio progetto,
+Node.js è un ambiente di runtime JavaScript open-source progettato per eseguire codice lato server. Per gestire le dipendenze del mio progetto,
 ho deciso di utilizzare pnpm come gestore di pacchetti. Questa selezione ha portato a un miglior utilizzo delle risorse di sistema e ha notevolmente accelerato il processo di 
 installazione delle dipendenze.
  \subsubsection{Pinia}\label{subsubsec:pinia}
@@ -124,7 +122,7 @@ La cartella middleware contiene il progetto backend in nest-js. Nello specifico 
   \item La cartella src che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari endpoint che utilizzo sulla parte frontend, lo script per il setting
   della lambda, una cartella con gli helpers e la cartella del middleware.
   \item La cartella test che contiene i test di unità dell'applicazione;
-  \item File .env che contiene le variabili d'ambiente utilizzate nel progetto;
+  \item File \.env che contiene le variabili d'ambiente utilizzate nel progetto;
   \item Una cartella node\_modules che contiene le dipendenze del progetto.
 \end{itemize}
 \subsection*{\emph{Portal}}
@@ -147,17 +145,7 @@ garantendo che esso sia parte integrante dell'applicazione serverless.
 % PEr il portale costrutto cloudfrontdistribution -> genera il template di aws clodfront e esegue il deploy degli asset statici su s3. S3 container
 % Secondo costrutto -> throndockerlambda e questo crea la lambda con quando viene invocata avvia un docker con all'interno il mio middleware.
 
-
-
-
-
-
-
-
-
-
-\section{Progettazione}
-\label{sec:progettazione}
+\section{Progettazione}\label{sec:progettazione}
 
 \subsection{Architettura front-end}\label{subsec:architettura-front-end}
 \subsubsection{Architettura Vue.js}\label{subsubsec:architettura-vue.js}
@@ -168,11 +156,11 @@ Come già accennato in precedenza, i componenti sono riutilizzabili all'interno 
 
 L'architettura di Vue.js è basata sul pattern architettuturale MVVM (Model-View-ViewModel), che è una variante del pattern MVC (Model-View-Controller), dove:
 \begin{itemize}
-  \item Model: rappresenta lo stato, i dati e le regole di business dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
+  \item \textbf{Model}: rappresenta lo stato, i dati e le regole di business dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la view associata in caso di modifiche;
-  \item View: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente. La view è definita utilizzando i template Vue.js e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
+  \item \textbf{View}: è l'interfaccia utente, che visualizza i dati contenuti nel model e si occupa di reagire agli input dell'utente. La view è definita utilizzando i template Vue.js e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un template, ovvero una dichiarativa dell'HTML, arricchita con alcune direttive Vue.js. 
   Queste particolari direttive permettono di collegare elementi del DOM a proprietà o metodi del modello, in modo che la view possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
-  \item ViewModel: è l'intermediario tra la view e  il model. Il ViewModel gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la view.
+  \item \textbf{ViewModel}: è l'intermediario tra la view e  il model. Il ViewModel gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la view.
   Il ViewModel è rappresentato da un componente Vue.js, infatti esso è un'istanza che collega il modello e la vista. All'interno di un componente è possibile definire metodi, proprietà 
   computate, metodi del ciclo di vita, gestione di eventi e molte altre funzionalità. Questo consente di definire la logica di presentazione e di manipolare i dati all'interno di un contesto definito.
 \end{itemize}
@@ -182,7 +170,15 @@ diverso da altri framework è proprio il concetto di reattività, infatti Vue.js
 
 \subsection{Architettura back-end}\label{subsec:architettura-back-end}
 \subsubsection{Architettura Nest.js}\label{subsubsec:architettura-nest.js}
-Nest.js 
+L'architettura di Nest.js si basa su diversi principi chiave e concetti fondamentali che lo rendono un framework efficace per la creazione di applicazioni server-side.
+La caratterstica principale di Nest.js è la modularità, che promuove la suddivisione dell'applicazione in moduli, consentendo di organizzare il codice in unità funzionali e riutilizzabili.\\
+Di seguito i concetti base su cui si basa l'architettura:
+\begin{itemize}
+  \item \textbf{Module}: rappresenta un'unità organizzativa dell'applicazione che contiene un gruppo di elementi correlati come controller, service e provider. Questa struttura modulare 
+  favorisce la separazione delle responsabilità remdendo il codice più leggibile;
+  \item \textbf{Controller}: sono interfacce tra la rete e la logica dell'applicazione responsabili della gestione delle richieste http in ingresso. Ogni controller è associato a uun percorso specifico ed a uno o più metodi che rappresentano le diverse azioni eseguibili sul percorso;
+  \item \textbf{Service}: contiene la logica di business dell'applicazione. I service sono responsabili della gestione dei dati e dell'interazione con le risorse esterne.
+\end{itemize}
 
 % \paragraph{}\label{par:}
 
