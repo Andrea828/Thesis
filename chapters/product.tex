@@ -64,8 +64,8 @@ Vitest è un framework per l'implementazione di test di unità, utilizzato maggi
 Usato in coppia con Vite permette di eseguire test di unità in modo più veloce e semplice.
 
 \subsection{Librerie esterne utilizzate}\label{subsec:librerie-esterne}
-\subsubsection{Thron Components}\label{subsubsec:thron-components}
-Libreria Thron contenente i componenti del design system aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni, del portale.
+\subsubsection{THRON Components}\label{subsubsec:thron-components}
+Libreria THRON contenente i componenti del design system aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni, del portale.
 \subsubsection{Azure msal}\label{subsubsec:azure-msal}
 Azure msal è una libreria che permette di integrare il login con Azure Active Directory all'interno di un'applicazione web.
 \subsubsection{Swagger ui}\label{subsubsec:swagger-ui}
@@ -111,9 +111,9 @@ Ognuno dei file buildspec è un file YAML, che è formato dalle seguenti sezioni
 La cartella infra contiene i file di configurazione per il deploy dell'applicazione su AWS. È scritta utilizzando il linguaggio di programmazione Python.\\
 La cartella è formata a sua volta da due file: app.py e stack.py. Il primo file contiene la configurazione per il deploy dell'applicazione, mentre il secondo file contiene la configurazione per il deploy dell'infrastruttura.\\
 Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare ed a configurare due costrutti, anche chiamati CDK Constructs o semplicemente Constructs, che sono delle classi che rappresentano un componente dell'infrastruttura.
-Il primo costrutto si chiama ThronCloudFrontDistribution e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file .html, .css, .js e immagini, agli utenti.
+Il primo costrutto si chiama THRONCloudFrontDistribution e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file .html, .css, .js e immagini, agli utenti.
 In breve questo costrutto genera il template di AWS CloudFront ed esegui il deploy degli asset statici su un bucket S3.\\
-Il secondo costrutto che sono andato ad utilizzare si chiama ThronDockerLambda e consente di creare una funzione lambda in cui il gestore è un'immagine docker.
+Il secondo costrutto che sono andato ad utilizzare si chiama THRONDockerLambda e consente di creare una funzione lambda in cui il gestore è un'immagine docker.
 Nel caso del mio progetto, mi è servito per creare un lambda che quando viene invocata avvia un docker con all'interno il mio middleware.\\
 
 \subsection*{\emph{Middleware}}
