@@ -48,14 +48,21 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 % \emptyline
 
 \begin{figure}[h]
+    \centering
     \makebox[\textwidth][c]{%
-        \includegraphics[width=1.2\textwidth]{images/usecase/scenario-principale.jpg}%
+        \includegraphics[width=1.3\textwidth]{images/usecase/DeveloperPortalHub.jpg}%
     }%
     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
 \end{figure}
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/usecase/DeveloperPortalHub.jpg}
+%     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
+% \end{figure}
 
 
-% \clearpage    
+
+\clearpage    
 
 
 % UC 1 - Inserimento ambiente di sviluppo
@@ -72,7 +79,6 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \end{usecase}
 
-\clearpage
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
     \usecaseactors{Utente non autenticato, Microsoft 365}
@@ -102,7 +108,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Caso d'uso relativo al login}]{images/usecase/UC2.jpg}
+    \includegraphics[width=\columnwidth, alt={Caso d'uso relativo al login}]{images/usecase/UC2.jpg}
     \caption{UC2 Login}\label{fig:uc:login}
   \end{figure}
   
@@ -137,14 +143,13 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \end{usecase}
 
-% \clearpage
+\clearpage
 % UC 3 - Visualizzazione messggio di errore login
 \begin{usecase}{3}{Visualizzazione messggio di errore login}\label{uc:visualizzazione-errore-login}
     \usecaseactors{Utente non autenticato}
     \usecasepre{L'utente ha inserito una tra le due credenziali email o password in modo errato}
     \usecasedesc{L'utente deve inserire delle credenziali corrette per poter effettuare il login correttamente}
     \usecasepost{L'utente ha inserito una tra le due credenziali errate}
-    \clearpage
     \usecasemain{}
         \begin{enumerate}
             \item L'utente visualizza un messaggio di errore che lo informa che una delle credenziali che ha inserito per autenticarsi al sistema è sbagliata.
@@ -176,12 +181,11 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Caso d'uso relativo alla visualizzazione della homepage}]{images/usecase/UC4.jpg}
+    \includegraphics[width=\columnwidth, alt={Caso d'uso relativo alla visualizzazione della homepage}]{images/usecase/UC4.jpg}
     \caption{UC4 Visualizzazione home page}\label{fig:uc:visualizzazione-home-page}
   \end{figure}
 
-  \pagebreak
-
+\pagebreak
 
 % UC 4.1 - Visualizzazione lista APIs disponibili
 \begin{usecase}{4.1}{Visualizzazione lista APIs disponibili}\label{uc:visualizzazione-lista-apis-disponibili}
@@ -248,11 +252,11 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Caso d'uso relativo alla visualizzazione del dettaglio di una singola API}]{images/usecase/UC5.jpg}
+    \includegraphics[width=\columnwidth, alt={Caso d'uso relativo alla visualizzazione del dettaglio di una singola API}]{images/usecase/UC5.jpg}
     \caption{UC5 Visualizzazione dettaglio singola API}\label{fig:uc:visualizzazione-dettaglio-singola-api}
   \end{figure}
 
-%   \pagebreak
+  \pagebreak
 
 % UC 5.1 Visualizzazione lista endpoint disponibili
 \begin{usecase}{5.1}{Visualizzazione lista endpoint disponibili}\label{uc:visualizzazione-lista-endpoint-disponibili}
@@ -275,10 +279,10 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Caso d'uso relativo al visualizzazione della lista di endpoint disponibili}]{images/usecase/UC5.1.jpg}
+    \includegraphics[width=\columnwidth, alt={Caso d'uso relativo al visualizzazione della lista di endpoint disponibili}]{images/usecase/UC5.1.jpg}
     \caption{UC5.1 Visualizzazione lista endpoint disponibili}\label{fig:uc:visualizzazione-lista-endpoint-disponibili}
   \end{figure}
-%   \pagebreak
+  \pagebreak
 
 
 % UC 5.1.1 Visualizzazione dettaglio singolo endpoint
@@ -340,7 +344,6 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
     \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel sistema}
     \usecasedesc{L'utente vuole poter provare l'endpoint selezionato}
     \usecasepost{L'utente ha provato l'endpoint selezionato}
-    \clearpage
     \usecasemain{}
         \begin{enumerate}
             \item L'utente ha selezionato una determinata API;
@@ -364,7 +367,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \begin{figure}[!ht] 
     \centering 
-    \includegraphics[width=0.85\columnwidth, alt={Caso d'uso relativo alla prova di un endpoint}]{images/usecase/UC8.jpg}
+    \includegraphics[width=\columnwidth, alt={Caso d'uso relativo alla prova di un endpoint}]{images/usecase/UC8.jpg}
     \caption{UC8 Try it out endpoint}\label{fig:uc:try-it-out-endpoint}
 \end{figure}
 
@@ -376,7 +379,6 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
     \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione di inserimento dei parametri}
     \usecasedesc{L'utente vuole poter inserire i parametri necessari per la prova dell'endpoint}
     \usecasepost{L'utente ha inserito i parametri necessari alla chiamata verso l'endpoint}
-    \clearpage
     \usecasemain{}
         \begin{enumerate}
             \item L'utente inserisce i parametri richiesti per la chiamata verso l'endpoint selezionato.
@@ -428,7 +430,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \end{usecase}
 
-% \clearpage
+\clearpage
 
 % UC 11 Ricerca per client-id
 \begin{usecase}{11}{Ricerca per client-id}\label{uc:ricerca-client-id}
@@ -468,7 +470,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
 
 \end{usecase}
 
-% \clearpage
+\clearpage
 % UC 13 Ricerca per API
 \begin{usecase}{13}{Ricerca per API}\label{uc:ricerca-api}
     \usecaseactors{Utente autenticato}
@@ -498,14 +500,13 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura \ref{fig:usecase
     \usecasepre{L'utente è autenticato, sta navigando all'interno del sistema e ha già selezionato un client-id che non è quello di default} 
     \usecasedesc{L'utente vuole poter resettare il client-id corrente e tornare al client-id di default per l'ambiente selezionato}
     \usecasepost{L'utente ha resettato il client-id corrente e ora visualizza il client-id di default per l'ambiente selezionato}
-    \clearpage
 
     \usecasemain{}
         \begin{enumerate}
             \item L'utente clicca il bottone per resettare il client-id corrente;
             \item Il sistema resetta il client-id corrente ed imposta il client-id al valore di default a seconda dell'ambiente selezionato.
         \end{enumerate}
-
+    \clearpage
     \usecaseext{}
         \begin{enumerate}
             \item Visualizzazione messaggio di errore reset UC15.
