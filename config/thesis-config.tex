@@ -43,10 +43,11 @@
 % Load variables
 \input{config/variables}
 
-\input{appendix/glossary-entries}
-\makeglossaries
+% \input{appendix/glossary-entries}
+% \makeglossaries\bibliography{appendix/bibliography}
 
-\bibliography{appendix/bibliography}
+\input{appendix/glossary-entries} % Glossary definitions
+\makeglossaries\bibliography{appendix/bibliography} % Bibliography file
 
 \defbibheading{bibliography} {
     \cleardoublepage
