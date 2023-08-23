@@ -290,35 +290,39 @@ da aggiugere foto design responsive
 La seguente view rappresenta la prima pagina visibile dopo aver effettuato il login, infatti dopo che l'autenticazione si è conclusa con successo, 
 l'utente viene reindirizzato a questa pagina.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
-  \caption{HomeView}\label{fig:home-view}
-\end{figure}
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
+%   \caption{HomeView}\label{fig:home-view}
+% \end{figure}
 
 \paragraph{NotFoundView}\label{par:not-found-view}
 NotFoundView testo
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.6\textwidth, alt={Pagina di errore 404}]{images/frontend/NotFoundView.jpg}
-  \caption{NotFoundView}\label{fig:not-found-view}
-\end{figure}
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=0.6\textwidth, alt={Pagina di errore 404}]{images/frontend/NotFoundView.jpg}
+%   \caption{NotFoundView}\label{fig:not-found-view}
+% \end{figure}
 
 \subsubsection{Components}\label{subsubsec:components}
 
 % Home
 \paragraph{HeaderNav}\label{par:header-nav}
-
-HeaderNav testo
+Il componente rapppresenta la barra di navigazione superiore dell'applicazione. Esso contiene il logo dell'applicazione, la \textit{chip} con il client-id
+corrente, il bottone di ricerca e il \textit{popover} di logout. 
+La barra viene visualizzata sempre una volta che l'utente ha effettuato il login.\\
 
 \paragraph{MainContent}\label{par:main-content}
 %swagger
 Swagger testo
 
 \paragraph{SideBar}\label{par:side-bar}
+Il componente rappresenta la barra di navigazione laterale dell'applicazione. Esso contiene la lista di tutte le API disponibili nel portale.
+Attraverso la barra sarà possibile navigare tra le varie API, andando a visualizzare i dettagli di ognuna di esse. 
+Il componente è stato sviluppato utilizzando un design responsive, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti, 
+infatti il menù andrà a nascondersi automaticamente e sarà accessibile cliccando l'apposito bottone a forma di \textit{hamburger}.\\
 
-Sidebar testo
 
 \paragraph{StartPage}\label{par:start-page}
 
@@ -334,12 +338,19 @@ Swagger loader testo
 \end{figure}
 
 \paragraph{DownloadButton}\label{par:download-button}
-
-download button testo
+Il componente rappresenta il bottone di download presente in ogni pagina di dettaglio dell'API specifica. Esso è stato sviluppato rispettando il \textit{design system}
+aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.
+Il componente da la possibilità semplicemente di scegliere la grandezza, il testo del bottone e icone da visualizzare.
+Il componente rende possibile all'utente di scaricare la documentazione dell'API in formato \textit{.yaml}, con un nome di file predefinito a seconda 
+del servizio scaricato. Una volta cliccato, andrà ad aprire una finestra secondaria del browser, e il file verrà scaricato automaticamente.
 
 \paragraph{LogoutButton}\label{par:logout-button}
+Il componente rappresenta il bottone di logout presente nella barra di navigazione superiore dell'applicazione.
+Esso è stato sviluppato rispettando il \textit{design system} aziendale, infatti utilizza la libreria \textit{Components} THRON.
+Nello specifico è stato chiamato bottone per comodità, ma in realtà si tratta di un \textit{popover}, ovvero un componente a tendina che si apre
+tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale, e di tornare alla pagina di login.
 
-logout button testo
+%aggiungere foto hover
 
 % Login
 \paragraph{LoginButton}\label{par:login-button}
