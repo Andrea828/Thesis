@@ -196,9 +196,21 @@ Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stag
 \paragraph{Auth}\label{par:auth-utils}
 Il file Auth è un utils per la gestione dell'autenticazione utilizzando come supporto la libreria Azure msal. Essa è utile
 per interfacciarsi all'autenticazione verso il servizio Azure Active Directory.\\
-Auth è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del token di accesso.
-(Ha senso spiegare funzionamento silent token?)
-
+Auth è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del token di accesso.\\
+Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del token in modo automatico con 
+l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
+\begin{enumerate}
+  \item Inanzittutto viene controllata la \textit{cache} nell'archivio del browser per verificare se esiste un token di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
+  \item In caso il token sia scaduto o non esiste proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo token di accesso;
+  \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \textit{hidden iframe} per richiedere
+  un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, e quindi un nuovo token di accesso e di aggiornamento. 
+\end{enumerate}
+Questo procedimento per il recupero del token per mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
+\begin{itemize}
+  \item L'utente ha cambiato la password;
+  \item Il browser blocca i cookie di terze parti, che previene l'utilizzo del \textit{hidden iframe} per il recupero del token;
+\end{itemize}
+In questi casi, si verificherà un errore che verrà catturato tramite un \textit{try catch} e verrà utilizzato il metodo di login con pop-up per effettuare nuovamente l'autenticazione.
 \paragraph{Debounce}\label{par:debounce}
 Il file Debounce è un utils che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non si verificano chiamate.\\
@@ -290,11 +302,11 @@ da aggiugere foto design responsive
 La seguente view rappresenta la prima pagina visibile dopo aver effettuato il login, infatti dopo che l'autenticazione si è conclusa con successo, 
 l'utente viene reindirizzato a questa pagina.
 
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
-%   \caption{HomeView}\label{fig:home-view}
-% \end{figure}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
+  \caption{HomeView}\label{fig:home-view}
+\end{figure}
 
 \paragraph{NotFoundView}\label{par:not-found-view}
 NotFoundView testo
@@ -326,17 +338,22 @@ infatti il menù andrà a nascondersi automaticamente e sarà accessibile clicca
 
 \paragraph{StartPage}\label{par:start-page}
 % \gls{apig} è un portale che permette di consultare la documentazione delle API disponibili nel sistema.
-Start page testo
+Il componente rappresenta la pagina iniziale di benvenuto dell'applicazione ed è la prima schermata che l'utente visualizza dopo aver effettuato il login con successo.
+Essa contiene il nome del portale, una breve descrizione e un'immagine. Per iniziare la navigazione nel portale, basterà usare la \textit{SideBar}.
 
 \paragraph{SwaggerLoader}\label{par:swagger-loader}
+Il componente rappresenta il loader di caricamento per il \textit{MainContent} (in figura~\ref{fig:swagger-loader}). 
+Esso rappresenta un caricamento di stile \textit{skeleton}, ovvero un caricamento di contenuto che simula il contenuto finale, mentre questo viene caricato, attraverso un sfondo grigio dinamico.
+Il componente ha la stessa struttura del \textit{MainContent}, quindi seguire lo stesso design responsive.
+Il loader sarà visibile ogni volta che l'utente clicca su una delle API disponibili nella \textit{SideBar}, e scomparirà una volta che il contenuto sarà caricato correttamente.
 
-Swagger loader testo
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Skeleton loader di caricamento per contenuto principale}]{images/frontend/SwaggerLoader.jpg}
   \caption{SwaggerLoader}\label{fig:swagger-loader}
 \end{figure}
 
+\pagebreak
 \paragraph{DownloadButton}\label{par:download-button}
 Il componente rappresenta il bottone di download presente in ogni pagina di dettaglio dell'API specifica. Esso è stato sviluppato rispettando il \textit{design system}
 aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.
@@ -408,7 +425,7 @@ In caso il \textit{client-id} fosse già al valore di default, verrà visualizza
   \includegraphics[width=0.3\textwidth, alt={Chip contenente il client id corrente}]{images/frontend/Chip.jpg}
   \caption{Chip}\label{fig:chip}
 \end{figure}
-\pagebreak
+
 
 \paragraph{Filter}\label{par:filter}
 Il componente rappresenta il bottone per filtrare la lista dei risultati della ricerca, all'interno del componente \textit{Autocomplete}.
@@ -425,8 +442,11 @@ Il componente rappresenta un singolo elemento della lista di opzioni generiche, 
 Andando a cliccare un'opzione, verrà aperta la pagina di dettaglio dell'\textit{API} selezionata.
 
 \paragraph{SnackBar}\label{par:snack-bar}
-
-snack bar testo da scrivere
+Il componente rappresenta la \textit{snack-bar} dell'applicazione usata per la visualizzazione di messaggi di errore o di successo (in figura~\ref{fig:snack-bar}).
+All'interno dell'applicazione è utilizzata per comunicare all'utente che un termine cercato non ha prodotto risultati,  che il \textit{client-id} è stato resettato con successo
+oppure per informare l'utente che il \textit{client-id} è già al valore di default.
+Ho creato il componente con l'idea di renderlo riutilizzabile per diversi scopi, infatti è possibile modificare vari aspetti come il colore, il tipo di icona,
+la durata del messaggio, il testo da visualizzare, la posizione del componente e la dimensione del componente.
 
 \begin{figure}[ht]
   \centering
@@ -435,16 +455,21 @@ snack bar testo da scrivere
 \end{figure}
 
 \paragraph{Loader}\label{par:loader}
-
-Loader testo da scrivere
+Il seguente componente rapppresenta il sistema di caricamento principale dell'applicazione (in figura~\ref{fig:loader}).
+Esso rappresenta un caricamento stile \textit{skeleton}, ovvero un caricamento che simula la presenza di contenuti, mentre questi vengono caricati, attraverso 
+uno sfondo dinamico grigio.
+Il componente è stato utilizzato per il caricamento della struttura della pagina, ovvero è composto da tre sezioni: \textit{HeaderNav}, \textit{SideBar} e
+\textit{MainContent}. Il loader sarà visibile subito dopo aver effettuato il login o quando la pagina viene ricaricata, e scomparirà una volta che i dati saranno stati caricati correttamente.
+Inoltre il componente è stato sviluppato utilizzando un design responsive, infatti seguirà la stessa struttura della pagina, andando a nascodere la sezione 
+\textit{SideBar} in caso di schermi di piccole dimensioni.
+Ho preferito utilizzare un caricamento di tipo \textit{skeleton} rispetto ad un classico \textit{loader} circolare, perchè secondo me migliora l'esperienza utente 
+conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Skeleton loader di caricamento principale dell'applicazione}]{images/frontend/Loader.jpg}
   \caption{Loader}\label{fig:loader}
 \end{figure}
-
-
 
 % \subsubsection{Components}\label{:components}
 % \subsubsection{Views}\label{subsubsec:views}
