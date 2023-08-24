@@ -342,29 +342,34 @@ Il componente rappresenta il bottone di download presente in ogni pagina di dett
 aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.
 Il componente da la possibilità semplicemente di scegliere la grandezza, il testo del bottone e icone da visualizzare.
 Il componente rende possibile all'utente di scaricare la documentazione dell'API in formato \textit{.yaml}, con un nome di file predefinito a seconda 
-del servizio scaricato. Una volta cliccato, andrà ad aprire una finestra secondaria del browser, e il file verrà scaricato automaticamente.
+del servizio scaricato. Una volta cliccato, andrà ad aprire una finestra secondaria del browser, e il file verrà scaricato automaticamente.\\
 
 \paragraph{LogoutButton}\label{par:logout-button}
 Il componente rappresenta il bottone di logout presente nella barra di navigazione superiore dell'applicazione.
 Esso è stato sviluppato rispettando il \textit{design system} aziendale, infatti utilizza la libreria \textit{Components} THRON.
 Nello specifico è stato chiamato bottone per comodità, ma in realtà si tratta di un \textit{popover}, ovvero un componente a tendina che si apre
-tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale, e di tornare alla pagina di login.
+tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale tramite un \textit{popup}, con successivo reindirizzamento
+alla pagina di login.
 
 %aggiungere foto hover
 
 % Login
 \paragraph{LoginButton}\label{par:login-button}
-
-login button testo
+Il componente rappresenta il bottone di login presente nella pagina di login dell'applicazione. Esso è stato sviluppato rispettando il \textit{design system} aziendale.
+Il seguente bottone aprirà un \textit{popup} dove sarà possibile inserire le credenziali e-mail e password per effettuare l'accesso tramite \textit{Microsoft} 365.
+Una volta effettuato il login, l'utente verrà reindirizzato alla pagina principale del portale.
 
 % Components
 \paragraph{SearchButton}\label{par:search-button}
-
-SearchButton testo
+Il componente rappresenta il bottone di ricerca presente nella barra di navigazione superiore dell'applicazione.
+Si tratta di un componente \textit{custom} creato da me, utilizzato per aprire la barra di ricerca globale del portale. 
 
 \paragraph{SearchBar}\label{par:search-bar}
-
-Search bar testo
+Il componente rappresenta la barra di ricerca globale dell'applicazione (in figura~\ref{fig:search-bar}). 
+Essa consiste in una barra dove poter inserire il \textit{client-id} o il nome dell'\textit{API} da cercare,
+con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{autocomplete} descritto in seguito.
+Infatti i componenti insieme, costituiscono la ricerca all'interno del portale. Inoltre La \textit{SearchBar} è accessibile anche tramite tastiera,
+infatti tramite il comando \textit{Ctrl + B} sarà possibile aprire la barra di ricerca.\\
 
 \begin{figure}[ht]
   \centering
@@ -373,8 +378,17 @@ Search bar testo
 \end{figure}
 
 \paragraph{Autocomplete}\label{par:autocomplete}
-
-Autocomplete testo
+Il componente rappresenta la lista di risultati visualizzata sotto la barra di ricerca dell'applicazione (in figura~\ref{fig:autocomplete}).
+Essa consiste in una lista di suggerimenti dinamici che vengono visualizzati in base al testo inserito dall'utente. 
+In caso il campo di ricerca della \textit{SearchBar} sia vuoto, verrà visualizzata se presente, la lista degli ultimi quattro termini cercati.
+In caso contrario verrà visualizzata la lista dei suggerimenti con il numero di risultati trovati per ogni lista e il nome della lista.
+Nel caso in cui la ricerca non abbia prodotto risultati, verrà visualizzato un messaggio di errore, gestito tramite il componente \textit{SnackBar} descritto in seguito.
+La logica della ricerca, è completamente sviluppata lato \textit{beckend} per estrapolare il componente di ricerca e renderlo riutilizzabile in altri progetti.
+Essendo un componente \textit{custom}, ho aggiunto la possibilità di navigare il menù e selezionare un suggerimento tramite tastiera, funzionalità 
+obbligatoria per rendere la ricerca accessibile anche a persone con disabilità.\\
+Dopo aver selezionato un suggerimento, verrà aperta la pagina di dettaglio dell'API selezionata se l'utente ha scelto un'API, altrimenti verrà impostato il client-id corrente e la Chip verrà aggiornata.
+Il componente infine, supporta più liste di elementi per la ricerca globale, non solo due, infatti sarà possibile anche avere un numero vario liste di elementi in cui effettuare
+la ricerca globale. 
 
 \begin{figure}[ht]
   \centering
@@ -383,26 +397,32 @@ Autocomplete testo
 \end{figure}
 
 \paragraph{Chip}\label{par:chip}
-
-chip testo da scrivere
+Il componente rappresenta la \textit{chip} situata nella barra di navigazione superiore dell'applicazione (in figura~\ref{fig:chip}).
+Essa è utile a visualizzare il \textit{client-id} corrente, ovvero il \textit{client-id} che l'utente ha selezionato tramite la barra di ricerca globale.
+In caso l'utente non abbia selezionato ancora nessun \textit{client-id}, verrà visualizzato il \textit{client-id} di default dell'ambiente di sviluppo.
+Inoltre è possibile resettare il \textit{client-id} corrente, cliccando sull'icona di reset a forma di \textit{X}, riportandolo al valore di default.
+In caso il \textit{client-id} fosse già al valore di default, verrà visualizzato un messaggio di errore tramite il componente \textit{SnackBar} descritto in seguito.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.3\textwidth, alt={Chip contenente il client id corrente}]{images/frontend/Chip.jpg}
   \caption{Chip}\label{fig:chip}
 \end{figure}
+\pagebreak
 
 \paragraph{Filter}\label{par:filter}
+Il componente rappresenta il bottone per filtrare la lista dei risultati della ricerca, all'interno del componente \textit{Autocomplete}.
+Quando il bottone viene cliccato, lo sfondo risulta bianco e verrà visivamente nascosta la lista corrispondente al filtro cliccato.
+Cliccando di nuovo sullo stesso filtro, il bottone tornerà arancione e verrà  mostrata la lista corrispondente al filtro cliccato.
 
-filter testo
 
 \paragraph{OptionList}\label{par:option-list}
-
-option list testo
+Il componente rappresenta la lista di opzioni generiche, visualizzate all'interno della SideBar. Nel mio progetto, è stata utilizzata per visualizzare la lista
+di tutte le \textit{API} disponibili nel sistema. 
 
 \paragraph{OptionListItem}\label{par:option-list-item}
-
-OptionListItem testo
+Il componente rappresenta un singolo elemento della lista di opzioni generiche, visualizzate all'interno della SideBar. Nel mio progetto, un'\textit{item} rappresenta una singola \textit{API}.
+Andando a cliccare un'opzione, verrà aperta la pagina di dettaglio dell'\textit{API} selezionata.
 
 \paragraph{SnackBar}\label{par:snack-bar}
 
