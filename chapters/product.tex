@@ -68,7 +68,7 @@ Usato in coppia con Vite permette di eseguire test di unità in modo più veloce
 Libreria THRON contenente i componenti del design system aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni, del portale.
 \subsubsection{Azure msal}\label{subsubsec:azure-msal}
 Azure msal è una libreria che permette di integrare il login con Azure Active Directory all'interno di un'applicazione web.
-\subsubsection{Swagger ui}\label{subsubsec:swagger-ui}
+\subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
 Swagger UI è una libreria open-source progettata per semplificare la visualizzazione e l'interazione con la documentazione delle API.
 
 \section{Struttura principale del sistema}
@@ -273,50 +273,71 @@ Il seguente file rappresenta una classe con due metodi: il primo utilizzato nel 
 mentre il secondo è utilizazto per convertire qualsiasi URI di reindirizzamento completoq in un URI di reindirizzamento relativo, in modo che il Vue Router
 possa gestire correttamente il reindirizzamento in modo sicuro.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsubsection{Views}\label{subsubsec:views}
 La seguente sezione contiene le views, ovvero le pagine dell'applicazione.
 Di seguito sono descritte le views che ho sviluppato durante il progetto di stage.
 
-\paragraph{LoginView}\label{par:ogin-view}
-La LoginView è la prima pagina con cui l'utente interagisce. Essa contiene un bottone che permette di effettuare il login tramite pop-up, tramite un account Microsoft 365.
+\paragraph{LoginView}\label{par:login-view}
+La LoginView è la prima pagina con cui l'utente interagisce (in figura~\ref{fig:login-view}). Essa contiene un bottone che permette di effettuare il login tramite pop-up, tramite un account Microsoft 365.
 La pagina consente di accedere al portale, ed è l'unica pagina di tutto il progetto che non richiede l'autenticazione.\\
 Quando un'utente non autenticato tenterà di accedere a qualsiasi altra pagina del portale, verrà sempre reindirizzamento
-automaticamente a questa view.
-La pagina al suo interno contiene un unico componente, ovvero LoginButton, che verrà descritto in seguito.
+automaticamente a questa view. La pagina al suo interno contiene un unico componente, ovvero LoginButton, che verrà descritto in seguito.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina di login dell'applicazione}]{images/frontend/LoginView.jpg}
   \caption{LoginView}\label{fig:login-view}
 \end{figure}
+% \clearpage
+\pagebreak
+
 Inoltre, per permettere un uso comodo anche in schermi di piccole dimensioni, o comunnque utilizzando una scheda del browser ristretta, ho sviluppato
-un design responsive, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti. 
+un design responsive (in figura~\ref{fig:login-view-responsive}), che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti.
 Ciò secondo me è necessario perchè trattandosi di un portale per la consultazione di documentazione, è possibile che l'utente 
 lo utilizzi in combinazione con altre schede del browser.
 
-
-
-da aggiugere foto design responsive
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Pagina di login responsive dell'applicazione}]{images/frontend/LoginViewRes.jpg}
+  \caption{LoginView responsive}\label{fig:login-view-responsive}
+\end{figure}
 
 
 \paragraph{HomeView}\label{par:home-view}
 La seguente view rappresenta la prima pagina visibile dopo aver effettuato il login, infatti dopo che l'autenticazione si è conclusa con successo, 
-l'utente viene reindirizzato a questa pagina.
+l'utente viene reindirizzato a questa pagina (in figura~\ref{fig:home-view}).
+La \textit{HomeView} è composta da tre sezioni principali: \textit{HeaderNav}, \textit{Sidebar} e \textit{StartPage}. Quest'ultimo è il componente visibile 
+subito dopo aver effettuato il login. Infatti quando l'utente inizierà a navigare tra le varie \textit{API}, la \textit{StartPage} verrà sostituita con il \textit{MainContent}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina principale dell'applicazione}]{images/frontend/HomeView.jpg}
   \caption{HomeView}\label{fig:home-view}
 \end{figure}
+\pagebreak
+
+Come la pagina di login, anche la pagina principale è stata sviluppata con un \textit{design responsive} (in figura~\ref{fig:home-view-responsive}).
+Come si vede dall'immagine si può notare che il menù laterale viene nascosto automaticamente e sarà accessibile cliccando l'apposito bottone a forma di \textit{hamburger}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Pagina principale responsive dell'applicazione}]{images/frontend/HomeViewRes.jpg}
+  \caption{HomeView responsive}\label{fig:home-view-responsive}
+\end{figure}
+
 
 \paragraph{NotFoundView}\label{par:not-found-view}
-NotFoundView testo
+Quando un utente tenta di accedere ad una pagina non esistente, verrà reindirizzato automaticamente alla pagina di errore 404 (in figura~\ref{fig:not-found-view}).
+La pagina consiste in un messaggio di errore con un'immagine, dove viene informato l'utente che la pagina richiesta non esiste.
+Per tornare alla \textit{HomeView} basterà cliccare sul bottone \textit{Home} e si potrà continuare la navigazione all'interno del portale.
 
-% \begin{figure}[ht]
-%   \centering
-%   \includegraphics[width=0.6\textwidth, alt={Pagina di errore 404}]{images/frontend/NotFoundView.jpg}
-%   \caption{NotFoundView}\label{fig:not-found-view}
-% \end{figure}
-
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Pagina di errore 404}]{images/frontend/NotFoundView.jpg}
+  \caption{NotFoundView}\label{fig:not-found-view}
+\end{figure}
+\pagebreak
 \subsubsection{Components}\label{subsubsec:components}
 
 % Home
@@ -326,8 +347,27 @@ corrente, il bottone di ricerca e il \textit{popover} di logout.
 La barra viene visualizzata sempre una volta che l'utente ha effettuato il login.\\
 
 \paragraph{MainContent}\label{par:main-content}
-%swagger
-Swagger testo
+Il componente rappresenta il contenuto principale dell'applicazione. Esso infatti contiene la struttura per visualizzare i dettagli di ogni API (in figura~\ref{fig:main-content}), tramite l'aiuto 
+della libreria \textit{Swagger UI}.
+La struttura è la classica struttura di uno Swagger, ovvero con una descrizione iniziale, la lista degli endpoint succesivamente e infine la lista dei modelli.
+I colori utilizzati sono uguali a quelli utilizzati in un comune Swagger, per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
+Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, che verrà discusso in seguito.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione dei dettagli di un API}]{images/frontend/DataModelView.jpg}
+  \caption{MainContent}\label{fig:main-content}
+\end{figure}
+Cliccando su uno degli endpoint disponibili, ci sarà una sezione dedicata per la visualizzazione dei dettagli di esso (in figura~\ref{fig:try-it-out}).
+I parametri e il \textit{Try it out} sono gestiti all'interno dello \textit{utils SwaggerUtils}, infatti il seguente componente comprende solo la definizione
+della struttura.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Sezione try it out di un endpoint}]{images/frontend/TryItOut.jpg}
+  \caption{Try it out}\label{fig:try-it-out}
+\end{figure}
+
+%scrivere di link
 
 \paragraph{SideBar}\label{par:side-bar}
 Il componente rappresenta la barra di navigazione laterale dell'applicazione. Esso contiene la lista di tutte le API disponibili nel portale.
@@ -353,7 +393,7 @@ Il loader sarà visibile ogni volta che l'utente clicca su una delle API disponi
   \caption{SwaggerLoader}\label{fig:swagger-loader}
 \end{figure}
 
-\pagebreak
+% \pagebreak
 \paragraph{DownloadButton}\label{par:download-button}
 Il componente rappresenta il bottone di download presente in ogni pagina di dettaglio dell'API specifica. Esso è stato sviluppato rispettando il \textit{design system}
 aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.
@@ -470,9 +510,7 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
   \includegraphics[width=0.6\textwidth, alt={Skeleton loader di caricamento principale dell'applicazione}]{images/frontend/Loader.jpg}
   \caption{Loader}\label{fig:loader}
 \end{figure}
-
-% \subsubsection{Components}\label{:components}
-% \subsubsection{Views}\label{subsubsec:views}
+\pagebreak
 
 \subsection{Codifica back-end}\label{subsec:codifica-back-end}
 
