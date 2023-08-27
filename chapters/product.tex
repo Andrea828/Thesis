@@ -349,7 +349,7 @@ La barra viene visualizzata sempre una volta che l'utente ha effettuato il login
 \paragraph{MainContent}\label{par:main-content}
 Il componente rappresenta il contenuto principale dell'applicazione. Esso infatti contiene la struttura per visualizzare i dettagli di ogni API (in figura~\ref{fig:main-content}), tramite l'aiuto 
 della libreria \textit{Swagger UI}.
-La struttura è la classica struttura di uno Swagger, ovvero con una descrizione iniziale, la lista degli endpoint succesivamente e infine la lista dei modelli.
+La struttura è la classica struttura di uno Swagger, ovvero con una descrizione iniziale, la lista degli endpoint e infine la lista dei modelli.
 I colori utilizzati sono uguali a quelli utilizzati in un comune Swagger, per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
 Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, che verrà discusso in seguito.
 \begin{figure}[ht]
@@ -367,6 +367,27 @@ della struttura.
   \caption{Try it out}\label{fig:try-it-out}
 \end{figure}
 
+Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzato il risultato della chiamata (in figura~\ref{fig:response}).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione della risposta di un endpoint}]{images/frontend/TryItOut3.jpg}
+  \caption{Response}\label{fig:response}
+\end{figure}
+
+Inoltre al di sotto sarà presente anche una lista delle possibile risposte che l'endpoint può restituire (in figura~\ref{fig:response-list}).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione delle possibili risposte di un endpoint}]{images/frontend/TryItOut4.jpg}
+  \caption{Lista di risposte dell'endpoint}\label{fig:response-list}
+\end{figure}
+
+\pagebreak
+
+Nel caso di chiamate con necessità del parametro \textit{client-id}, è stato gestito tramite l'\textit{utils SwaggerUtils} l'\textit{autofill} di esso.
+Infatti, il campo verrà compilato con il \text-it{client-id} presente nella \textit{chip}, evitando che si inseriscano valori non presenti per 
+quell'ambiente di sviluppo.
 %scrivere di link
 
 \paragraph{SideBar}\label{par:side-bar}
@@ -513,6 +534,24 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 \pagebreak
 
 \subsection{Codifica back-end}\label{subsec:codifica-back-end}
+\subsubsection{Endpoints}\label{subsubsec:endpoints}
+La seguente sezione descrive gli \textit{endpoint} che ho creato all'interno del mio progetto. Tutti gli \textit{endpoint} sviluppati 
+sono utilizzati all'interno del progetto \textit{front-end} descritto in precedenza.
+Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettura}), ogni endpoint creato sarà formato da un \textit{Module}, un \textit{Controller} e un \textit{Service}.
+
+\paragraph{Client-id}
+L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista dei \textit{client-id} disponibili nel sistema.
+Nel \textit{controller} è presente l'endpoint \textit{/clients}, ovvero un metodo \textit{GET} che restituisce la lista dei \text{client-id} andando
+a chiamare il metodo \textit{getAllClients} del \textit{Service}.
+Come appena anticipato, il \textit{Service} contiene il metodo \textit{getAllClients} dove al suo interno viene chiamato un altro endpoint sviluppato dall'azienda, che restituisce 
+la lista dei \textit{client-id} disponibili per l'ambiente di sviluppo in cui ci si trova.
 
 
+\paragraph{Api}
+
+\paragraph{Search}
+
+\subsubsection{Middleware}\label{subsubsec:middleware}
+
+\subsubsection{Lambda}\label{subsubsec:lambda}
 
