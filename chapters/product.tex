@@ -168,7 +168,7 @@ L'architettura di Vue.js è basata sul pattern architetturale MVVM (Model-View-V
 In breve, l'architettura è incentrata sulla creazione e utilizzo di componenti riutilizzabili che al loro interno incorporano sia il modello che la vista. Un aspetto che rende Vue.js
 diverso da altri framework è proprio il concetto di reattività, infatti Vue.js è in grado di rilevare automaticamente le dipendenze tra i componenti, in modo da poter aggiornare automaticamente l'interfaccia utente.
 
-\subsection{Architettura back-end}\label{subsec:architettura-backend}
+\subsection{Architettura backend}\label{subsec:architettura-backend}
 \subsubsection{Architettura Nest.js}\label{subsubsec:architettura-nest.js}
 L'architettura di Nest.js si basa su diversi principi chiave e concetti fondamentali che lo rendono un framework efficace per la creazione di applicazioni server-side.
 La caratteristica principale di Nest.js è la modularità, che promuove la suddivisione dell'applicazione in moduli, consentendo di organizzare il codice in unità funzionali e riutilizzabili.\\
@@ -533,10 +533,24 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 \end{figure}
 \pagebreak
 
-\subsection{Codifica back-end}\label{subsec:codifica-back-end}
+\subsection{Codifica backend}\label{subsec:codifica-backend}
 
 \subsubsection{Middleware}\label{subsubsec:middleware}
-
+Il middleware è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta HTTP. 
+Nel mio caso ho utilizato questa funzionalità per svolgere della logica prima che la richiesta venga inoltrata al server e generi una risposta.
+Il middleware è stato utilizzato per due scopi principali: la validazione del token di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
+Basandoci sul ciclo di vita, il middleware intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al server che si occuperà di restituire una risposta.
+Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato e che verranno descritti in seguito, passerà prima dal middleware. Questo perchè sono andato a specificare
+nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i controller di \textit{client-id}, il controller di \textit{API} e il controller di \textit{search}.\\
+La prima funzione implementata nel middleware è la validazione del token di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
+La criticità che sorge che un servizio può essere chiamato direttamenente, senza necessità di passare dal portale, dato che ogni \textit{endpoint} ha un \textit{url} pubblico.
+La soluzione che sono andato ad adottare è stata quella di validare il token di autenticazione verificando che qualsiasi chiamata ai miei servizi fosse effettuata da un utente autenticato, avente un token valido nell'\textit{header} della richiesta.
+Per verificare il \textit{token} ho effettuato i seguenti passaggi:
+\begin{enumerate}
+  \item Verifico che il \textit{token} di autenticazione sia presente nell'\textit{header} della richiesta. In caso non lo sia viene restituito un errore 401 spiegando che il token non è presente;
+  \item 
+\end{enumerate}
+% Forse da aggiungere in architettura progettazione
 
 \subsubsection{Endpoints}\label{subsubsec:endpoints}
 La seguente sezione descrive gli \textit{endpoint} che ho creato all'interno del mio progetto. Tutti gli \textit{endpoint} sviluppati 
