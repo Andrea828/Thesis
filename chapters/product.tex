@@ -180,7 +180,6 @@ Di seguito i concetti base su cui si basa l'architettura:
   \item \textbf{Service}: contiene la logica di business dell'applicazione. I service sono responsabili della gestione dei dati e dell'interazione con le risorse esterne.
 \end{itemize}
 
-% \paragraph{}\label{par:}
 
 \section{Codifica}
 In questa sezione vengono descritti i componenti e le funzionalità sviluppate durante il progetto di stage. 
@@ -194,7 +193,7 @@ da un file di test che ne verifica il corretto funzionamento.\\
 Di seguito sono elencati gli utils che ho sviluppato durante il progetto di stage.
 
 \paragraph{Auth}\label{par:auth-utils}
-Il file Auth è una utility per la gestione dell'autenticazione utilizzando come supporto la libreria Azure MSAL. Essa è utile
+Il file Auth è una \textit{utility} per la gestione dell'autenticazione utilizzando come supporto la libreria Azure MSAL. Essa è utile
 per interfacciarsi all'autenticazione verso il servizio Azure Active Directory.\\
 Auth è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del token di accesso.\\
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del token in modo automatico con 
@@ -212,37 +211,39 @@ Questo procedimento per il recupero del token per mantenere la sessione attiva, 
 \end{itemize}
 In questi casi, si verificherà un errore che verrà catturato tramite un \textit{try catch} e verrà utilizzato il metodo di login con pop-up per effettuare nuovamente l'autenticazione.
 \paragraph{Debounce}\label{par:debounce}
-Il file Debounce è una utility che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
+Il file Debounce è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non vengono eseguite chiamate.\\
 Questa utility è stato utilizzato per ritardare l'esecuzione della chiamata POST per il filtraggio dei risultati della ricerca. 
 In questo modo, quando l'utente digita nella barra di ricerca, la chiamata POST viene eseguita ogni 300 millisecondi, ignorando le chiamate precedenti.
 
 \paragraph{EndpointApiCall}\label{par:endpoint-api-call}
-L'utility EndpointApiCall è una funzione che ho creato per gestire le chiamate ai vari endpoint del middleware, per ottenere
+L'\textit{utility} EndpointApiCall è una funzione che ho creato per gestire le chiamate ai vari endpoint del middleware, per ottenere
 i dati relativi alle API disponibili nel sistema.
 Queste chiamate necessitano di token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
 
 \paragraph{GetClients}\label{par:get-clients}
-L'utils GetClients è una funzione progettata per effettuare una richiesta HTTP GET al progetto del middleware, al fine di
+L'\textit{utility} GetClients è una funzione progettata per effettuare una richiesta HTTP GET al progetto del middleware, al fine di
 ottenere la lista dei client disponibili nel sistema. Questa funzione è stata utilizzata per popolare la lista dei client disponibili
 per la ricerca, in modo da poter selezionarne uno tra quelli disponibili, in base all'ambiente di sviluppo.
 La chiamata necessita di un token di autenticazione valido per la sessione corrente per evitare chiamate non autorizzate.
 
 \paragraph{GetResults}\label{par:get-results}
-L'utils getResults è una funzione progettata per effettuare una richiesta HTTP POST al middleware, che sono andato ad utilizzare per ritornare 
+L'\textit{utility} getResults è una funzione progettata per effettuare una richiesta HTTP POST al middleware, che sono andato ad utilizzare per ritornare 
 i risultati della ricerca. Infatti, la ricerca nel mio progetto è spostata lato backend, che è una best practice usata in azienda.
 La chiamata è autenticata, e viene utilizzata insieme alla funzione di debounce, per ritardare l'esecuzione della chiamata POST. Come body della chiamata,
 viene passato il testo che l'utente sta scrivendo nella barra di ricerca.
 
 \paragraph{MsGraphApiCall}\label{par:ms-graph-api-call}
-L'utils MsGraphApiCall contiene al suo interno due funzioni che ho creato per effettuare chiamate all'API di Microsoft Graph. 
+L'\textit{utility} MsGraphApiCall contiene al suo interno due funzioni che ho creato per effettuare chiamate all'API di Microsoft Graph. 
 La prima funzione è una chiamata GET, che viene utilizzata per ottenere i dati relativi all'utente che ha effettuato l'accesso al portale.
 La seconda funzione è sempre una chiamata GET ad un altro endpoint di Microsoft, per ottenere informazioni secondarie sull'utente, come ad esempio l'immagine del profilo.
 Entrambe le chiamate necessitano di un token, diverso dal token utilizzato per le chiamate al middleware. Infatti, questo token è specifico per le chiamate verso Microsoft Graph.
 
 \paragraph{SwaggerUtils}\label{par:swagger-utils}
-% da capire
-
+L'\textit{utility} SwaggerUtils contiene al suo interno una moltitudine di funzionalità utili per la gestione della documentazione delle API e la sua visualizzazione all'interno
+del \textit{MainContent}, spiegato in seguito.
+Al suo interno sono andato inoltre a creare dei plugin utili alla visualizzazione della documentazione, tra cui che parti del file YAML visualizzare, come ad esempio la descrizione, la versione delle API, ecc.
+La \textit{utility} gestisce anche il \textit{try it out} di un endpoint e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
 
 \subsubsection{Config}\label{subsubsec:config}
 \paragraph{ConfigAuth}\label{par:config-auth}
@@ -290,7 +291,6 @@ automaticamente a questa view. La pagina al suo interno contiene un unico compon
   \caption{LoginView}\label{fig:login-view}
 \end{figure}
 % \clearpage
-\pagebreak
 
 Inoltre, per permettere un uso comodo anche in schermi di piccole dimensioni, o comunque utilizzando una scheda del browser ristretta, ho sviluppato
 un design responsive (in figura~\ref{fig:login-view-responsive}), che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti.
@@ -322,7 +322,7 @@ Come si vede dall'immagine si può notare che il menù laterale viene nascosto a
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.6\textwidth, alt={Pagina principale responsive dell'applicazione}]{images/frontend/HomeViewRes.jpg}
+  \includegraphics[width=0.5\textwidth, alt={Pagina principale responsive dell'applicazione}]{images/frontend/HomeViewRes.jpg}
   \caption{HomeView responsive}\label{fig:home-view-responsive}
 \end{figure}
 
@@ -345,6 +345,14 @@ Per tornare alla \textit{HomeView} basterà cliccare sul bottone \textit{Home} e
 Il componente rapppresenta la barra di navigazione superiore dell'applicazione. Esso contiene il logo dell'applicazione, la \textit{chip} con il client-id
 corrente, il bottone di ricerca e il \textit{popover} di logout. 
 La barra viene visualizzata sempre una volta che l'utente ha effettuato il login.\\
+In caso di visualizzazione su schermi ridotti, l'\textit{HedaerNav} avrà un design responsive, dove viene aggiunto nell'estremità sinistra un bottone ad \textit{hamburger}
+che permette di visualizzare la \textit{SideBar} a comparsa.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth, alt={Barra di navigazione superiore con design responsive}]{images/frontend/HeaderRes.jpg}
+  \caption{HeadearNav responsive}\label{fig:header-nav-responsive}
+\end{figure}
 
 \paragraph{MainContent}\label{par:main-content}
 Il componente rappresenta il contenuto principale dell'applicazione. Esso infatti contiene la struttura per visualizzare i dettagli di ogni API (in figura~\ref{fig:main-content}), tramite l'aiuto 
@@ -357,6 +365,7 @@ Nell'angolo destro è stato aggiunto un bottone per il download della documentaz
   \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione dei dettagli di un API}]{images/frontend/DataModelView.jpg}
   \caption{MainContent}\label{fig:main-content}
 \end{figure}
+\pagebreak
 Cliccando su uno degli endpoint disponibili, ci sarà una sezione dedicata per la visualizzazione dei dettagli di esso (in figura~\ref{fig:try-it-out}).
 I parametri e il \textit{Try it out} sono gestiti all'interno dello \textit{utils SwaggerUtils}, infatti il seguente componente comprende solo la definizione
 della struttura.
@@ -394,8 +403,13 @@ quell'ambiente di sviluppo.
 Il componente rappresenta la barra di navigazione laterale dell'applicazione. Esso contiene la lista di tutte le API disponibili nel portale.
 Attraverso la barra sarà possibile navigare tra le varie API, andando a visualizzare i dettagli di ognuna di esse. 
 Il componente è stato sviluppato utilizzando un design responsive, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti, 
-infatti il menù andrà a nascondersi automaticamente e sarà accessibile cliccando l'apposito bottone a forma di \textit{hamburger}.\\
+infatti il menù andrà a nascondersi automaticamente e sarà accessibile cliccando l'apposito bottone a forma di \textit{hamburger} situato nell'\textit{HeaderNav}.\\
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth, alt={Design responsive della barra laterale}]{images/frontend/Sidebar.jpg}
+  \caption{Design responsive SideBar}\label{fig:side-bar-responsive}
+\end{figure}
 
 \paragraph{StartPage}\label{par:start-page}
 % \gls{apig} è un portale che permette di consultare la documentazione delle API disponibili nel sistema.
@@ -511,7 +525,7 @@ la durata del messaggio, il testo da visualizzare, la posizione del componente e
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.3\textwidth, alt={Snackbar di errore}]{images/frontend/SnackBar1.jpg}
+  \includegraphics[width=0.5\textwidth, alt={Snackbar di errore}]{images/frontend/SnackBar1.jpg}
   \caption{SnackBar}\label{fig:snack-bar}
 \end{figure}
 
@@ -538,18 +552,35 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 \subsubsection{Middleware}\label{subsubsec:middleware}
 Il middleware è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta HTTP. 
 Nel mio caso ho utilizato questa funzionalità per svolgere della logica prima che la richiesta venga inoltrata al server e generi una risposta.
-Il middleware è stato utilizzato per due scopi principali: la validazione del token di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
+Il middleware è stato utilizzato per due scopi principali: la validazione del \textit{token JWT} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il middleware intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al server che si occuperà di restituire una risposta.
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato e che verranno descritti in seguito, passerà prima dal middleware. Questo perchè sono andato a specificare
-nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i controller di \textit{client-id}, il controller di \textit{API} e il controller di \textit{search}.\\
-La prima funzione implementata nel middleware è la validazione del token di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
+nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i controller di \textit{client-id}, il controller di \textit{API} e il controller di \textit{search}.
+
+\paragraph{Validazione token JWT}
+La prima funzione implementata nel middleware è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
 La criticità che sorge che un servizio può essere chiamato direttamenente, senza necessità di passare dal portale, dato che ogni \textit{endpoint} ha un \textit{url} pubblico.
 La soluzione che sono andato ad adottare è stata quella di validare il token di autenticazione verificando che qualsiasi chiamata ai miei servizi fosse effettuata da un utente autenticato, avente un token valido nell'\textit{header} della richiesta.
 Per verificare il \textit{token} ho effettuato i seguenti passaggi:
 \begin{enumerate}
-  \item Verifico che il \textit{token} di autenticazione sia presente nell'\textit{header} della richiesta. In caso non lo sia viene restituito un errore 401 spiegando che il token non è presente;
-  \item 
+  \item Verifico che il \textit{token} di autenticazione sia presente nell'\textit{header} della richiesta. In caso non lo sia viene restituito un errore 401;
+  \item Il \textit{token} viene decodificato e viene salvato solo l'\textit{header} di esso. In caso il risultato salvato non sia valido, viene restituito un errore 401;
+  \item Vado ad estrarre il campo \textit{KID}, che identifica quale chiave pubblica verrà utilizzata per la verifica;
+  \item Eseguo una \textit{GET} verso l'\textit{endpoint} di \textit{Microsoft AAD} per ottenere le informazioni di configurazione di \textit{OpenID Connect} (OIDC). 
+  Queste informazioni includono gli \textit{url} da dove è possibile ottenere le chiavi pubbliche per la verifica del \textit{token};
+  \item Vado ad estrarre l'\textit{url} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (JWKS) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
+  \item Effettuo un controllo dhe la chiave pubblica corrispondente all'intestazione del token JWT (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso di nessuna corrispondenza viene restituito un errore 401;
+  \item La chiave pubblica viene convertita e formattata in un certificato \textit{X509} valido;
+  \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato conterrà il \textit{payload} del \textit{token JWT} se la verifica ha successo o genererà un errore se la verifica fallisce.
 \end{enumerate}
+
+\paragraph{GET Supertoken}
+La seconda funzione implementata nel \textit{middleware} è l'acquisizione del \textit{supertoken}, che avviene solamente se la validazione del \textit{token} appena discussa non genera errori.
+Pe ottenere il \textit{supertoken} è necessario effettuare una chiamata verso un \textit{endpoint} aziendale, che restituisce il \textit{supertoken} in base al \textit{client-id} passato come parametro.
+Per prima cosa sono andato a creare dei parametri, aggiungendo l'\textit{username} e il valore che mi è stato fornito dall'azienda.
+Successivamente vado ad effettuare una \textit{POST} verso l'\textit{endpoint} aziendale che mi ritorna il \textit{supertoken}, e in caso di criticità viene restituito un errore.\\
+Il \textit{token} appena ottenuto viene aggiunto all'\textit{header} della richiesta, in modo tale che ogni chiamata verso i miei \textit{endpoint}, avrà il \textit{supertoken} aggiunto automaticamente.
+
 % Forse da aggiungere in architettura progettazione
 
 \subsubsection{Endpoints}\label{subsubsec:endpoints}
@@ -560,7 +591,7 @@ Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettu
 \paragraph{Client-id}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista dei \textit{client-id} disponibili nel sistema.
 È definito dal file \textit{module}, dove al suo interno vengono specificati i vari \textit{controller} e \textit{service} utilizzati.
-Nel \textit{controller} è presente l'endpoint `\textit{/clients}', ovvero un metodo \textit{GET} che restituisce la lista dei \text{client-id} andando
+Nel \textit{controller} è presente l'endpoint `\textit{/clients}', ovvero un metodo \textit{GET} che restituisce la lista dei \textit{client-id} andando
 a chiamare il metodo \textit{getAllClients} del \textit{Service}.
 Come appena anticipato, il \textit{Service} contiene il metodo `\textit{getAllClients}' dove al suo interno viene chiamato un altro endpoint sviluppato dall'azienda, che restituisce 
 la lista dei \textit{client-id} disponibili per l'ambiente di sviluppo in cui ci si trova.
@@ -591,6 +622,3 @@ All'interno della funziona appena citata, è presente tutta la logica di filtrag
 Il servizio che ho creato va a restituire una lista di risultati, dove ogni risultato è un oggetto che contiene il nome del gruppo filtrato con la lista associata al gruppo.
 Inoltre ho impostato un limite di risultati, infatti la chiamata andrà a restituire al massimo dieci risultati per ogni gruppo, evitando di avere una lista troppo lunga di risultati e difficile 
 da visualizzare.
-
-\subsubsection{Lambda}\label{subsubsec:lambda}
-
