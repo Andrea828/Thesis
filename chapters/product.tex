@@ -262,7 +262,11 @@ Nello specifico è stato chiamato bottone per comodità, ma in realtà si tratta
 tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale tramite un \textit{popup}, con successivo reindirizzamento
 alla pagina di login.
 
-%aggiungere foto hover
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth, alt={Popover per il logout dall'applicazione}]{images/frontend/logout.jpg}
+  \caption{LogoutButton}\label{fig:logout-button}
+\end{figure}
 
 % Login
 \subsubsection{LoginButton}\label{subsubsec:login-button}
@@ -388,7 +392,7 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
   \item Eseguo una \textit{GET} verso l'\textit{endpoint} di \textit{Microsoft AAD} per ottenere le informazioni di configurazione di \textit{OpenID Connect} (OIDC). 
   Queste informazioni includono gli \textit{url} da dove è possibile ottenere le chiavi pubbliche per la verifica del \textit{token};
   \item Vado ad estrarre l'\textit{url} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (JWKS) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
-  \item Effettuo un controllo con la chiave pubblica corrispondente all'intestazione del token JWT (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso di nessuna corrispondenza viene restituito un errore 401;
+  \item Effettuo un controllo con la chiave pubblica corrispondente all'intestazione del token JWT (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso non ci sia nessuna corrispondenza viene restituito un errore 401;
   \item La chiave pubblica viene convertita e formattata in un certificato \textit{X509} valido;
   \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato conterrà il \textit{payload} del \textit{token JWT} se la verifica ha successo o genererà un errore se la verifica fallisce.
 \end{enumerate}
@@ -409,7 +413,7 @@ Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettu
 
 \subsubsection{Client-id}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista dei \textit{client-id} disponibili nel sistema.
-È definito dal file \textit{Module}, dove al suo interno vengono specificati i vari \textit{controller} e \textit{service} utilizzati.
+È definito dal file \textit{Module}, dove vengono specificati i vari \textit{controller} e \textit{service} utilizzati.
 Nel \textit{Controller} è presente l'endpoint `\textit{/clients}', ovvero un metodo \textit{GET} che restituisce la lista dei \textit{client-id} andando
 a chiamare il metodo `\textit{getAllClients}' del \textit{Service}.
 All’interno del metodo appena citato, viene chiamato un altro endpoint sviluppato dall'azienda, che restituisce 
@@ -421,7 +425,7 @@ Il metodo ritorna un \textit{array} di stringhe, dove ogni stringa rappresenta u
 
 \subsubsection{API}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di \textit{API} disponibili nel sistema.
-È definito dal file \textit{Module}, dove al suo interno vengono specificati i vari \textit{controller} e \textit{service} utilizzati.
+È definito dal file \textit{Module}, dove vengono specificati i vari \textit{controller} e \textit{service} utilizzati.
 Nel \textit{Controller} è presente l'endpoint `\textit{/apis}', ovvero un metodo \textit{GET} che restituisce la lista delle \textit{API} andando
 a chiamare il metodo `\textit{getAllApis}' del \textit{Service}.
 All'interno del metodo appena citato, è presente la logica necessaria per restituire la lista completa di \textit{API} disponibili, che poi sarà visibile nel portale.
@@ -430,14 +434,12 @@ Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappres
 
 \subsubsection{Search}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di suggerimenti utilizzata per la ricerca globale del portale.
-È definito dal file \textit{Module}, dove al suo interno vengono specificati i vari \textit{controller}, \textit{service} e gli \textit{imports} utilizzati. 
+È definito dal file \textit{Module}, dove vengono specificati i vari \textit{controller}, \textit{service} e gli \textit{imports} utilizzati. 
 Quest'ultimi non sono altro che dei moduli che vengono utilizzati all'interno del \textit{controller}. Nel mio caso sono andato ad importare il modulo \textit{APIModule}
 relativo alle \textit{API} e il modulo \textit{ClientModule} relativo ai \textit{client-id}.
 Nel \textit{Controller} è presente l'endpoint `\textit{/results}', ovvero un metodo \textit{POST} che restituisce la lista di suggerimenti in base ad un parametro di ricerca
 inserito nel \textit{body} della chiamata. Il metodo in primis ottiene le \textit{API} e i \textit{client-id} utilizzando i moduli importati. 
 Successivamente viene chiamato il metodo `\textit{getResults}' del \textit{Service}, al quale vengono passati come parametri il termine di ricerca, la lista delle \textit{API} e la lista dei \textit{client-id}.
-All'interno della funziona appena citata, è presente tutta la logica di filtraggio dei risultati. In precedenza tutta la logica era gestita lato \textit{frontend}, ma successivamente 
-è stata spostata lato \textit{backend} per estrapolare la logica e renderla riutilizzabile in altri progetti, andando così a rispettare una \textit{best practice} aziendale.
-Il servizio che ho creato va a restituire una lista di risultati, dove ogni risultato è un oggetto che contiene il nome del gruppo filtrato con la lista associata al gruppo.
-Inoltre ho impostato un limite di risultati, infatti la chiamata andrà a restituire al massimo dieci risultati per ogni gruppo, evitando di avere una lista troppo lunga di risultati che risulterebbe difficile 
-da visualizzare.
+All'interno della funziona appena citata, è presente tutta la logica di filtraggio dei risultati.\\
+Il servizio che ho creato va a restituire una lista di risultati, ognuno dei quali è un oggetto contenente il nome del gruppo filtrato ed una lista associata ad esso.
+Inoltre, ho impostato un limite massimo di dieci risultati per ciascun gruppo. Questo limite serve a evitare di avere una lista eccessivamente lunga di elementi, che potrebbe risultare difficile da gestire o visualizzare.
