@@ -160,7 +160,7 @@ Per tornare alla \textit{HomeView} basterà cliccare sul bottone \textit{Home} e
 
 % Home
 \subsubsection{HeaderNav}\label{subsubsec:header-nav}
-Il componente rapppresenta la barra di navigazione superiore dell'applicazione. Esso contiene il logo dell'applicazione, la \textit{chip} con il client-id
+Il componente rapppresenta la barra di navigazione superiore dell'applicazione (in figura~\ref{fig:header-nav-responsive}). Essa contiene il logo dell'applicazione, la \textit{chip} con il client-id
 corrente, il bottone di ricerca e il \textit{popover} di logout. 
 La barra viene sempre visualizzata una volta che l'utente ha effettuato il login all'interno del portale.\\
 In caso di visualizzazione su schermi ridotti, l'\textit{HeaderNav} avrà un design responsive, dove viene aggiunto nell'estremità sinistra un bottone ad \textit{hamburger}
@@ -191,15 +191,15 @@ I parametri e il \textit{Try it out} sono gestiti all'interno della \textit{util
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Sezione try it out di un endpoint}]{images/frontend/TryItOut.jpg}
-  \caption{Try it out}\label{fig:try-it-out}
+  \caption{Try it out di un endpoint}\label{fig:try-it-out}
 \end{figure}
 
-Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzato il risultato della chiamata (in figura~\ref{fig:response}).
+Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzato il risultato della chiamata (in figura~\ref{fig:risposta-endpoint}).
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione della risposta di un endpoint}]{images/frontend/TryItOut3.jpg}
-  \caption{Response}\label{fig:response}
+  \caption{Risposta di un endpoint}\label{fig:risposta-endpoint}
 \end{figure}
 
 Inoltre al di sotto sarà presente anche una lista delle possibili risposte che l'endpoint può restituire (in figura~\ref{fig:response-list}).
@@ -207,7 +207,7 @@ Inoltre al di sotto sarà presente anche una lista delle possibili risposte che 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione delle possibili risposte di un endpoint}]{images/frontend/TryItOut4.jpg}
-  \caption{Lista di risposte dell'endpoint}\label{fig:response-list}
+  \caption{Lista di risposte di un endpoint}\label{fig:response-list}
 \end{figure}
 
 \pagebreak
@@ -218,7 +218,7 @@ quell'ambiente di sviluppo.
 
 
 \subsubsection{SideBar}\label{subsubsec:side-bar}
-Il componente rappresenta la barra di navigazione laterale dell'applicazione. Esso contiene la lista di tutte le API disponibili nel portale.
+Il componente rappresenta la barra di navigazione laterale dell'applicazione che contiene la lista di tutte le API disponibili nel portale (in figura~\ref{fig:side-bar-responsive}).
 Attraverso la barra sarà possibile navigare tra le varie API, andando a visualizzare i dettagli di ognuna di esse. 
 Il componente è stato sviluppato utilizzando un design responsive, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti, 
 infatti il menù andrà a nascondersi automaticamente e sarà accessibile cliccando l'apposito bottone a forma di \textit{hamburger} situato nell'\textit{HeaderNav}.\\
