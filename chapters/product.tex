@@ -370,9 +370,9 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 
 \subsection{Middleware}\label{subsec:middleware}
 Il middleware è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta HTTP. 
-Nel mio caso ho utilizzato questa funzionalità per svolgere della logica prima che la richiesta venga inoltrata al server e generi una risposta.
+Nel mio caso ho utilizzato questa funzionalità per svolgere della logica prima che la richiesta venga inoltrata al Controller e generi una risposta.
 Il middleware è stato utilizzato per due scopi principali: la validazione del \textit{token JWT} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
-Basandoci sul ciclo di vita, il middleware intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al server che si occuperà di restituire una risposta.
+Basandoci sul ciclo di vita, il middleware intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al Controller che si occuperà di restituire una risposta.
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato e che verranno descritti in seguito, passerà prima dal middleware. Questo perchè sono andato a specificare
 nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i controller di \textit{client-id}, \textit{API} e \textit{search}.
 
