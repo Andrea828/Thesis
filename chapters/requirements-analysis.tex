@@ -8,18 +8,17 @@
  
 \section{Descrizione dell'applicazione}
 
-Il progetto consiste nel creare un portale che permetta la consultazione di tutte le API THRON con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
-Il prodotto verrà utilizzato internamente all'azienda, più precisamente all'interno della Product Area, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.\\
-% Infatti l'idea principale che ha portato alla realizzazione di questo progetto è stata quella di combattere l'inefficienza nel tempo dovuta al fatto che ogni sviluppatore, doveva impiegare del tempo per recuperare le API che gli servivano, per poi provarle e testarle.
-Il portale è disponibile in tre ambienti di sviluppo: development, quality e production, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
-La differenza principale tra ogni suddivisione è che i client sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un client di produzione involontariamente, che può causare problemi di sicurezza. Inoltre è utile per evitare prove indesiderate, dato che per esempio una chiamata delete su un client di produzione cancellerebbe effettivamente un dato.\\
-Ogni API è formata da più endpoint al suo interno, che possono essere provati singolarmente. Ogni endpoint ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
-Alcune chiamate come le POST o DELETE avranno dei parametri obbligatori da inserire, mentre altre chiamate come le GET, avranno dei parametri opzionali.\\
-In caso l'utente voglia provare le diverse chiamate al di fuori del portale, è possibile scaricare le API in formato YAML, così da poter usare strumenti di terze parti.
+Il progetto consiste nel creare un portale che permetta la consultazione di tutte le \textit{API} THRON con la possibilità di provarle in modo semplice e veloce, direttamente dal portale.
+Il prodotto verrà utilizzato internamente all'azienda, più precisamente all'interno della \textit{Product Area}, con lo scopo di facilitare attività di sviluppo, di testing e di supporto durante le attività giornaliere aziendali.\\
+Il portale è disponibile in tre ambienti di sviluppo: \textit{development}, \textit{quality} e \textit{production}, ognuno dei quali è identificato da un link diverso, che servirà per accedere al portale in quel determinato ambiente.
+La differenza principale tra ogni suddivisione è che i \textit{client-id} sono diversi per ogni ambiente, ciò evita che un utente possa utilizzare un \textit{client-id} di produzione involontariamente, che può causare problemi di sicurezza. Inoltre è utile per evitare prove indesiderate, dato che per esempio una chiamata \textit{delete} su un \textit{client-id} di produzione cancellerebbe effettivamente un dato.\\
+Ogni \textit{API} è formata da più \textit{endpoint} al suo interno, che possono essere provati singolarmente. Ogni \textit{endpoint} ha un elenco di possibili risposte che può ritornare, che dipende dai parametri inseriti nella chiamata.
+Alcune chiamate come le \textit{POST} o \textit{DELETE} avranno dei parametri obbligatori da inserire, mentre altre chiamate come le \textit{GET}, avranno dei parametri opzionali.\\
+In caso l'utente voglia provare le diverse chiamate al di fuori del portale, è possibile scaricare le \textit{API} in formato \textit{YAML}, così da poter usare strumenti di terze parti.
 
 
 \section{Casi d'uso}\label{sec:usecase}
-Questa sezione illustra i casi d'uso individuati nel corso dell'analisi dei requisiti del progetto che sono stati definiti utilizzando il linguaggio Unified Modeling Language (UML).
+Questa sezione illustra i casi d'uso individuati nel corso dell'analisi dei requisiti del progetto che sono stati definiti utilizzando il linguaggio \textit{Unified Modeling Language} (\textit{UML}).
 Ogni caso d'uso offre una panoramica chiara dei diversi attori coinvolti e delle intereazioni che essi intraprendono nel contesto del sistema.\\
 Ogni caso d'uso è indentificato da un codice univoco, che segue la seguente notazione:
 
@@ -27,25 +26,20 @@ Ogni caso d'uso è indentificato da un codice univoco, che segue la seguente not
     \textbf{UC[Codice-padre].[Codice-figlio]}
   \end{center}
 
-% \clearpage
-
-% visibili in figura~\ref{fig:attori-individuati}, più in dettaglio:
 \subsection{Attori}
 Gli attori individuati nel sistema sono i seguenti:
 \begin{itemize}
     \item \textbf{Utente non autenticato}: è un utente che non è autenticato nel sistema e non può accedere alle funzionalità del portale;
     \item \textbf{Utente autenticato}: è un utente che è autenticato nel sistema e che può accedere alle funzionalità del portale;
-    \item \textbf{Microsoft 365}: è un servizio di autenticazione di Microsoft che permette di autenticarsi tramite account aziendale.
+    \item \textbf{Microsoft 365}: è un servizio di autenticazione di \textit{Microsoft} che permette di autenticarsi tramite \textit{\textit{account}} aziendale.
 
 \end{itemize}
 
 \clearpage
 
-
 \subsection{Descrizione del sistema}
 
 Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase-scenario-principale}) che mostra i casi d'uso individuati nel sistema e le relazioni tra di essi.
-% \emptyline
 
 \begin{figure}[h]
     \centering
@@ -54,13 +48,6 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
     }%
     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
 \end{figure}
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=\textwidth]{images/usecase/DeveloperPortalHub.jpg}
-%     \caption{Scenario principale}\label{fig:usecase-scenario-principale}
-% \end{figure}
-
-
 
 \clearpage    
 
@@ -74,15 +61,15 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente seleziona il link del portale a seconda dell'ambiente di sviluppo che vuole avviare (development, quality e production).
+            \item L'utente seleziona il link del portale a seconda dell'ambiente di sviluppo che vuole avviare (\textit{development}, \textit{quality} e \textit{production}).
         \end{enumerate}
 
 \end{usecase}
 
 % UC 2 - Login
 \begin{usecase}{2}{Login}\label{uc:login}
-    \usecaseactors{Utente non autenticato, Microsoft 365}
-    \usecasepre{ L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecaseactors{Utente non autenticato, \textit{Microsoft 365}}
+    \usecasepre{ L'utente possiede un \textit{account} valido per autenticazione tramite \textit{Microsoft 365} che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente vuole accedere al sistema e deve inserire le proprie credenziali per accedervi}
     \usecasepost{L'utente è autenticato correttamente e può procedere con l'utilizzo di tutte le funzionalità disponibili all'interno del sistema}
 
@@ -90,7 +77,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
         \begin{enumerate}
             \item L'utente inserisce la propria e-mail;
             \item L'utente inserisce la propria password;
-            \item Microsoft 365 verifica le credenziali inserite, in base ai permessi configurati.
+            \item \textit{Microsoft 365} verifica le credenziali inserite, in base ai permessi configurati.
         \end{enumerate}
 
     \usecaseext{}
@@ -117,7 +104,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 % UC 2.1 - Inserimento e-mail
 \begin{usecase}{2.1}{Inserimento e-mail}\label{uc:inserimento-email}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasepre{L'utente possiede un \textit{account} valido per autenticazione tramite \textit{Microsoft 365} che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente deve inserire la propria e-mail per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria e-mail, può quindi procedere a completare il processo di autenticazione}
 
@@ -132,7 +119,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 % UC 2.2 - Inserimento password
 \begin{usecase}{2.2}{Inserimento password}\label{uc:inserimento-password}
     \usecaseactors{Utente non autenticato}
-    \usecasepre{L'utente possiede un account valido per autenticazione tramite Microsoft 365 che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
+    \usecasepre{L'utente possiede un \textit{account} valido per autenticazione tramite \textit{Microsoft 365} che appartiene al gruppo autorizzato per il login al sistema. Inoltre l'utente non è autenticato e si trova nella pagina di login}
     \usecasedesc{L'utente deve inserire la propria password per autenticarsi al sistema}
     \usecasepost{L'utente ha inserito la propria password e può concludere il processo di autenticazione}
 
@@ -145,7 +132,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 \clearpage
 % UC 3 - Visualizzazione messggio di errore login
-\begin{usecase}{3}{Visualizzazione messggio di errore login}\label{uc:visualizzazione-errore-login}
+\begin{usecase}{3}{Visualizzazione messaggio di errore login}\label{uc:visualizzazione-errore-login}
     \usecaseactors{Utente non autenticato}
     \usecasepre{L'utente ha inserito una tra le due credenziali email o password in modo errato}
     \usecasedesc{L'utente deve inserire delle credenziali corrette per poter effettuare il login correttamente}
@@ -159,7 +146,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 
 % UC 4 - Visualizzazione home page
-\begin{usecase}{4}{Visualizzazione home page}\label{uc:visualizzasioen-home-page}
+\begin{usecase}{4}{Visualizzazione \textit{home page}}\label{uc:visualizzasioen-home-page}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
     \usecasedesc{L'utente vuole visualizzare la pagina principale}
@@ -172,8 +159,8 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
     \usecasegen{Come da figura~\ref{fig:uc:visualizzazione-home-page}:}
         \begin{enumerate}
-            \item Visualizzazione lista APIs disponibili UC4.1;
-            \item Visualizzazione client-id di default UC4.2;
+            \item Visualizzazione lista \textit{APIs} disponibili UC4.1;
+            \item Visualizzazione \textit{client-id} di default UC4.2;
             \item Visualizzazione dettagli utente autenticato UC4.3.
         \end{enumerate}
 
@@ -188,28 +175,28 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 \pagebreak
 
 % UC 4.1 - Visualizzazione lista APIs disponibili
-\begin{usecase}{4.1}{Visualizzazione lista APIs disponibili}\label{uc:visualizzazione-lista-apis-disponibili}
+\begin{usecase}{4.1}{Visualizzazione lista \textit{APIs} disponibili}\label{uc:visualizzazione-lista-apis-disponibili}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
-    \usecasedesc{L'utente vuole visualizzare la lista di API disponibili per la consultazione all'interno del sistema}
-    \usecasepost{L'utente ha visualizzato la lista di API disponibili all'interno del sistema}
+    \usecasedesc{L'utente vuole visualizzare la lista di \textit{API} disponibili per la consultazione all'interno del sistema}
+    \usecasepost{L'utente ha visualizzato la lista di \textit{API} disponibili all'interno del sistema}
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza la lista di API disponibili all'interno del sistema.
+            \item L'utente visualizza la lista di \textit{API} disponibili all'interno del sistema.
         \end{enumerate}
 
 \end{usecase}
 
 % UC 4.2 - Visualizzazione client-id di default
-\begin{usecase}{4.2}{Visualizzazione client-id di default}\label{uc:visualizzazione-client-id-di-default}
+\begin{usecase}{4.2}{Visualizzazione \textit{client-id} di default}\label{uc:visualizzazione-client-id-di-default}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
-    \usecasedesc{L'utente vuole visualizzare il client-id di default impostato nell'ambiente corrente}
-    \usecasepost{L'utente ha visualizzato il client-id di default impostato nell'ambiente corrente in cui si trova}
+    \usecasedesc{L'utente vuole visualizzare il \textit{client-id} di default impostato nell'ambiente corrente}
+    \usecasepost{L'utente ha visualizzato il \textit{client-id} di default impostato nell'ambiente corrente in cui si trova}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza il client-id di default impostato nell'ambiente corrente in cui si trova.
+            \item L'utente visualizza il \textit{client-id} di default impostato nell'ambiente corrente in cui si trova.
         \end{enumerate}
 
 \end{usecase}
@@ -221,31 +208,31 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato ed è stato reindirizzato alla pagina principale}
     \usecasedesc{L'utente vuole visualizzare i propri dati personali, ovvero del proprio utente autenticato}
-    \usecasepost{L'utente visualizza i dati personali del proprio account autenticato nel sistema}
+    \usecasepost{L'utente visualizza i dati personali del proprio \textit{account} autenticato nel sistema}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza le informazioni personali del proprio account autenticato nel sistema.
+            \item L'utente visualizza le informazioni personali del proprio \textit{account} autenticato nel sistema.
         \end{enumerate}
 
 \end{usecase}
 
 % UC 5 Visualizzazione dettagli singola API
-\begin{usecase}{5}{Visualizzazione dettagli singola API}\label{uc:visualizzazione-dettagli-singola-api}
+\begin{usecase}{5}{Visualizzazione dettagli singola \textit{API}}\label{uc:visualizzazione-dettagli-singola-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato e si trova nella pagina principale}
-    \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di una singola API}
-    \usecasepost{L'utente ha visualizzato la pagina di dettaglio di una singola API tra quelle presenti nel sistema}
+    \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di una singola \textit{API}}
+    \usecasepost{L'utente ha visualizzato la pagina di dettaglio di una singola \textit{API} tra quelle presenti nel sistema}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca su una delle API presenti nella lista di API disponibili all'interno del sistema.
-            \item L'utente visualizza la pagina di dettaglio della singola API selezionata.
+            \item L'utente clicca su una delle \textit{API} presenti nella lista di \textit{API} disponibili all'interno del sistema.
+            \item L'utente visualizza la pagina di dettaglio della singola \textit{API} selezionata.
         \end{enumerate}
 
     \usecasegen{Come da figura~\ref{fig:uc:visualizzazione-dettaglio-singola-api}:}
         \begin{enumerate}
-            \item Visualizzazione lista endpoint disponibili UC5.1.
+            \item Visualizzazione lista \textit{endpoint} disponibili UC5.1.
         \end{enumerate}
 
 \end{usecase}
@@ -259,20 +246,20 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
   \pagebreak
 
 % UC 5.1 Visualizzazione lista endpoint disponibili
-\begin{usecase}{5.1}{Visualizzazione lista endpoint disponibili}\label{uc:visualizzazione-lista-endpoint-disponibili}
+\begin{usecase}{5.1}{Visualizzazione lista \textit{endpoint} disponibili}\label{uc:visualizzazione-lista-endpoint-disponibili}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato e sta visualizzando la pagina di dettaglio di una singola API}
-    \usecasedesc{L'utente vuole visualizzare la lista completa di endpoint disponibili per l'API}
-    \usecasepost{L'utente visualizza la lista completa di endpoint disponibili per l'API}
+    \usecasepre{L'utente è autenticato e sta visualizzando la pagina di dettaglio di una singola \textit{API}}
+    \usecasedesc{L'utente vuole visualizzare la lista completa di \textit{endpoint} disponibili per l'\textit{API}}
+    \usecasepost{L'utente visualizza la lista completa di \textit{endpoint} disponibili per l'\textit{API}}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza la lista completa di endpoint disponibili per l'API che ha selezionato.
+            \item L'utente visualizza la lista completa di \textit{endpoint} disponibili per l'\textit{API} che ha selezionato.
         \end{enumerate}
 
     \usecasegen{Come da figura~\ref{fig:uc:visualizzazione-lista-endpoint-disponibili}:}
         \begin{enumerate}
-            \item Visualizzazione dettaglio singolo endpoint UC5.1.1.
+            \item Visualizzazione dettaglio singolo \textit{endpoint} UC5.1.1.
         \end{enumerate}
 
 \end{usecase}
@@ -286,81 +273,81 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 
 % UC 5.1.1 Visualizzazione dettaglio singolo endpoint
-\begin{usecase}{5.1.1}{Visualizzazione dettaglio singolo endpoint}\label{uc:visualizzazione-dettaglio-singolo-endpoint}
+\begin{usecase}{5.1.1}{Visualizzazione dettaglio singolo \textit{endpoint}}\label{uc:visualizzazione-dettaglio-singolo-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando la pagina di dettaglio di una singola API contenente la lista di endpoint disponibili}
-    \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di un singolo endpoint}
-    \usecasepost{L'utente visualizza la pagina di dettaglio di un singolo endpoint}
+    \usecasepre{L'utente è autenticato, sta visualizzando la pagina di dettaglio di una singola \textit{API} contenente la lista di \textit{endpoint} disponibili}
+    \usecasedesc{L'utente vuole visualizzare la pagina di dettaglio di un singolo \textit{endpoint}}
+    \usecasepost{L'utente visualizza la pagina di dettaglio di un singolo \textit{endpoint}}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca sullo specifico endpoint che vuole visualizzare;
-            \item L'utente visualizza i dettagli disponibili per l'endpoint selezionato.
+            \item L'utente clicca sullo specifico \textit{endpoint} che vuole visualizzare;
+            \item L'utente visualizza i dettagli disponibili per l'\textit{endpoint} selezionato.
         \end{enumerate}
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione lista di possibili risposte endpoint UC6.
+            \item Visualizzazione lista di possibili risposte \textit{endpoint} UC6.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 6 Visualizzazione lista di possibili risposte endpoint
-\begin{usecase}{6}{Visualizzazione lista di possibili risposte endpoint}\label{uc:visualizzazione-risposte-endpoint}
+\begin{usecase}{6}{Visualizzazione lista di possibili risposte \textit{endpoint}}\label{uc:visualizzazione-risposte-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando la sezione di dettaglio di un singolo endpoint}
-    \usecasedesc{L'utente vuole visualizzare la lista dei possibili risultati possibili per l'endpoint selezionato}
-    \usecasepost{L'utente visualizza la lista delle possibili risposte disponibili per l'endpoint che ha selezionato}
+    \usecasepre{L'utente è autenticato, sta visualizzando la sezione di dettaglio di un singolo \textit{endpoint}}
+    \usecasedesc{L'utente vuole visualizzare la lista dei possibili risultati possibili per l'\textit{endpoint} selezionato}
+    \usecasepost{L'utente visualizza la lista delle possibili risposte disponibili per l'\textit{endpoint} che ha selezionato}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza i dettagli riguardanti le possibili risposte che l'endpoint selezionato può ritornare.
+            \item L'utente visualizza i dettagli riguardanti le possibili risposte che l'\textit{endpoint} selezionato può ritornare.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 7 Download singola API
-\begin{usecase}{7}{Download singola API}\label{uc:download-singola-api}
+\begin{usecase}{7}{Download singola \textit{API}}\label{uc:download-singola-api}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato ed ha selezionato una API dalla lista di API disponibili nel sistema}
-    \usecasedesc{L'utente vuole poter scaricare in formato YAML un API dal portale}
-    \usecasepost{L'utente ha scaricato in formato YAML un API dal portale}
+    \usecasepre{L'utente è autenticato ed ha selezionato una \textit{API} dalla lista di \textit{API} disponibili nel sistema}
+    \usecasedesc{L'utente vuole poter scaricare in formato \textit{YAML} un \textit{API} dal portale}
+    \usecasepost{L'utente ha scaricato in formato \textit{YAML} un \textit{API} dal portale}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente scarica il formato YAML di un API dal portale, tra quelle disponibili;
-            \item Una nuova pagina si apre e il download dell'API viene eseguito;
-            \item Il nome del file è già impostato con il nome dell'API scaricata.
+            \item L'utente scarica il formato \textit{YAML} di un \textit{API} dal portale, tra quelle disponibili;
+            \item Una nuova pagina si apre e il download dell'\textit{API} viene eseguito;
+            \item Il nome del file è già impostato con il nome dell'\textit{API} scaricata.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 8 Try it out endpoint
-\begin{usecase}{8}{Try it out endpoint}\label{uc:try-it-out-endpoint}
+\begin{usecase}{8}{Try it out \textit{endpoint}}\label{uc:try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo endpoint di un API disponibile nel sistema}
-    \usecasedesc{L'utente vuole poter provare l'endpoint selezionato}
-    \usecasepost{L'utente ha provato l'endpoint selezionato}
+    \usecasepre{L'utente è autenticato, sta visualizzando i dettagli di un singolo \textit{endpoint} di un \textit{API} disponibile nel sistema}
+    \usecasedesc{L'utente vuole poter provare l'\textit{endpoint} selezionato}
+    \usecasepost{L'utente ha provato l'\textit{endpoint} selezionato}
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente ha selezionato una determinata API;
-            \item L'utente ha selezionato un determinato endpoint di quell'API;
-            \item L'utente ha cliccato sul pulsante per provare l'endpoint selezionato.
+            \item L'utente ha selezionato una determinata \textit{API};
+            \item L'utente ha selezionato un determinato \textit{endpoint} di quell'\textit{API};
+            \item L'utente ha cliccato sul pulsante per provare l'\textit{endpoint} selezionato.
         \end{enumerate}
 
     \usecaseext{}
         \begin{enumerate}
-            \item Visualizzazione errore nella prova dell'endpoint selezionato UC9;
-            \item Visualizzazione risposta endpoint UC10.
+            \item Visualizzazione errore nella prova dell'\textit{endpoint} selezionato UC9;
+            \item Visualizzazione risposta \textit{endpoint} UC10.
         \end{enumerate}
 
     \usecasegen{Come da figura~\ref{fig:uc:try-it-out-endpoint}:}
         \begin{enumerate}
-            \item Inserimento parametri per try it out endpoint UC8.1;
-            \item Definire campi aggiuntivi per try it out endpoint UC8.2.
+            \item Inserimento parametri per \textit{try it out endpoint} UC8.1;
+            \item Definire campi aggiuntivi per \textit{try it out endpoint} UC8.2.
         \end{enumerate}
 
 \end{usecase}
@@ -374,25 +361,25 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 % \\
 
 % UC 8.1 Inserimento parametri necessari per la prova dell'endpoint     
-\begin{usecase}{8.1}{Inserimento parametri per try it out endpoint}\label{uc:inserimento-parametri-try-it-out-endpoint}
+\begin{usecase}{8.1}{Inserimento parametri per \textit{try it out endpoint}}\label{uc:inserimento-parametri-try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione di inserimento dei parametri}
-    \usecasedesc{L'utente vuole poter inserire i parametri necessari per la prova dell'endpoint}
-    \usecasepost{L'utente ha inserito i parametri necessari alla chiamata verso l'endpoint}
+    \usecasepre{L'utente è autenticato, sta visualizzando la schermata di \textit{try it out} nella sezione di inserimento dei parametri}
+    \usecasedesc{L'utente vuole poter inserire i parametri necessari per la prova dell'\textit{endpoint}}
+    \usecasepost{L'utente ha inserito i parametri necessari alla chiamata verso l'\textit{endpoint}}
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente inserisce i parametri richiesti per la chiamata verso l'endpoint selezionato.
+            \item L'utente inserisce i parametri richiesti per la chiamata verso l'\textit{endpoint} selezionato.
         \end{enumerate}
 
 \end{usecase}
 
 
 % UC 8.2 Definire campi aggiuntivi per try it out endpoint
-\begin{usecase}{8.2}{Definire campi aggiuntivi per try it out endpoint}\label{uc:definire-campi-try-it-out-endpoint}
+\begin{usecase}{8.2}{Definire campi aggiuntivi per \textit{try it out endpoint}}\label{uc:definire-campi-try-it-out-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta visualizzando la schermata di try it out nella sezione dei parametri aggiuntivi}
-    \usecasedesc{L'utente vuole poter definire dei campi aggiuntivi ai parametri già esistenti, per poi andare a provare la chiamata verso l'endpoint}
-    \usecasepost{L'utente ha creato dei parametri aggiuntivi per la chiamata verso l'endpoint}
+    \usecasepre{L'utente è autenticato, sta visualizzando la schermata di \textit{try it out} nella sezione dei parametri aggiuntivi}
+    \usecasedesc{L'utente vuole poter definire dei campi aggiuntivi ai parametri già esistenti, per poi andare a provare la chiamata verso l'\textit{endpoint}}
+    \usecasepost{L'utente ha creato dei parametri aggiuntivi per la chiamata verso l'\textit{endpoint}}
 
     \usecasemain{}
         \begin{enumerate}
@@ -402,10 +389,10 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 \end{usecase}
 
 % UC 9 Visualizzazione errore nella prova dell'endpoint selezionato
-\begin{usecase}{9}{Visualizzazione errore nella prova dell'endpoint selezionato}\label{uc:visualizzazione-errore-prova-endpoint-selezionato}
+\begin{usecase}{9}{Visualizzazione errore nella prova dell'\textit{endpoint} selezionato}\label{uc:visualizzazione-errore-prova-endpoint-selezionato}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, è nella sezione di prova di un endpoint ed ha inserito dei parametri errati}
-    \usecasedesc{L'utente deve inserire dei parametri corretti per poter provare l'endpoint senza riscontrare errori} 
+    \usecasepre{L'utente è autenticato, è nella sezione di prova di un \textit{endpoint} ed ha inserito dei parametri errati}
+    \usecasedesc{L'utente deve inserire dei parametri corretti per poter provare l'\textit{endpoint} senza riscontrare errori} 
     \usecasepost{L'utente ha inserito dei parametri parzialmente o in modo scorretto e non può procedere con l'esecuzione della chiamata}
 
     \usecasemain{}
@@ -417,15 +404,15 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 
 % UC 10 Visualizzazione risposta endpoint
-\begin{usecase}{10}{Visualizzazione risposta endpoint}\label{uc:visualizzazione-risposta-endpoint}
+\begin{usecase}{10}{Visualizzazione risposta \textit{endpoint}}\label{uc:visualizzazione-risposta-endpoint}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, è nella sezione di prova di un endpoint ed ha inserito dei parametri corretti}
-    \usecasedesc{L'utente vuole visualizzare la risposta dell'endpoint}
-    \usecasepost{L'utente visualizza la risposta adeguata alla chiamata verso l'endpoint, in base ai parametri inseriti}
+    \usecasepre{L'utente è autenticato, è nella sezione di prova di un \textit{endpoint} ed ha inserito dei parametri corretti}
+    \usecasedesc{L'utente vuole visualizzare la risposta dell'\textit{endpoint}}
+    \usecasepost{L'utente visualizza la risposta adeguata alla chiamata verso l'\textit{endpoint}, in base ai parametri inseriti}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza la risposta dell'endpoint, uno tra quelle possibili contenute nella descrizione dell'endpoint. La risposta varia in base ai parametri inseriti.
+            \item L'utente visualizza la risposta dell'\textit{endpoint}, uno tra quelle possibili contenute nella descrizione dell'\textit{endpoint}. La risposta varia in base ai parametri inseriti.
         \end{enumerate}
 
 \end{usecase}
@@ -433,17 +420,17 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 \clearpage
 
 % UC 11 Ricerca per client-id
-\begin{usecase}{11}{Ricerca per client-id}\label{uc:ricerca-client-id}
+\begin{usecase}{11}{Ricerca per \textit{client-id}}\label{uc:ricerca-client-id}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato e sta navigando all'interno del sistema} 
-    \usecasedesc{L'utente vuole poter ricercare un client-id all'interno del sistema}
-    \usecasepost{L'utente effettua una ricerca per client-id e il sistema ha restituito i risultati della ricerca}
+    \usecasedesc{L'utente vuole poter ricercare un \textit{client-id} all'interno del sistema}
+    \usecasepost{L'utente effettua una ricerca per \textit{client-id} e il sistema ha restituito i risultati della ricerca}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca il bottone per effettuare la ricerca per client-id;
-            \item L'utente inserisce nell'apposito campo il client-id che vuole cercare all'interno del sistema;
-            \item Il sistema ricerca il client-id inserito e restituisce i risultati della ricerca;
+            \item L'utente clicca il bottone per effettuare la ricerca per \textit{client-id};
+            \item L'utente inserisce nell'apposito campo il \textit{client-id} che vuole cercare all'interno del sistema;
+            \item Il sistema ricerca il \textit{client-id} inserito e restituisce i risultati della ricerca;
             \item Il sistema aggiunge l'ultima ricerca effettuata alla cronologia delle ultime ricerche.
         \end{enumerate}
 
@@ -458,31 +445,31 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 % % UC 12 Visualizzazione messaggio di errore di ricerca
 \begin{usecase}{12}{Visualizzazione messaggio di errore di ricerca}\label{uc:visualizzazione-errore-ricerca}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato e ha cercato un client-id o un API inesistente nel sistema}
-    \usecasedesc{L'utente deve inserire un client-id o un API esistente nel sistema per poter effettuare la ricerca. Inoltre il client-id deve esistere per l'ambiente selezionato}
-    \usecasepost{L'utente ha inserito un client-id o un API inesistente nel sistema e visualizza un messaggio di errore}
+    \usecasepre{L'utente è autenticato e ha cercato un \textit{client-id} o un \textit{API} inesistente nel sistema}
+    \usecasedesc{L'utente deve inserire un \textit{client-id} o un \textit{API} esistente nel sistema per poter effettuare la ricerca. Inoltre il \textit{client-id} deve esistere per l'ambiente selezionato}
+    \usecasepost{L'utente ha inserito un \textit{client-id} o un \textit{API} inesistente nel sistema e visualizza un messaggio di errore}
 
     \usecasemain{}
         \begin{enumerate}
             \item L'utente visualizza un messaggio di errore che lo informa che la ricerca effettuata non ha prodotto nessun risultato, indicando che ciò è dovuto al fatto
-            che il client-id o l'API cercata non è presente nel sistema, oppure non esiste quel client-id per l'ambiente selezionato.
+            che il \textit{client-id} o l'\textit{API} cercata non è presente nel sistema, oppure non esiste quel \textit{client-id} per l'ambiente selezionato.
         \end{enumerate}
 
 \end{usecase}
 
 \clearpage
 % UC 13 Ricerca per API
-\begin{usecase}{13}{Ricerca per API}\label{uc:ricerca-api}
+\begin{usecase}{13}{Ricerca per \textit{API}}\label{uc:ricerca-api}
     \usecaseactors{Utente autenticato}
     \usecasepre{L'utente è autenticato e sta navigando all'interno del sistema}
-    \usecasedesc{L'utente vuole poter ricercare un API all'interno del sistema}
-    \usecasepost{L'utente effettua una ricerca per API e il sistema ha restituito i risultati della ricerca}
+    \usecasedesc{L'utente vuole poter ricercare un \textit{API} all'interno del sistema}
+    \usecasepost{L'utente effettua una ricerca per \textit{API} e il sistema ha restituito i risultati della ricerca}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca il bottone per effettuare la ricerca per API;
-            \item L'utente inserisce nell'apposito campo l'API che vuole cercare all'interno del sistema;
-            \item Il sistema ricerca l'API inserita e restituisce i risultati della ricerca;
+            \item L'utente clicca il bottone per effettuare la ricerca per \textit{API};
+            \item L'utente inserisce nell'apposito campo l'\textit{API} che vuole cercare all'interno del sistema;
+            \item Il sistema ricerca l'\textit{API} inserita e restituisce i risultati della ricerca;
             \item Il sistema aggiunge l'ultima ricerca effettuata alla cronologia delle ultime ricerche.
         \end{enumerate}
 
@@ -495,16 +482,16 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 
 % UC 14 Reset client-id corrente
-\begin{usecase}{14}{Reset client-id corrente}\label{uc:reset-client-id}
+\begin{usecase}{14}{Reset \textit{client-id} corrente}\label{uc:reset-client-id}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato, sta navigando all'interno del sistema e ha già selezionato un client-id che non è quello di default} 
-    \usecasedesc{L'utente vuole poter resettare il client-id corrente e tornare al client-id di default per l'ambiente selezionato}
-    \usecasepost{L'utente ha resettato il client-id corrente e ora visualizza il client-id di default per l'ambiente selezionato}
+    \usecasepre{L'utente è autenticato, sta navigando all'interno del sistema e ha già selezionato un \textit{client-id} che non è quello di default} 
+    \usecasedesc{L'utente vuole poter resettare il \textit{client-id} corrente e tornare al \textit{client-id} di default per l'ambiente selezionato}
+    \usecasepost{L'utente ha resettato il \textit{client-id} corrente e ora visualizza il \textit{client-id} di default per l'ambiente selezionato}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente clicca il bottone per resettare il client-id corrente;
-            \item Il sistema resetta il client-id corrente ed imposta il client-id al valore di default a seconda dell'ambiente selezionato.
+            \item L'utente clicca il bottone per resettare il \textit{client-id} corrente;
+            \item Il sistema resetta il \textit{client-id} corrente ed imposta il \textit{client-id} al valore di default a seconda dell'ambiente selezionato.
         \end{enumerate}
     \clearpage
     \usecaseext{}
@@ -518,13 +505,13 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 % UC 15 Visualizzazione messaggio di errore reset
 \begin{usecase}{15}{Visualizzazione messaggio di errore reset}\label{uc:visualizzazione-errore-reset}
     \usecaseactors{Utente autenticato}
-    \usecasepre{L'utente è autenticato e ha provato a resettare il client-id corrente che è quello di default per l'ambiente selezionato}
-    \usecasedesc{L'utente deve aver selezionato un client-id diverso da quello di default, per poterlo resettare}
-    \usecasepost{L'utente ha provato a resettare il client-id corrente, ma risulta essere quello di default}
+    \usecasepre{L'utente è autenticato e ha provato a resettare il \textit{client-id} corrente che è quello di default per l'ambiente selezionato}
+    \usecasedesc{L'utente deve aver selezionato un \textit{client-id} diverso da quello di default, per poterlo resettare}
+    \usecasepost{L'utente ha provato a resettare il \textit{client-id} corrente, ma risulta essere quello di default}
 
     \usecasemain{}
         \begin{enumerate}
-            \item L'utente visualizza un messaggio di errore che lo informa che il client-id corrente è quello di default per l'ambiente selezionato e non può essere resettato.
+            \item L'utente visualizza un messaggio di errore che lo informa che il \textit{client-id} corrente è quello di default per l'ambiente selezionato e non può essere resettato.
         \end{enumerate}
 
 \end{usecase}
@@ -532,7 +519,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 % UC 16 Logout
 \begin{usecase}{16}{Logout}\label{uc:}
-    \usecaseactors{Utente autenticato, Microsoft 365}
+    \usecaseactors{Utente autenticato, \textit{Microsoft 365}}
     \usecasepre{L'utente è autenticato e vuole uscire dalla sessione corrente}
     \usecasedesc{L'utente vuole effettuare il logout dal sistema}
     \usecasepost{L'utente effettua il logout dal sistema terminando la sessione corrente, non è più autenticato e viene reindirizzato alla pagina di login}
@@ -540,7 +527,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
     \usecasemain{}
         \begin{enumerate}
             \item L'utente clicca il bottone per effettuare il logout;
-            \item Microsoft 365 effettua il logout dell'utente terminando la sessione.
+            \item \textit{Microsoft 365} effettua il logout dell'utente terminando la sessione.
         \end{enumerate}
 
 \end{usecase}
@@ -549,7 +536,7 @@ Di seguito viene illustrato un diagramma riassuntivo (in figura~\ref{fig:usecase
 
 \section{Tracciamento dei requisiti}
 
-In questa sezione vengono riportati i requisiti indiduati durante il progetto di stage.
+In questa sezione vengono riportati i requisiti individuati durante il progetto di stage.
 Questo capitolo si sofferma in particolare sulla classificazione dei requisiti in tre categorie principali:
 \begin{itemize}
     \item \textbf{Requisiti funzionali}: delineano le funzionalità che il sistema deve offrire. Essi delineano le azioni specifiche che il sistema deve eseguire, le risposte attese a determinati input e le dinamiche generali delle operazioni;
@@ -571,16 +558,12 @@ Ciascun requisito è identificato da un codice univoco, che segue la seguente no
   \item \textbf{Codice} indica il codice identificativo del requisito.
   \end{itemize}
 
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti tramite una breve descrizione accompagnata dalle fonti da cui è stato individuato il requisito per
+Nelle tabelle~\ref{tab:requisiti-funzionali},~\ref{tab:requisiti-qualitativi} e~\ref{tab:requisiti-vincolo} sono riassunti i requisiti tramite una breve descrizione accompagnata dalle fonti da cui è stato individuato il requisito per
 facilitarne la tracciabilità. 
 
-% \newpage
+\pagebreak
 
 \subsubsection{Requisiti funzionali}
-
-% \renewcommand{\arraystretch}{1.1} % Adjust the spacing inside the cells
-% % Redefine column type to center the content
-% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
 
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti funzionali}\label{tab:requisiti-funzionali}
@@ -590,7 +573,7 @@ facilitarne la tracciabilità.
 \hline
 RFO-1 &L'utente deve scegliere l'ambiente di sviluppo & UC1 \\
 \hline
-RFO-2 &Il sistema deve permettere l'autenticazione ad un utente con un account valido & UC2 \\
+RFO-2 &Il sistema deve permettere l'autenticazione ad un utente con un \textit{account} valido & UC2 \\
 \hline
 RFO-2.1 & L'utente deve inserire la propria mail & UC2.1 \\
 \hline
@@ -601,41 +584,41 @@ RFO-3 &Il sistema deve avvisare l'utente tramite un messaggio di errore che le c
 \hline
 RFO-4 &Il sistema deve reindirizzare l'utente alla pagina principale, dopo che il login è andato a buon fine & UC4 \\
 \hline
-RFO-4.1 &L'utente deve poter visualizzare la lista di API disponibili nel sistema & UC4.1 \\
+RFO-4.1 &L'utente deve poter visualizzare la lista di \textit{API} disponibili nel sistema & UC4.1 \\
 \hline
-RFO-4.2 &L'utente deve poter visualizzare la lista di client-id di default impostata nell'ambiente di sviluppo in cui si trova & UC4.2 \\
+RFO-4.2 &L'utente deve poter visualizzare la lista di \textit{client-id} di default impostata nell'ambiente di sviluppo in cui si trova & UC4.2 \\
 \hline
-RFO-4.3 &L'utente deve poter visualizzare i dettagli relativi al suo account & UC4.3 \\
+RFO-4.3 &L'utente deve poter visualizzare i dettagli relativi al suo \textit{account} & UC4.3 \\
 \hline
-RFO-5 &L'utente deve poter visualizzare i dettagli relativi ad una singola API  & UC5 \\
+RFO-5 &L'utente deve poter visualizzare i dettagli relativi ad una singola \textit{API}  & UC5 \\
 \hline
-RFO-5.1 &L'utente deve poter visualizzare la lista di endpoint disponibili all'interno del sistema & UC5.1 \\
+RFO-5.1 &L'utente deve poter visualizzare la lista di \textit{endpoint} disponibili all'interno del sistema & UC5.1 \\
 \hline
-RFO-5.1.1 &L'utente deve poter visualizzare i dettagli relativi ad un singolo endpoint di una determinata API & UC5.1.1 \\
+RFO-5.1.1 &L'utente deve poter visualizzare i dettagli relativi ad un singolo \textit{endpoint} di una determinata \textit{API} & UC5.1.1 \\
 \hline
-RFO-6 &L'utente deve poter visualizzare l'elenco delle possibili risposte per il determinato endpoint selezionato & UC6 \\
+RFO-6 &L'utente deve poter visualizzare l'elenco delle possibili risposte per il determinato \textit{endpoint} selezionato & UC6 \\
 \hline
-RFO-7 &Il sistema deve permettere il download all'utente di una singola API & UC7 \\
+RFO-7 &Il sistema deve permettere il download all'utente di una singola \textit{API} & UC7 \\
 \hline
-RFO-8 &Il sistema deve permettere il try it out di un singolo endpoint all'utente & UC8 \\
+RFO-8 &Il sistema deve permettere il \textit{try it out} di un singolo \textit{endpoint} all'utente & UC8 \\
 \hline
-RFO-8.1 &Il sistema deve permettere l'inserimento dei parametri necessari per il try it out di un endpoint & UC8.1 \\
+RFO-8.1 &Il sistema deve permettere l'inserimento dei parametri necessari per il \textit{try it out} di un \textit{endpoint} & UC8.1 \\
 \hline
-RFD-8.2 &Il sistema deve permettere la possibilità di definire dei campi aggiuntivi per il try it out di un endpoint & UC8.2 \\
+RFD-8.2 &Il sistema deve permettere la possibilità di definire dei campi aggiuntivi per il \textit{try it out} di un \textit{endpoint} & UC8.2 \\
 \hline
 RFO-9 &Il sistema deve avvisare l'utente tramite un messaggio di errore che i parametri inseriti non sono corretti o incompleti & UC9 \\
 \hline
-RFO-10 &L'utente deve poter visualizzare la risposta dell'endpoint che ha provato & UC10 \\
+RFO-10 &L'utente deve poter visualizzare la risposta dell'\textit{endpoint} che ha provato & UC10 \\
 \hline
-RFO-11 &Il sistema deve permettere all'utente di poter effettuare una ricerca per client-id & UC11 \\
+RFO-11 &Il sistema deve permettere all'utente di poter effettuare una ricerca per \textit{client-id} & UC11 \\
 \hline
 RFO-12 &Il sistema deve avvisare l'utente tramite un messaggio di errore che la ricerca effettuata non ha portato a risultati presenti nel sistema & UC12 \\
 \hline
-RFO-13 &Il sistema deve permettere all'utente di poter effettuare una ricerca per API & UC13 \\
+RFO-13 &Il sistema deve permettere all'utente di poter effettuare una ricerca per \textit{API} & UC13 \\
 \hline
-RFD-14 &Il sistema deve permettere il reset del client-id corrente & UC14 \\
+RFD-14 &Il sistema deve permettere il reset del \textit{client-id} corrente & UC14 \\
 \hline
-RFO-15 &Il sistema deve avvisare l'utente tramite un messaggio di errore che il client-id è già di default & UC15 \\
+RFO-15 &Il sistema deve avvisare l'utente tramite un messaggio di errore che il \textit{client-id} è già di default & UC15 \\
 \hline
 RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione  & UC16 \\
 \hline
@@ -643,9 +626,6 @@ RFO-16 &Il sistema deve permettere il logout all'utente, uscendo dalla sessione 
 \end{center}
 
 \subsubsection{Requisiti qualitativi}
-
-% \renewcommand{\arraystretch}{1.1} 
-% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
 
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti qualitativi}\label{tab:requisiti-qualitativi}
@@ -667,22 +647,19 @@ RQD-5 &L'applicativo deve essere accessibile utilizzando i principali browser & 
 
 \subsubsection{Requisiti di vincolo}
 
-% \renewcommand{\arraystretch}{1.1} 
-% \newcolumntype{C}[1]{>{\arraybackslash}p{#1}}
-
 \begin{center}
 \captionof{table}{Tabella del tracciamento dei requisiti di vincolo}\label{tab:requisiti-vincolo}
 \begin{longtable}{|c|p{0.6\textwidth}|c|}
 \hline
 \textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonte}\\
 \hline
-RVO-1 & L'applicazione deve essere sviluppata utilizzando il framework Vue.js 3, usando TypeScript come linguaggio di programmazione & UC1 \\
+RVO-1 & L'applicazione deve essere sviluppata utilizzando il \textit{framework Vue.js} 3, usando \textit{TypeScript} come linguaggio di programmazione & UC1 \\
 \hline
-RVO-2 & I componenti devono essere scritti utilizzando le Composition API di Vue.js 3 & UC1 \\
+RVO-2 & I componenti devono essere scritti utilizzando le \textit{Composition API} di \textit{Vue.js 3} & UC1 \\
 \hline
-RVD-3 & I componenti di base devono essere implementati utilizzando la libreria THRON Components & UC2 \\
+RVD-3 & I componenti di base devono essere implementati utilizzando la libreria \textit{THRON Components} & UC2 \\
 \hline
-RVZ-4 & L'interfaccia dell'applicazione deve seguire il design system THRON & UC2 \\
+RVZ-4 & L'interfaccia dell'applicazione deve seguire il \textit{design system} THRON & UC2 \\
 \hline
 \end{longtable}
 \end{center}
