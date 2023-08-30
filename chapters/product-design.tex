@@ -44,7 +44,7 @@ installazione delle dipendenze.
  \subsubsection{Pinia}\label{subsubsec:pinia}
  \textit{Pinia} è una libreria per la gestione dello stato per applicazioni \textit{Vue.js}. Promuove l'uso di \textit{store} modulari, ognuno dei quali gestisce uno stato specifico dell'applicazione.
 \subsubsection{Vue-router}\label{subsubsec:vue-router}
-\textit{Vue-router} è una libreria per la gestione delle \textit{route} per le applicazione \textit{Vue.js}. Permette di definire le \textit{route} dell'applicazione e di navigare tra le pagine.
+\textit{Vue-router} è una libreria per la gestione delle \textit{route} per le applicazioni \textit{Vue.js}. Permette di definire le \textit{route} dell'applicazione e di navigare tra le pagine.
 
 \subsection{Versionamento}\label{subsec:versionamento}
 \subsubsection{Git}\label{subsubsec:git}
@@ -93,7 +93,7 @@ Più precisamente, il progetto segue la seguente struttura:
 
 \subsubsection*{\emph{Buildspec}}
 La cartella \textit{Buildspec} contiene i file di configurazione per la \textit{build} dell'applicazione su \textit{AWS CodeBuild}.
-Questo è il primo step del processo di \textit{deploy}, in quanto viene eseguito la \textit{build} sia del \textit{middleware} che del portale.
+Questo è il primo step del processo di \textit{deploy}, in quanto viene eseguita la \textit{build} sia del \textit{middleware} che del portale.
 La cartella è formata a sua volta da tre file: \textit{buildspec\_development}, \textit{buildspec\_quality} e \textit{buildspec\_production}. 
 Ognuno di questi file configura la \textit{build} dell'applicazione in base all'ambiente di \textit{deploy}.\\
 Successivamente dopo aver effettuato tutti i comandi specificati nei file \textit{buildspec}, inizia lo step di \textit{deploy}, specificato nella cartella \textit{Infra}.

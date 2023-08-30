@@ -19,7 +19,7 @@ Auth è composto da più metodi, a partire dalla funzione di login fino alla fun
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del token in modo automatico con 
 l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
 \begin{enumerate}
-  \item Inanzitutto viene controllata la \textit{cache} nell'archivio del browser per verificare se esiste un token di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
+  \item Innanzitutto viene controllata la \textit{cache} nell'archivio del browser per verificare se esiste un token di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
   \item In caso il token sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo token di accesso;
   \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \textit{hidden iframe} per richiedere
   un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, ottenendo quindi un nuovo token di accesso e di aggiornamento. 
@@ -39,7 +39,7 @@ In questo modo, quando l'utente digita nella barra di ricerca, la chiamata POST 
 \subsubsection{EndpointApiCall}\label{subsubsec:endpoint-api-call}
 L'\textit{utility} EndpointApiCall è una funzione che ho creato per gestire la chiamata all'endpoint del backend per ottenere
 i dati relativi alle API disponibili nel sistema.
-Questa chiamata necessitano di un token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
+Questa chiamata necessita di un token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
 
 \subsubsection{GetClients}\label{subsubsec:get-clients}
 L'\textit{utility} GetClients è una funzione progettata per effettuare una richiesta GET al backend, al fine di recuperare 
@@ -71,7 +71,7 @@ Il seguente file rappresenta un modulo di configurazione per l'autenticazione. E
 come il clientId, il redirectUri o l'authority.  
 
 \subsection{Stores}\label{subsec:store}
-La cartella stores contiene i vari store utilizzati all'interno del progetto in Vue.js. Gli store sono utili per gestire lo stato dell'applicazione,
+La cartella Stores contiene i vari store utilizzati all'interno del progetto in Vue.js. Gli store sono utili per gestire lo stato dell'applicazione,
 in modo da poterlo condividere tra più componenti.\\
 Di seguito sono descritti gli store che ho sviluppato durante il progetto di stage.
 
@@ -102,7 +102,7 @@ Di seguito sono descritte le Views che ho sviluppato durante il progetto di stag
 \subsubsection{LoginView}\label{subsubsec:login-view}
 La LoginView è la prima pagina con cui l'utente interagisce (in figura~\ref{fig:login-view}). Essa contiene un bottone che permette di effettuare il login tramite pop-up, utilizzando un account Microsoft 365.
 La pagina consente di accedere al portale ed è l'unica di tutto il progetto che non richiede l'autenticazione.\\
-Quando un'utente non autenticato tenterà di accedere a qualsiasi altra pagina del portale, verrà sempre reindirizzato
+Quando un utente non autenticato tenterà di accedere a qualsiasi altra pagina del portale, verrà sempre reindirizzato
 automaticamente a questa View. La pagina al suo interno contiene un unico componente, ovvero LoginButton, che verrà descritto in seguito.
 \begin{figure}[ht]
   \centering
@@ -176,7 +176,7 @@ che permette di visualizzare la \textit{SideBar} a comparsa.
 Il componente rappresenta il contenuto principale dell'applicazione. Esso infatti contiene la struttura per visualizzare i dettagli di ogni API (in figura~\ref{fig:main-content}), tramite l'aiuto 
 della libreria \textit{Swagger UI}.
 La struttura segue il \textit{layout} di \textit{Swagger Editor} per motivi di semplicità e uniformità. Inizia con una descrizione iniziale, prosegue con la lista degli endpoint disponibili e conclude con l'elenco dei modelli.
-I colori utilizzati sono uguali a quelli utilizzati in un comune \textit{Swagger Editor}, per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
+I colori utilizzati sono uguali a quelli utilizzati in un comune \textit{Swagger Editor} per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
 Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, che verrà discusso in seguito.
 \begin{figure}[ht]
   \centering
@@ -202,7 +202,7 @@ Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzat
   \caption{Response}\label{fig:response}
 \end{figure}
 
-Inoltre al di sotto sarà presente anche una lista delle possibile risposte che l'endpoint può restituire (in figura~\ref{fig:response-list}).
+Inoltre al di sotto sarà presente anche una lista delle possibili risposte che l'endpoint può restituire (in figura~\ref{fig:response-list}).
 
 \begin{figure}[ht]
   \centering
@@ -433,10 +433,10 @@ L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di sug
 È definito dal file \textit{Module}, dove al suo interno vengono specificati i vari \textit{controller}, \textit{service} e gli \textit{imports} utilizzati. 
 Quest'ultimi non sono altro che dei moduli che vengono utilizzati all'interno del \textit{controller}. Nel mio caso sono andato ad importare il modulo \textit{APIModule}
 relativo alle \textit{API} e il modulo \textit{ClientModule} relativo ai \textit{client-id}.
-Nel \textit{Controller} è presente l'endpoint `\textit{/results}', ovvero un metodo \textit{POST} che restituisce la lista di suggerimenti in base ad un parametri di ricerca
+Nel \textit{Controller} è presente l'endpoint `\textit{/results}', ovvero un metodo \textit{POST} che restituisce la lista di suggerimenti in base ad un parametro di ricerca
 inserito nel \textit{body} della chiamata. Il metodo in primis ottiene le \textit{API} e i \textit{client-id} utilizzando i moduli importati. 
-Successivamente viene chiamato il metodo `\textit{getResults}' del \textit{Service}, passando come parametri il parametro di ricerca, la lista di \textit{API} e la lista di \textit{client-id}.
-All'interno della funziona appena citata, è presente tutta la logica di filtraggio dei risultati. In precedente tutta la logica era gestita lato \textit{frontend}, ma successivamente 
+Successivamente viene chiamato il metodo `\textit{getResults}' del \textit{Service}, al quale vengono passati come parametri il termine di ricerca, la lista delle \textit{API} e la lista dei \textit{client-id}.
+All'interno della funziona appena citata, è presente tutta la logica di filtraggio dei risultati. In precedenza tutta la logica era gestita lato \textit{frontend}, ma successivamente 
 è stata spostata lato \textit{backend} per estrapolare la logica e renderla riutilizzabile in altri progetti, andando così a rispettare una \textit{best practice} aziendale.
 Il servizio che ho creato va a restituire una lista di risultati, dove ogni risultato è un oggetto che contiene il nome del gruppo filtrato con la lista associata al gruppo.
 Inoltre ho impostato un limite di risultati, infatti la chiamata andrà a restituire al massimo dieci risultati per ogni gruppo, evitando di avere una lista troppo lunga di risultati che risulterebbe difficile 
