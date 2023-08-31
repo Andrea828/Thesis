@@ -1,7 +1,6 @@
-\chapter{Attività di verifica e validazione}
-\label{cap:verifica-validazione}
+\chapter{Attività di verifica e validazione}\label{cap:verifica-validazione}
 
-\intro{In questo capitolo saranno  descritti i processi di verifica e validazione del prodotto.
+\intro{In questo capitolo saranno descritti i processi di verifica e validazione del prodotto.
 In particolare verranno illustrati i test implementati, i risultati ottenuti e le possibili migliorie future del prodotto.
 }
 
@@ -27,16 +26,16 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
 \subsection*{\emph{Views}}
 
 \begin{center}
-  \captionof{table}{Tabella del tracciamento dei test di unità views}\label{tab:test-unita-views}
+  \captionof{table}{Tabella del tracciamento dei test di unità delle Views}\label{tab:test-unita-views}
   \begin{longtable}{|c|c|p{0.5\textwidth}|c|}
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
-  TU-1 &LoginView &Verifica del corretto funzionamento dell'autenticazione, con successivo redirect alla pagina principale &S \\
+  TU-1 &LoginView &Verifica del corretto funzionamento dell'autenticazione, con successivo \textit{redirect} alla pagina principale &S \\
   \hline
-  TU-2 &HomeView &Verifica la corretta visualizzazione della pagina e la corretta validazione dei parametri dell'url &S \\
+  TU-2 &HomeView &Verifica la corretta visualizzazione della pagina e la corretta validazione dei parametri dell'\textit{URL} &S \\
   \hline
-  TU-3 &NotFoundView &Verifica la corretta visualizzazione della pagina e il funzionamento del reindirizzamento alla home &S \\
+  TU-3 &NotFoundView &Verifica la corretta visualizzazione della pagina e il funzionamento del reindirizzamento alla \textit{home} &S \\
   \hline
 \end{longtable}
 \end{center}
@@ -44,24 +43,24 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
 \subsection*{\emph{Components}}
 
 \begin{center}
-  \captionof{table}{Tabella del tracciamento dei test di unità componenti}\label{tab:test-unita-componenti}
+  \captionof{table}{Tabella del tracciamento dei test di unità dei componenti}\label{tab:test-unita-componenti}
   \begin{longtable}{|c|c|p{0.5\textwidth}|c|}
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
   TU-4 &HeaderNav &Verifica la corretta visualizazione della barra, verificando anche la visualizzazione dei dati dell'utente loggato  &S \\
   \hline
-  TU-5 &MainContent &Verifica la corretta visualizzazione dei dati relativi all'api e al funzionamento del try it out di un endpoint &S \\
+  TU-5 &MainContent &Verifica la corretta visualizzazione dei dati relativi all'\textit{API} e al funzionamento del \textit{try it out} di un \textit{endpoint} &S \\
   \hline
-  TU-6 &SideBar &Verifica la corretta visualizzazione della barra laterale, mostrando le API disponibili correttamente &S \\
+  TU-6 &SideBar &Verifica la corretta visualizzazione della barra laterale, mostrando le \textit{API} disponibili correttamente &S \\
   \hline
-  TU-7 &StartPage &Verifica la corretta visualizzazione della pagina, controllando i parametri nell'url &S \\
+  TU-7 &StartPage &Verifica la corretta visualizzazione della pagina, controllando i parametri nell'\textit{URL} &S \\
   \hline
-  TU-8 &DownloadButton &Verifica il corretto funzionamento del download di una singola API &S \\
+  TU-8 &DownloadButton &Verifica il corretto funzionamento del download di una singola \textit{API} &S \\
   \hline
-  TU-9 &LogoutButton &Verifica il corretto funzionamento del logout con popup di un utente &S \\
+  TU-9 &LogoutButton &Verifica il corretto funzionamento del logout con \textit{popup} di un utente &S \\
   \hline
-  TU-10 &LoginButton &Verifica il corretto funzionamento del login con popup di un utente &S \\
+  TU-10 &LoginButton &Verifica il corretto funzionamento del login con \textit{popup} di un utente &S \\
   \hline
   TU-11 &SearchButton &Verifica il corretto funzionamento del bottone di ricerca &S \\
   \hline
@@ -71,13 +70,13 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
   \hline
   TU-13 &Autocomplete &Verifica la corretta visualizzazione della lista aggiornata in base all'input corrente nella barra di ricerca. Inoltre verifica l'accessibilità del menù a tendina  &S \\
   \hline
-  TU-14 &Chip &Verifica la corretta visualizzazione del client-id corrente, verificando inoltre la funzionalità di reset &S \\
+  TU-14 &Chip &Verifica la corretta visualizzazione del \textit{client-id} corrente, verificando inoltre la funzionalità di reset &S \\
   \hline
   TU-15 &Filter &Verifica il corretto funzionamento del filtraggio, in base al filtro selezionato &S \\
   \hline
-  TU-16 &OptionList &Verifica la corretta visualizzazione delle API disponibili &S \\
+  TU-16 &OptionList &Verifica la corretta visualizzazione delle \textit{API} disponibili &S \\
   \hline
-  TU-17 &OptionListItem &Verifica il corretto funzionamento del reindirizzamento all'API selezionata &S \\
+  TU-17 &OptionListItem &Verifica il corretto funzionamento del reindirizzamento all'\textit{API} selezionata &S \\
   \hline
   TU-18 &SnackBar &Verifica la corretta visualizzazione del messaggio di errore corretto &S \\
   \hline
@@ -88,35 +87,35 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
 
 
 \begin{center}
-  \captionof{table}{Tabella del tracciamento dei test di unità utils}\label{tab:test-unita-utils}
+  \captionof{table}{Tabella del tracciamento dei test di unità delle utilities}\label{tab:test-unita-utils}
   \begin{longtable}{|c|c|p{0.5\textwidth}|c|}
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
   TU-19 &Auth &Verifica il corretta funzionamento di tutte le funzionalità riguardanti l'autenticazione & S \\
   \hline
-  TU-20 &Debounce &Verifica il corretto funzionamento del delay, verificando che un'azione sia eseguita solo dopo un tempo specificato &S \\
+  TU-20 &Debounce &Verifica il corretto funzionamento del \textit{delay}, verificando che un'azione sia eseguita solo dopo un tempo specificato &S \\
   \hline
-  TU-21 &EndpointsApiCall &Verifica il corretto funzionamento della chiamata GET all'endpoint creato lato server &S \\
+  TU-21 &EndpointsApiCall &Verifica il corretto funzionamento della chiamata \textit{GET} all'\textit{endpoint} creato lato server &S \\
   \hline
-  TU-22 &GetClients &Verifica il corretto funzionamento della chiamata GET all'endpoint creato lato server  &S \\
+  TU-22 &GetClients &Verifica il corretto funzionamento della chiamata \textit{GET} all'\textit{endpoint} creato lato server  &S \\
   \hline
-  TU-23 &GetResults &Verifica il corretto funzionamento della chiamata POST all'endpoint creato lato server &S \\
+  TU-23 &GetResults &Verifica il corretto funzionamento della chiamata \textit{POST} all'\textit{endpoint} creato lato server &S \\
   \hline
-  TU-24 &MsGraphApiCall &Verifica il corretto funzionamento delle chiamate verso gli endpoint di Microsoft Graph &S \\
+  TU-24 &MsGraphApiCall &Verifica il corretto funzionamento delle chiamate verso gli \textit{endpoint} di \textit{Microsoft Graph} &S \\
   \hline
 \end{longtable}
 \end{center}
 
 \section{Test di compatibilità cross-browser}
-In questa sezione sono introdotti i test di compatibilità cross-browser, che sono stati implementati per assicurare il corretto funzionamento del prodotto finale su tutti i browser più utilizzati.\\
+In questa sezione sono introdotti i test di compatibilità \textit{cross-browser}, che sono stati implementati per assicurare il corretto funzionamento del prodotto finale su tutti i browser più utilizzati.\\
 Ciascun test di unità è identificato da un codice univoco, che segue la seguente notazione:
 \begin{center}
   \textbf{TB-[Codice]}
 \end{center}
 dove:
 \begin{itemize}
-  \item \textbf{TB}: definisce che il seguente test è di compatoiobilità cross-browser;
+  \item \textbf{TB}: definisce che il seguente test è di compatibilità \textit{cross-browser};
   \item \textbf{Codice}: definisce un numero progressivo che identifica il test.
 \end{itemize}
 Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
@@ -151,25 +150,24 @@ Un obiettivo obbligatorio dello stage era quello di produrre una documentazione 
 La prima delle due è focalizzata sugli aspetti tecnici e implementativi del progetto, andando a rivolgersi principalemnte ai sviluppatori.
 Questo tipo di documentazione infatti, include informazioni dettagliate su componenti e tecnologie utilizzate, in modo che una persona che deve iniziare a lavorare sul progetto
 può farlo in autonomia.
-D'altro canto, la documentazione funzionale è orientata verso gli utenti finali del prodotto, ai clienti o agli stakeholder.
+D'altro canto, la documentazione funzionale è orientata verso gli utenti finali del prodotto, ai clienti o agli \textit{stakeholder}.
 Essa infatti, fornisce una panoramica degli scenari di utilizzo, delle interazioni dell'utente e delle risposte attese del sistema, creando un guida che affronta i problemi più comuni.\\
-La validazione della documentazione è stata effettuata tramite un confronto con il tutor aziendale, che ha fornito un feedback sulle parti da migliorare e su quelle da approfondire.\\
+La validazione della documentazione è stata effettuata tramite un confronto con il tutor aziendale, che ha fornito un \textit{feedback} sulle parti da migliorare e su quelle da approfondire.\\
 Nel dettaglio le documentazioni sono composte dalle seguenti caratteristiche:
 \begin{itemize}
   \item \textbf{Documentazione tecnica}: la documentazione in primis espone tutto ciò che è necessario per iniziare a lavorare da subito al progetto, come la locazione della \textit{repository}, i link 
-  alle applicazioni deployate nei vari ambienti di sviluppo o indicazioni su come effettuare il \textit{deploy} del progetto.\\
-  Successivamente vengono affrontati vari punti come la struttura del progetto, i comandi per avviare il progetto in locale o informazioni ancora più dettagliate come l'aggiunta di un nuovo endpoint all'interno del progetto backend.
+  alle applicazioni distribuite nei vari ambienti di sviluppo o indicazioni su come effettuare il \textit{deploy} del progetto.\\
+  Successivamente vengono affrontati vari punti come la struttura del progetto, i comandi per avviare il progetto in locale o informazioni ancora più dettagliate come l'aggiunta di un nuovo \textit{endpoint} all'interno del progetto backend.
   Grazie a tutte queste informazioni, un nuovo sviluppatore può lavorare in completa autonomia sul progetto;
   \item \textbf{Documentazione funzionale}: la documentazione funzionale è stata scritta in modo da essere comprensibile anche a persone che non hanno conoscenze tecniche.
   Essa infatti, fornisce una panoramica generale dell'utilizzo del progetto, fornendo una guida completa su come utilizzare le varie funzionalità che possono
-  causare ad un'utente dubbi o incertezze.
+  causare ad un utente dubbi o incertezze.
 \end{itemize}
-% si può aggiungere testo 
 Infine, entrambe le documentazioni sono disponibili all'interno del \textit{Confluence} aziendale, in modo che sia facilmente accessibile a tutti i membri del team.
 
 \section{Collaudo}
 Durante il periodo di stage, sono stati organizzati degli incontri interni con il tutor aziendale a cadenza settimanale, in cui venivano discussi i progressi
-raggiunti e le criticità o dubbi riscontrati. Ciò ha permesso di avere un feedback costante sul lavoro svolto, garantendo una maggiore trasparenza.\\
+raggiunti e le criticità o dubbi riscontrati. Ciò ha permesso di avere un \textit{feedback} costante sul lavoro svolto, garantendo una maggiore trasparenza.\\
 Questi incontri settimanali erano un momento fondamentale per monitorare l'andamento del mio stage e per affrontare eventuali problematiche in modo tempestivo.
 
 
@@ -184,15 +182,7 @@ Al termine dell'attività di stage, sono state individuate alcune possibili migl
 il prodotto finale.\\
 In particolare sono state individuate le seguenti:
 \begin{itemize}
-  \item \textbf{Gestione di openapi più vecchie della 2.0}: attualmente il prodotto supporta solo openapi versione 2.0 e 3.0, ma sarebbe interessante valutare la possibilità di supportare anche versioni precedenti, in modo da rendere il prodotto più flessibile;
-  \item \textbf{Valutare cambio di tecnologia a nuxt}: attualmente il prodotto è stato sviluppato con Vue.js e Nest.js, ma sarebbe interessante valutare un cambio di tecnologia verso nuxt.js, che permette di sviluppare applicazioni server-side-rendered, 
+  \item \textbf{Gestione di openapi più vecchie della 2.0}: attualmente il prodotto supporta solo \textit{openapi} versione 2.0 e 3.0, ma sarebbe interessante valutare la possibilità di supportare anche versioni precedenti, in modo da rendere il prodotto più flessibile;
+  \item \textbf{Valutare cambio di tecnologia a nuxt}: attualmente il prodotto è stato sviluppato con \textit{Vue.js} e \textit{Nest.js}, ma sarebbe interessante valutare un cambio di tecnologia verso \textit{Nuxt.js}, che permette di sviluppare applicazioni \textit{server-side rendered}, 
   in modo da non avere due applicazioni separate per il frontend e il backend, ma un'unico progetto che comporta una migliore gestione e manutenibilità.
 \end{itemize}
-
-
-
-
-
-
-
-

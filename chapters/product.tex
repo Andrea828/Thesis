@@ -390,8 +390,8 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
   \item Il \textit{token} viene decodificato e viene salvato solo l'\textit{header} di esso. In caso il risultato salvato non sia valido, viene restituito un errore 401;
   \item Vado ad estrarre il campo \textit{KID}, che identifica quale chiave pubblica verrà utilizzata per la verifica;
   \item Eseguo una \textit{GET} verso l'\textit{endpoint} di \textit{Microsoft AAD} per ottenere le informazioni di configurazione di \textit{OpenID Connect} (OIDC). 
-  Queste informazioni includono gli \textit{url} da dove è possibile ottenere le chiavi pubbliche per la verifica del \textit{token};
-  \item Vado ad estrarre l'\textit{url} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (JWKS) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
+  Queste informazioni includono gli \textit{URL} da dove è possibile ottenere le chiavi pubbliche per la verifica del \textit{token};
+  \item Vado ad estrarre l'\textit{URL} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (JWKS) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
   \item Effettuo un controllo con la chiave pubblica corrispondente all'intestazione del token JWT (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso non ci sia nessuna corrispondenza viene restituito un errore 401;
   \item La chiave pubblica viene convertita e formattata in un certificato \textit{X509} valido;
   \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato conterrà il \textit{payload} del \textit{token JWT} se la verifica ha successo o genererà un errore se la verifica fallisce.
@@ -430,7 +430,7 @@ Nel \textit{Controller} è presente l'endpoint `\textit{/apis}', ovvero un metod
 a chiamare il metodo `\textit{getAllApis}' del \textit{Service}.
 All'interno del metodo appena citato, è presente la logica necessaria per restituire la lista completa di \textit{API} disponibili, che poi sarà visibile nel portale.
 Il metodo utilizza un endpoint aziendale per ottenere la lista di \textit{API} dei servizi THRON.
-Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappresentato dal nome del servizio e dall'\textit{url} corrispondente.
+Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappresentato dal nome del servizio e dall'\textit{URL} corrispondente.
 
 \subsubsection{Search}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di suggerimenti utilizzata per la ricerca globale del portale.
