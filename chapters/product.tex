@@ -13,91 +13,89 @@ da un file di test che ne verifica il corretto funzionamento.\\
 Di seguito sono elencati le \textit{utilities} che ho sviluppato durante il progetto di stage.
 
 \subsubsection{Auth}\label{subsubsec:auth-utils}
-Il file \textit{Auth} è una \textit{utility} per la gestione dell'autenticazione utilizzando come supporto la libreria Azure MSAL. Essa è utile
-per interfacciarsi all'autenticazione verso il servizio Azure Active Directory.\\
-Auth è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del token di accesso.\\
-Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del token in modo automatico con 
+Il file \textit{Auth} è una \textit{utility} per la gestione dell'autenticazione utilizzando come supporto la libreria \textit{Azure MSAL}. Essa è utile
+per interfacciarsi all'autenticazione verso il servizio \textit{Azure Active Directory}.\\
+\textit{Auth} è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del \textit{token} di accesso.\\
+Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del \textit{token} in modo automatico con 
 l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
 \begin{enumerate}
-  \item Innanzitutto viene controllata la \textit{cache} nell'archivio del browser per verificare se esiste un token di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
-  \item In caso il token sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo token di accesso;
+  \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
+  \item In caso il \textit{token} sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo \textit{token} di accesso;
   \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \textit{hidden iframe} per richiedere
-  un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, ottenendo quindi un nuovo token di accesso e di aggiornamento. 
+  un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, ottenendo quindi un nuovo \textit{token} di accesso e di aggiornamento. 
 \end{enumerate}
-Questo procedimento per il recupero del token con lo scopo di mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
+Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
 \begin{itemize}
   \item L'utente ha cambiato la password;
-  \item Il browser blocca i cookies di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del token;
+  \item Il browser blocca i \textit{cookies} di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del \textit{token};
 \end{itemize}
-In questi casi, si verificherà un errore che verrà catturato tramite un \textit{try catch} e verrà utilizzato il metodo di login con pop-up per effettuare nuovamente l'autenticazione.
+In questi casi, si verificherà un errore che verrà catturato tramite un \textit{try catch} e verrà utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione.
 \subsubsection{Debounce}\label{subsubsec:debounce}
-Il file Debounce è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
+Il file \textit{Debounce} è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non vengono eseguite chiamate ad essa.\\
-Questa utility è stata utilizzato per ritardare l'esecuzione della chiamata POST per il filtraggio dei risultati della ricerca. 
-In questo modo, quando l'utente digita nella barra di ricerca, la chiamata POST viene eseguita ogni 300 millisecondi, ignorando le chiamate precedenti.
+Questa \textit{utility} è stata utilizzato per ritardare l'esecuzione della chiamata \textit{POST} per il filtraggio dei risultati della ricerca. 
+In questo modo, quando l'utente digita nella barra di ricerca, la chiamata \textit{POST} viene eseguita ogni 300 millisecondi, ignorando le chiamate precedenti.
 
 \subsubsection{EndpointApiCall}\label{subsubsec:endpoint-api-call}
-L'\textit{utility} EndpointApiCall è una funzione che ho creato per gestire la chiamata all'endpoint del backend per ottenere
-i dati relativi alle API disponibili nel sistema.
-Questa chiamata necessita di un token di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
+L'\textit{utility EndpointApiCall} è una funzione che ho creato per gestire la chiamata all'\textit{endpoint} del backend per ottenere
+i dati relativi alle \textit{API} disponibili nel sistema.
+Questa chiamata necessita di un \textit{token} di autenticazione valido per la sessione corrente, necessario per evitare chiamate non autorizzate.
 
 \subsubsection{GetClients}\label{subsubsec:get-clients}
-L'\textit{utility} GetClients è una funzione progettata per effettuare una richiesta GET al backend, al fine di recuperare 
-l'elenco dei \textit{client-id} disponibili nel sistema. Questa funzione è stata utilizzata per popolare la lista dei clients disponibili
+L'\textit{utility GetClients} è una funzione progettata per effettuare una richiesta \textit{GET} al backend, al fine di recuperare 
+l'elenco dei \textit{client-id} disponibili nel sistema. Questa funzione è stata utilizzata per popolare la lista dei \textit{clients} disponibili
 per la ricerca, in modo da poterne selezionare uno tra quelli presenti, in base all'ambiente di sviluppo.
-La chiamata necessita di un token di autenticazione valido per la sessione corrente per evitare chiamate non autorizzate.
+La chiamata necessita di un \textit{token} di autenticazione valido per la sessione corrente per evitare chiamate non autorizzate.
 
 \subsubsection{GetResults}\label{subsubsec:get-results}
-L'\textit{utility} getResults è una funzione progettata per effettuare una richiesta POST al backend utilizzata per ottenere i risultati della ricerca. 
-La logica della ricerca nel mio progetto è spostata lato backend, in modo da rispettare la best practice usata in azienda.
-La chiamata è autenticata e viene utilizzata insieme alla funzione di debounce per ritardare l'esecuzione della chiamata POST. Come body della chiamata
+L'\textit{utility getResults} è una funzione progettata per effettuare una richiesta \textit{POST} al backend utilizzata per ottenere i risultati della ricerca. 
+La logica della ricerca nel mio progetto è spostata lato backend, in modo da rispettare la \textit{best practice} usata in azienda.
+La chiamata è autenticata e viene utilizzata insieme alla funzione di \textit{debounce} per ritardare l'esecuzione della chiamata \textit{POST}. Come \textit{body} della chiamata
 viene passato il testo che l'utente sta scrivendo nella barra di ricerca.
 
 \subsubsection{MsGraphApiCall}\label{subsubsec:ms-graph-api-call}
-L'\textit{utility} MsGraphApiCall contiene al suo interno due funzioni che ho creato per effettuare chiamate alle API di Microsoft Graph. 
-La prima funzione è una chiamata GET che viene utilizzata per ottenere i dati relativi all'utente che ha effettuato l'accesso al portale.
-La seconda funzione è sempre una chiamata GET ad un altro endpoint di Microsoft, per ottenere informazioni secondarie sull'utente, come ad esempio l'immagine del profilo.
-Entrambe le chiamate necessitano di un token, diverso dal token utilizzato per le chiamate al backend. Infatti, questo token è specifico per le chiamate verso Microsoft Graph.
+L'\textit{utility MsGraphApiCall} contiene al suo interno due funzioni che ho creato per effettuare chiamate alle \textit{API} di \textit{Microsoft Graph}. 
+La prima funzione è una chiamata \textit{GET} che viene utilizzata per ottenere i dati relativi all'utente che ha effettuato l'accesso al portale.
+La seconda funzione è sempre una chiamata \textit{GET} ad un altro \textit{endpoint} di \textit{Microsoft}, per ottenere informazioni secondarie sull'utente, come ad esempio l'immagine del profilo.
+Entrambe le chiamate necessitano di un \textit{token}, diverso dal \textit{token} utilizzato per le chiamate al backend. Infatti, questo \textit{token} è specifico per le chiamate verso \textit{Microsoft Graph}.
 
 \subsubsection{SwaggerUtils}\label{subsubsec:swagger-utils}
-L'\textit{utility} SwaggerUtils contiene al suo interno una moltitudine di funzionalità utili per la gestione della documentazione delle API e la sua visualizzazione all'interno
+L'\textit{utility SwaggerUtils} contiene al suo interno una moltitudine di funzionalità utili per la gestione della documentazione delle \textit{API} e la sua visualizzazione all'interno
 del \textit{MainContent}, spiegato in seguito.
-Al suo interno sono andato inoltre a creare dei plugin utili alla visualizzazione della documentazione, tra cui che parti del file YAML visualizzare, come ad esempio la descrizione, la versione delle API, ecc.
-La \textit{utility} gestisce anche il \textit{try it out} di un endpoint e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
+Al suo interno sono andato inoltre a creare dei \textit{plugin} utili alla visualizzazione della documentazione, tra cui che parti del file \textit{YAML} visualizzare, come ad esempio la descrizione, la versione delle \textit{API}, ecc.
+La \textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
 
 \subsection{Config}\label{subsec:config}
 \subsubsection{ConfigAuth}\label{subsubsec:config-auth}
-Il seguente file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso Azure Active Directory,
-come il clientId, il redirectUri o l'authority.  
+Il seguente file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso \textit{Azure Active Directory},
+come il \textit{clientId}, il \textit{redirectUri} o l'\textit{authority}.  
 
 \subsection{Stores}\label{subsec:store}
-La cartella Stores contiene i vari store utilizzati all'interno del progetto in Vue.js. Gli store sono utili per gestire lo stato dell'applicazione,
+La cartella \textit{Stores} contiene i vari \textit{store} utilizzati all'interno del progetto in \textit{Vue.js}. Gli \textit{store} sono utili per gestire lo stato dell'applicazione,
 in modo da poterlo condividere tra più componenti.\\
-Di seguito sono descritti gli store che ho sviluppato durante il progetto di stage.
+Di seguito sono descritti gli \textit{store} che ho sviluppato durante il progetto di stage.
 
 \subsubsection{Auth}\label{subsubsec:auth-store}
-Il seguente store è stato creato per gestire lo stato dell'autenticazione utente e l'interazione con un servizio di autenticazione esterno.
-Esso utilizza al suo interno l'\textit{utility Auth} precedentemente descritta, che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei token.\\
-Ho scritto lo store Auth utilizzando uno stile di programmazione basato su funzioni closure di JavaScript. Questo approccio consente di incapsulare
+Il seguente \textit{store} è stato creato per gestire lo stato dell'autenticazione utente e l'interazione con un servizio di autenticazione esterno.
+Esso utilizza al suo interno l'\textit{utility Auth} precedentemente descritta, che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
+Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \textit{closure} di \textit{JavaScript}. Questo approccio consente di incapsulare
 lo stato dell'autenticazione consentendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
 
 \subsubsection{Store}\label{subsubsec:store}
-Il seguente store, a differenza del precedente, utilizza Pinia, una libreria apposita per la gestione dello stato.
-Esso è utilizzato per la gestione delle API e client-id disponibili nell'applicazione. Infatti lo store inizializza le variabili reattive per la gestione
-delle API e dei client-id, effettuando una chiamata al backend utilizzando le utility apposite definite in precedenza.
+Il seguente \textit{store}, a differenza del precedente, utilizza \textit{Pinia}, una libreria apposita per la gestione dello stato.
+Esso è utilizzato per la gestione delle \textit{API} e \textit{client-id} disponibili nell'applicazione. Infatti lo \textit{store} inizializza le variabili reattive per la gestione
+delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utility} apposite definite in precedenza.
 
 \subsection{Router}\label{subsec:router}
-La cartella Router contiene le rotte definite nel progetto, ovvero i percorsi che l'utente può visitare all'interno dell'applicazione, e un helper per la gestione del router.
+La cartella \textit{Router} contiene le rotte definite nel progetto, ovvero i percorsi che l'utente può visitare all'interno dell'applicazione, e un \textit{helper} per la gestione del \textit{router}.
 \subsubsection{CustomNavigation}\label{subsubsec:custom-navigation}
-Il seguente file rappresenta una classe con due metodi: il primo è utilizzato nel flusso di autenticazione e più precisamente nelle richieste con pop-up,
-mentre il secondo è utilizzato per convertire qualsiasi URI di reindirizzamento completo in un URI di reindirizzamento relativo, in modo che il Router
+Il seguente file rappresenta una classe con due metodi: il primo è utilizzato nel flusso di autenticazione e più precisamente nelle richieste con \textit{pop-up},
+mentre il secondo è utilizzato per convertire qualsiasi \textit{URI} di reindirizzamento completo in un \textit{URI} di reindirizzamento relativo, in modo che il \textit{Router}
 possa gestire correttamente i \textit{redirect} in modo sicuro.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Views}\label{subsec:views}
-La seguente sezione contiene le Views, ovvero le pagine dell'applicazione.
-Di seguito sono descritte le Views che ho sviluppato durante il progetto di stage.
+La seguente sezione contiene le \textit{Views}, ovvero le pagine dell'applicazione.
+Di seguito sono descritte le \textit{Views} che ho sviluppato durante il progetto di stage.
 
 \subsubsection{LoginView}\label{subsubsec:login-view}
 La LoginView è la prima pagina con cui l'utente interagisce (in figura~\ref{fig:login-view}). Essa contiene un bottone che permette di effettuare il login tramite pop-up, utilizzando un \textit{account} Microsoft 365.
@@ -259,7 +257,7 @@ Il componente rappresenta il bottone di logout presente nella barra di navigazio
 dell'applicazione ed è stato sviluppato rispettando il \textit{design system} 
 aziendale, infatti utilizza la libreria \textit{THRON Components} (in figura~\ref{fig:logout-button}).
 Nello specifico è stato chiamato bottone per comodità, ma in realtà si tratta di un \textit{popover}, ovvero un componente a tendina che si apre
-tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale tramite un \textit{popup}, con successivo reindirizzamento
+tramite l'\textit{hover} del mouse. Esso permette all'utente di effettuare il logout dal portale tramite un \textit{pop-up}, con successivo reindirizzamento
 alla pagina di login.
 
 \begin{figure}[ht]
@@ -271,7 +269,7 @@ alla pagina di login.
 % Login
 \subsubsection{LoginButton}\label{subsubsec:login-button}
 Il componente rappresenta il bottone di accesso al portale presente nella pagina di login dell'applicazione. Esso è stato sviluppato rispettando il \textit{design system} aziendale.
-Il seguente bottone aprirà un \textit{popup} dove sarà possibile inserire le credenziali (e-mail e password) per effettuare l'accesso tramite \textit{Microsoft} 365.
+Il seguente bottone aprirà un \textit{pop-up} dove sarà possibile inserire le credenziali (e-mail e password) per effettuare l'accesso tramite \textit{Microsoft} 365.
 Una volta effettuato il login, l'utente verrà reindirizzato alla pagina principale del portale.
 
 % Components
