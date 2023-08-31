@@ -2,40 +2,40 @@
 
 \intro{
   In questo ultimo capitolo verranno presentate le conclusioni del lavoro svolto, focalizzandosi in particolare sui risultati ottenuti,
-  le conoscenze acquisite, le prospettive future e fornendo infine una valutazione personale del lavoro svolto. 
+  le conoscenze acquisite e fornendo infine una valutazione personale del lavoro svolto. 
 }
 
 \section{Obiettivi raggiunti e consuntivo finale}
 Il progetto di stage svolto ha avuto come scopo la creazione di un portale per la consultazione di tutte le \textit{API} messe a disposizione da \textit{THRON}, in un'unica soluzione centralizzata. 
-Il portale inoltre doveva permettere ad un utente di visualizzare i singoli \textit{endpoint} di ogni servizio e fornendo la possibilità di testarli direttamente senza strumenti esterni.
+Il portale inoltre doveva permettere ad un utente di visualizzare i singoli \textit{endpoint} di ogni servizio e fornendo la possibilità di provarli direttamente senza l'utilizzo di strumenti esterni.
 Essendo le \textit{API} informazioni sensibili, il portale per essere navigato in tutte le sue funzionalità, richiedeva un sistema di autenticazione tramite \textit{account} \textit{Microsoft 365}.
 Per la realizzazione del progetto sono state affrontate varie fasi, partendo dall'analisi dei requisiti, dove sono stati definiti i casi d'uso e i requisiti del prodotto.
 Successivamente sono state analizzate le tecnologie da utilizzare per la realizzazione del portale, con uno studio di esse, in particolare per quanto riguarda il \textit{framework Vue.js} e il \textit{framework Nest.js}.
 È stata poi progettata l'architettura del sistema suguita dall'implementazione in tutte le sue parti.\\
 
-In merito agli obiettivi prefissati per lo stage (in sezione~\ref{sec:obiettivi-stage}), sono stati raggiunti tutti quelli obbligatori e desiderabili, mentre per quanto riguarda gli opzionali, sono stati raggiunti tutti ad eccezzione di uno, ovvero la funzionalità di recupero automatico del token per l'utilizzo delle API direttamente dal portale.
+In merito agli obiettivi prefissati per lo stage (in sezione~\ref{sec:obiettivi-stage}), sono stati raggiunti tutti quelli obbligatori e desiderabili, mentre per quanto riguarda gli opzionali, sono stati raggiunti tutti ad eccezzione di uno, ovvero la funzionalità di recupero automatico del \textit{token} per l'utilizzo delle \textit{API} direttamente dal portale.
 Più nello specifico, sono stati raggiunti i seguenti obiettivi obbligatori:
 \begin{itemize}
-  \item \textbf{OB1}: Realizzazione di un portale che consenta la consultazione degli OpenAPIs schemas dei servizi pubblici e privati offerti da THRON;
-  \item \textbf{OB2}: Rendere possibile l'utilizzo delle API direttamente dal portale (con inserimento manuale del token di autenticazione);
+  \item \textbf{OB1}: Realizzazione di un portale che consenta la consultazione degli \textit{OpenAPIs schemas} dei servizi pubblici e privati offerti da THRON;
+  \item \textbf{OB2}: Rendere possibile l'utilizzo delle \textit{API} direttamente dal portale (con inserimento manuale del \textit{token} di autenticazione);
   \item \textbf{OB3}: Documentazione delle funzionalità implementate;
   \item \textbf{OB4}: Realizzazione di test di unità delle funzionalità implementate.
 \end{itemize}
 
 Sono stati raggiunti i seguenti obiettivi desiderabili:
 \begin{itemize}
-  \item \textbf{DE1}:  Implementare la funzionalità di recupero automatico degli OpenAPI schemas;
+  \item \textbf{DE1}:  Implementare la funzionalità di recupero automatico degli \textit{OpenAPI schemas};
   \item \textbf{DE2}: Implementare la funzionalità di autenticazione al portale.
 \end{itemize}
 
 Infine, sono stati raggiunti i seguenti obiettivi opzionali:
 \begin{itemize}
-  \item \textbf{OP1}: Implementare la funzionalità di download dello schema di uno specifico servizio (formato YAML).
+  \item \textbf{OP1}: Implementare la funzionalità di download dello schema di uno specifico servizio (formato \textit{YAML}).
 \end{itemize}
 
-Come accennato in precedenza, non è stato raggiunto l'obiettivo opzionale OP2, ovvero la funzionalità di recupero automatico del token di autenticazione per l'utilizzo della API direttamente dal portale.
+Come accennato in precedenza, non è stato raggiunto l'obiettivo opzionale \textit{OP2}, ovvero la funzionalità di recupero automatico del \textit{token} di autenticazione per l'utilizzo della \textit{API} direttamente dal portale.
 Questo obiettivo era presenta nonostante non ci fosse ancora una vera soluzione applicabile, in quanto anche in azienda non era ancora stata trovata una soluzione definitiva.
-La problematica principale era che il token di autenticazione per provare le \textit{API} varia a seconda del \textit{client-id} scelto ed ha una durata ridotta e al momento in azienda
+La problematica principale era che il \textit{token} di autenticazione per provare le \textit{API} varia a seconda del \textit{client-id} scelto ed ha una durata ridotta e al momento in azienda
 non esitono servizi a supporto di ciò.
 La soluzione adottata è stata quella di inserire il \textit{token} manualmente, una soluzione che il mio team ha sempre utilizzato fin'ora e che è stata ritenuta più che accettabile.
 
@@ -43,17 +43,15 @@ La soluzione adottata è stata quella di inserire il \textit{token} manualmente,
 Il progetto di stage svolto mi ha permesso di acquisire nuove conoscenze e competenze, sia dal punto di vista tecnico che personale, andando a soddisfare le mie aspettative iniziali.\\
 Innanzitutto, è stato molto stimolante esplorare in dettaglio i due prodotti aziendali \textit{THRON Pim} e \textit{THRON Dam Platform}, di cui non ero a conoscenza prima. 
 Questo mi ha permesso di ottenere una comprensione completa del contesto operativo dell'azienda in cui ho svolto il mio stage.\\
-Tra le competenze più significative acquisite, sicuramente spicca l'approfondimento e l'utilizzo del \textit{framework Vue.js} per la parte frontend e il \textit{framework Nest.js} per la parte backend del progetto.
+Tra le competenze più significative acquisite, sicuramente spicca l'approfondimento e l'utilizzo del \textit{framework Vue.js} per la parte frontend e del \textit{framework Nest.js} per la parte backend del progetto.
 Questi strumenti al giorno d'oggi sono estremamente rilevanti nell'ambito di applicazioni web e la loro richiesta è in costante crescita.
 E' stato interessante anche imparare il concetto di \textit{middleware} del \textit{framework Nest.js} e come questo possa essere utilizzato per la gestione delle richieste HTTP.\\
 L'attività di stage mi è stata utile anche per consolidare ulteriormente le mie conoscenze del linguaggio di programmazione \textit{TypeScript}, linguaggio che avevo già utilizzato all'interno del corso di laurea.\\
 Ho avuto modo di scoprire nuove nozioni riguardanti l'infrastruttura che supporta un progetto aziendale e tutto ciò che riguarda la configurazione di essa. Questo mi ha permesso di ottenere una visione
 più completa del lavoro svolto, andando oltre l'attività dello sviluppo del portale.
-Ho avuto modo di imparare e utilizzare strumenti infrastrutturali che hanno semplificato il mio lavoro, come i costrutti, ho configurato file per la \textit{build} e il \textit{deploy} del progetto comprendendo il flusso di lavoro utilizzato in azienda per lo sviluppo di progetti.\\
+Ho avuto modo di imparare e utilizzare strumenti infrastrutturali che hanno semplificato il mio lavoro, come i costrutti, ho configurato file per la \textit{build} e il \textit{deploy} del prodotto comprendendo il flusso di lavoro utilizzato in azienda per lo sviluppo di progetti.\\
 La competenze più importante acquisita durante l'esperienza di stage è stata la capacità di lavorare in modo efficace in un team e poter partecipare attivamente a tutte le attività, dalle riunioni quotidiane fino alle riunioni di \textit{Sprint Retrospective}.
-Riguardo a quest'ultima attività, ho avuto modo di apprendere in modo più approfondito la metodologia Scrum, che avevo già utilizzato all'interno del corso di Ingegneria del Software, ma che non avevo ancora avuto modo di sperimentare in un ambiente lavorativo.
-
-% \section{Scenari di applicabilità e sviluppi futuri}
+Riguardo a quest'ultima attività, ho avuto modo di apprendere in modo più approfondito la metodologia \textit{Scrum}, che avevo già utilizzato all'interno del corso di Ingegneria del Software, ma che non avevo ancora avuto modo di sperimentare in un ambiente lavorativo.
 
 \section{Valutazione personale}
 
@@ -70,5 +68,5 @@ Un ringraziamento particolare va a Andrea, il mio tutor aziendale, con il quale 
 permettendomi di raggiungere con successo gli obiettivi prestabiliti.\\
 
 In conclusione, valuto l'esperienza di stage in maniera estremamente positiva e gratificante. Sono soddisfatto del risultato che ho ottenuto, del cammino che ho percorso per raggiungerlo, delle competenze 
-che ho acquisito e delle persone straordinarie che ho avuto l'opportunità di conoscere. Questa esperienza ha arricchito il mio percorso professionale e sono profondamente grato per questa opportunità, 
+che ho acquisito e delle persone che ho avuto l'opportunità di conoscere. Questa esperienza ha arricchito il mio percorso professionale e sono profondamente grato per questa opportunità, 
 determinato a sfruttarla al massimo nelle sfide future che mi attendono.
