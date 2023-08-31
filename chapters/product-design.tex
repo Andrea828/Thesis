@@ -10,7 +10,7 @@ Di seguito viene data una panoramica delle tecnologie utilizzate durante lo svil
 \subsection{Frontend}\label{subsec:frontend}
 \subsubsection{Vue.js}\label{subsubsec:vue}
 \textit{Vue.js} è un \textit{framework JavaScript} progressivo e reattivo, utilizzato per lo sviluppo di interfacce utente dinamiche e moderne. 
-Creato da \textit{Evan You}, Vue.js è apprezzato per la sua semplicità d'uso e flessibilità. Con un sistema di reattività basato su un modello di oggetti e dipendenze, 
+Creato da \textit{Evan You}, \textit{Vue.js} è apprezzato per la sua semplicità d'uso e flessibilità. Con un sistema di reattività basato su un modello di oggetti e dipendenze, 
 \textit{Vue.js} rende facile il monitoraggio e l'aggiornamento automatico dell'interfaccia utente in base ai cambiamenti di stato dei dati. La sua architettura basata 
 su componenti consente di organizzare il codice in moduli riutilizzabili e autonomi, semplificando la creazione di applicazioni complesse. 
 Grazie alle direttive, è possibile arricchire il \textit{DOM} con funzionalità reattive, mentre il sistema di \textit{routing} agevola la creazione di \textit{single page applications}. 
@@ -24,17 +24,17 @@ la manutenibilità del codice.\\
 All'interno del mio progetto sono andato a creare per la parte frontend una cartella chiamata \textit{types} che contiene un file \textit{TypeScript} contenente tutti i tipi utilizzati all'interno del progetto.
 \subsubsection{Vite.js}\label{subsubsec:vite}
 \textit{Vite.js} è un \textit{build tool} utilizzato per lo sviluppo di applicazioni web. È stato creato da \textit{Evan You}, lo stesso creatore di \textit{Vue.js}, e si basa su \textit{rollup.js}.
-\textit{Vite.js} è stato progettato per essere veloce, semplice da utilizzare e facile da configurare. La sua velocità è dovuta al fatto che utilizza la tecnica dell'\textit{ESM (ECMAScript Modules)}
+\textit{Vite.js} è stato progettato per essere veloce, semplice da utilizzare e facile da configurare. La sua velocità è dovuta al fatto che utilizza la tecnica dell'\textit{ESM} (\textit{ECMAScript Modules})
 che permette di caricare i moduli in modo asincrono, riducendo i tempi di compilazione e di \textit{hot-reload}.
 \subsubsection{Sass}\label{subsubsec:Sass}
 \textit{Sass} è un'estensione di \textit{CSS} che offre funzionalità aggiuntive e avanzate per semplificare e organizzare il modo in cui viene scritto e gestito il codice.
-Può essere considerato un preprocessore \textit{CSS}, in quanto viene compilato in CSS prima di essere interpretato dal \textit{browser}. \textit{Sass} inoltre permette di utilizzare funzionalità non disponibili in \textit{CSS} nativo, offrendo una serie di funzioni, variabili, \textit{mixin} e altro.\\
+Può essere considerato un preprocessore \textit{CSS}, in quanto viene compilato in \textit{CSS} prima di essere interpretato dal \textit{browser}. \textit{Sass} inoltre permette di utilizzare funzionalità non disponibili in \textit{CSS} nativo, offrendo una serie di funzioni, variabili, \textit{mixin} e altro.\\
 Insieme a \textit{Sass}, ho utilizzato \textit{BEM}, ovvero una metodologia di \textit{naming convention} utilizzata nel mondo dello sviluppo web.
 
 \subsection{Backend}\label{subsec:backend}
 \subsubsection{Nest.js}\label{subsubsec:nest}
 \textit{Nest.js} è un \textit{framework} per applicazioni \textit{server-side} basato su \textit{Node.js}. Si basa su \textit{Express.js} e \textit{TypeScript} ed è progettato per creare applicazioni scalabili e performanti.
-Il \textit{framework} in questione combina concetti e caratteristiche provenienti da diversi paradigmi di sviluppo, tra cui la programmazione orientata agli oggetti (OOP), la programmazione funzionale e la programmazione reattiva.
+Il \textit{framework} in questione combina concetti e caratteristiche provenienti da diversi paradigmi di sviluppo, tra cui la programmazione orientata agli oggetti (\textit{OOP}), la programmazione funzionale e la programmazione reattiva.
 
 \subsection{Altre tecnologie di supporto}\label{subsec:altre-tecnologie-di-supporto}
 \subsubsection{Node.js}\label{subsubsec:node.js}
@@ -50,7 +50,7 @@ installazione delle dipendenze.
 \subsubsection{Git}\label{subsubsec:git}
 \textit{Git} è un sistema di controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto software.
 \subsubsection{CodeCommit}\label{subsubsec:CodeCommit}
-\textit{AWS CodeCommit} rappresenta un servizio di \textit{hosting} di \textit{repository} altamente scalabile, che è gestito all'interno dell'ecosistema di \textit{Amazon Web Services (AWS)}. 
+\textit{AWS CodeCommit} rappresenta un servizio di \textit{hosting} di \textit{repository} altamente scalabile, che è gestito all'interno dell'ecosistema di \textit{Amazon Web Services} (\textit{AWS}). 
 Con \textit{CodeCommit}, è possibile ospitare \textit{repository Git} privati in un ambiente sicuro e flessibile.
 
 \subsection{Verifica}\label{subsec:verifica}
@@ -62,7 +62,7 @@ Usato in coppia con \textit{Vite} permette di eseguire test di unità in modo pi
 
 \subsection{Librerie esterne utilizzate}\label{subsec:librerie-esterne}
 \subsubsection{THRON Components}\label{subsubsec:thron-components}
-Libreria \textit{THRON} contenente i componenti del \textit{design system} aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni del portale.
+Libreria THRON contenente i componenti del \textit{design system} aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni del portale.
 \subsubsection{Azure MSAL}\label{subsubsec:azure-MSAL}
 \textit{Azure MSAL} è una libreria che permette di integrare il login con \textit{Azure Active Directory} all'interno di un'applicazione web.
 \subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
@@ -79,7 +79,6 @@ Il sistema è composto da due principali sezioni:
 
 \subsection{Ambienti di sviluppo}
 Gli ambienti di \textit{staging} sono ambienti di test che vengono utilizzati per testare le funzionalità dell'applicazione prima di rilasciarla in produzione.
-% A livello aziendale sono stati definiti tutte e tre come ambienti di staging e sono stati denominati come segue:
 A livello aziendale sono stati definiti tre ambienti di cui i primi due di \textit{staging}, denominati come segue:
 \begin{itemize}
   \item \textbf{Development}: consente di validare a livello tecnico le funzionalità;
@@ -108,15 +107,15 @@ Ognuno dei file \textit{buildspec} è un file \textit{YAML}, che è formato dall
 La cartella \textit{Infra} contiene i file di configurazione per il \textit{deploy} dell'applicazione su \textit{AWS}. È scritta utilizzando il linguaggio di programmazione \textit{Python}.\\
 La cartella è formata da due file: `\textit{app.py}' e `\textit{stack.py}'. Il primo file contiene la configurazione per il \textit{deploy} dell'applicazione, mentre il secondo file contiene la configurazione per il \textit{deploy} dell'infrastruttura.\\
 Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare e a configurare due costrutti, anche chiamati \textit{CDK Constructs} o semplicemente \textit{Constructs}, che sono delle classi che rappresentano un componente dell'infrastruttura.
-Il primo costrutto si chiama THRONCloudFrontDistribution e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file .html, .css, .js e immagini, agli utenti.
-In breve questo costrutto genera il template di \textit{AWS CloudFront} ed esegui il \textit{deploy} degli \textit{asset} statici su un \textit{bucket S3}.\\
+Il primo costrutto si chiama \textit{THRONCloudFrontDistribution} e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file \textit{HTML}, \textit{CSS}, \textit{JS} e immagini, agli utenti.
+In breve questo costrutto genera il \textit{template} di \textit{AWS CloudFront} ed esegue il \textit{deploy} degli \textit{asset} statici su un \textit{bucket S3}.\\
 Il secondo costrutto che sono andato ad utilizzare si chiama \textit{THRONDockerLambda} e consente di creare una funzione \textit{lambda} in cui il gestore è un'immagine \textit{docker}.
 Nel caso del mio progetto, mi è servito per creare un \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
 
 \subsection*{\emph{Middleware}}
 La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
-  \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari \textit{endpoint} che utilizzo sulla parte frontend, lo \textit{script} per il \textit{setting}
+  \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari \textit{endpoint} che utilizzo sulla parte frontend, lo \textit{script} per la configurazione
   della \textit{lambda}, una cartella con gli \textit{helpers} e la cartella del \textit{middleware}.
   \item La cartella test che contiene i test di unità dell'applicazione;
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto;
@@ -134,13 +133,8 @@ La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Ne
 \subsection*{\emph{Dockerfile}}
 Il file \textit{Dockerfile} è un file \textit{docker} che contiene le istruzioni per creare un'immagine che verrà utilizzata per eseguire il \textit{middleware} all'interno di una \textit{lambda}.\\
 Utilizzando la struttura \textit{Dockerfile}, sono andato a creare un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
-\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} container ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
+\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker container} ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
 garantendo che esso sia parte integrante dell'applicazione \textit{serverless}.
-
-% buildspec -> cartella con configuraazione dei build, per codebuild primo step, builda sia portal che il middleware
-% quando finsice la build ti attacca allo step di deploy, definite in infra. 
-% PEr il portale costrutto cloudfrontdistribution -> genera il template di aws clodfront e esegue il deploy degli asset statici su s3. S3 container
-% Secondo costrutto -> throndockerlambda e questo crea la lambda con quando viene invocata avvia un docker con all'interno il mio middleware.
 
 \section{Progettazione}\label{sec:progettazione}
 
@@ -151,12 +145,12 @@ I componenti costituiscono la base dell'architettura di \textit{Vue}. Essi rappr
 \textit{template} scritto in \textit{HTML}, il proprio \textit{script} scritto nel mio caso in \textit{TypeScript} e i propri stili scritti nel mio caso in \textit{Scss}.
 Come già accennato in precedenza, i componenti sono riutilizzabili all'interno di un'applicazione e possono essere combinati tra loro per creare gerarchie di interfacce ancora più complesse.\\
 
-L'architettura di \textit{Vue.js} è basata sul pattern architetturale MVVM (Model-View-ViewModel), che è una variante del pattern MVC (Model-View-Controller), dove:
+L'architettura di \textit{Vue.js} è basata sul pattern architetturale \textit{MVVM} (\textit{Model-View-ViewModel}), che è una variante del pattern \textit{MVC} (\textit{Model-View-Controller}), dove:
 \begin{itemize}
   \item \textbf{Model}: rappresenta lo stato, i dati e le regole di \textit{business} dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la \textit{View} associata in caso di modifiche;
   \item \textbf{View}: è l'interfaccia utente, che visualizza i dati contenuti nel \textit{Model} e si occupa di reagire agli input dell'utente. La \textit{View} è definita utilizzando i template \textit{Vue.js} e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un \textit{template}, ovvero una direttiva dell'\textit{HTML}, arricchita con alcune direttive \textit{Vue.js}. 
-  Queste particolari direttive permettono di collegare elementi del \textit{DOM} a proprietà o metodi del modello, in modo che la \textit{view} possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
+  Queste particolari direttive permettono di collegare elementi del \textit{DOM} a proprietà o metodi del modello, in modo che la \textit{View} possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
   \item \textbf{ViewModel}: è l'intermediario tra la \textit{View} e il \textit{Model}. Il \textit{ViewModel} gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la \textit{View}.
   Il \textit{ViewModel} è rappresentato da un componente \textit{Vue.js}, infatti esso è un'istanza che collega il modello e la vista. All'interno di un componente è possibile definire metodi, proprietà 
   computate, metodi del ciclo di vita, gestione di eventi e molte altre funzionalità. Questo consente di definire la logica di presentazione e di manipolare i dati all'interno di un contesto definito.
