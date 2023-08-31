@@ -81,9 +81,9 @@ Il sistema è composto da due principali sezioni:
 Gli ambienti di \textit{staging} sono ambienti di test che vengono utilizzati per testare le funzionalità dell'applicazione prima di rilasciarla in produzione.
 A livello aziendale sono stati definiti tre ambienti di cui i primi due di \textit{staging}, denominati come segue:
 \begin{itemize}
-  \item \textbf{Development}: consente di validare a livello tecnico le funzionalità;
-  \item \textbf{Quality}: consente di validare a livello funzionale o di implementazione le funzionalità;
-  \item \textbf{Production}: ambiente di produzione in cui viene rilasciata la funzionalità.
+  \item \textbf{\textit{Development}}: consente di validare a livello tecnico le funzionalità;
+  \item \textbf{\textit{Quality}}: consente di validare a livello funzionale o di implementazione le funzionalità;
+  \item \textbf{\textit{Production}}: ambiente di produzione in cui viene rilasciata la funzionalità.
 \end{itemize}
 
 \subsection{Configurazione ambiente del progetto}
@@ -112,7 +112,7 @@ In breve questo costrutto genera il \textit{template} di \textit{AWS CloudFront}
 Il secondo costrutto che sono andato ad utilizzare si chiama \textit{THRONDockerLambda} e consente di creare una funzione \textit{lambda} in cui il gestore è un'immagine \textit{docker}.
 Nel caso del mio progetto, mi è servito per creare un \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
 
-\subsection*{\emph{Middleware}}
+\subsubsection*{\emph{Middleware}}
 La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari \textit{endpoint} che utilizzo sulla parte frontend, lo \textit{script} per la configurazione
@@ -121,7 +121,7 @@ La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto;
   \item Una cartella \textit{node\_modules} che contiene le dipendenze del progetto.
 \end{itemize}
-\subsection*{\emph{Portal}}
+\subsubsection*{\emph{Portal}}
 La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella \textit{public} che contiene il file `\textit{index.html}', che è il file principale dell'applicazione;
@@ -130,7 +130,7 @@ La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Ne
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto.
 \end{itemize}
 
-\subsection*{\emph{Dockerfile}}
+\subsubsection*{\emph{Dockerfile}}
 Il file \textit{Dockerfile} è un file \textit{docker} che contiene le istruzioni per creare un'immagine che verrà utilizzata per eseguire il \textit{middleware} all'interno di una \textit{lambda}.\\
 Utilizzando la struttura \textit{Dockerfile}, sono andato a creare un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
 \textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker container} ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
@@ -147,11 +147,11 @@ Come già accennato in precedenza, i componenti sono riutilizzabili all'interno 
 
 L'architettura di \textit{Vue.js} è basata sul pattern architetturale \textit{MVVM} (\textit{Model-View-ViewModel}), che è una variante del pattern \textit{MVC} (\textit{Model-View-Controller}), dove:
 \begin{itemize}
-  \item \textbf{Model}: rappresenta lo stato, i dati e le regole di \textit{business} dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
+  \item \textbf{\textit{Model}}: rappresenta lo stato, i dati e le regole di \textit{business} dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la \textit{View} associata in caso di modifiche;
-  \item \textbf{View}: è l'interfaccia utente, che visualizza i dati contenuti nel \textit{Model} e si occupa di reagire agli input dell'utente. La \textit{View} è definita utilizzando i template \textit{Vue.js} e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un \textit{template}, ovvero una direttiva dell'\textit{HTML}, arricchita con alcune direttive \textit{Vue.js}. 
+  \item \textbf{\textit{View}}: è l'interfaccia utente, che visualizza i dati contenuti nel \textit{Model} e si occupa di reagire agli input dell'utente. La \textit{View} è definita utilizzando i template \textit{Vue.js} e viene reattivamente aggiornata in base ai cambiamenti del modello. La vista viene definita utilizzando un \textit{template}, ovvero una direttiva dell'\textit{HTML}, arricchita con alcune direttive \textit{Vue.js}. 
   Queste particolari direttive permettono di collegare elementi del \textit{DOM} a proprietà o metodi del modello, in modo che la \textit{View} possa reagire agli input dell'utente e aggiornare automaticamente lo stato dell'applicazione;
-  \item \textbf{ViewModel}: è l'intermediario tra la \textit{View} e il \textit{Model}. Il \textit{ViewModel} gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la \textit{View}.
+  \item \textbf{\textit{ViewModel}}: è l'intermediario tra la \textit{View} e il \textit{Model}. Il \textit{ViewModel} gestisce la logica dell'interfaccia utente e mantiene lo stato dell'applicazione sincronizzato con la \textit{View}.
   Il \textit{ViewModel} è rappresentato da un componente \textit{Vue.js}, infatti esso è un'istanza che collega il modello e la vista. All'interno di un componente è possibile definire metodi, proprietà 
   computate, metodi del ciclo di vita, gestione di eventi e molte altre funzionalità. Questo consente di definire la logica di presentazione e di manipolare i dati all'interno di un contesto definito.
 \end{itemize}
@@ -165,8 +165,8 @@ L'architettura di \textit{Nest.js} si basa su diversi principi chiave e concetti
 La caratteristica principale di \textit{Nest.js} è la modularità, che promuove la suddivisione dell'applicazione in moduli, consentendo di organizzare il codice in unità funzionali e riutilizzabili.\\
 Di seguito i concetti base su cui si basa l'architettura:
 \begin{itemize}
-  \item \textbf{Module}: rappresenta un'unità organizzativa dell'applicazione che contiene un gruppo di elementi correlati come \textit{Controller}, \textit{Service} e \textit{Provider}. Questa struttura modulare 
+  \item \textbf{\textit{Module}}: rappresenta un'unità organizzativa dell'applicazione che contiene un gruppo di elementi correlati come \textit{Controller}, \textit{Service} e \textit{Provider}. Questa struttura modulare 
   favorisce la separazione delle responsabilità rendendo il codice più leggibile;
-  \item \textbf{Controller}: sono interfacce tra la rete e la logica dell'applicazione responsabili della gestione delle richieste \textit{HTTP} in ingresso. Ogni \textit{Controller} è associato a un percorso specifico e a uno o più metodi che rappresentano le diverse azioni eseguibili sul percorso;
-  \item \textbf{Service}: contiene la logica di \textit{business} dell'applicazione. I \textit{Service} sono responsabili della gestione dei dati e dell'interazione con le risorse esterne.
+  \item \textbf{\textit{Controller}}: sono interfacce tra la rete e la logica dell'applicazione responsabili della gestione delle richieste \textit{HTTP} in ingresso. Ogni \textit{Controller} è associato a un percorso specifico e a uno o più metodi che rappresentano le diverse azioni eseguibili sul percorso;
+  \item \textbf{\textit{Service}}: contiene la logica di \textit{business} dell'applicazione. I \textit{Service} sono responsabili della gestione dei dati e dell'interazione con le risorse esterne.
 \end{itemize}
