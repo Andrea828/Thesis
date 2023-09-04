@@ -118,10 +118,10 @@ lo utilizzi in combinazione con altre schede del \textit{browser}.
   \includegraphics[width=0.6\textwidth, alt={Pagina di login responsive dell'applicazione}]{images/frontend/LoginViewRes.jpg}
   \caption{LoginView responsive}\label{fig:login-view-responsive}
 \end{figure}
-
+\pagebreak
 
 \subsubsection{HomeView}\label{subsubsec:home-view}
-La \textit{HomeView} rappresenta la prima pagina visibile dopo aver effettuato il login. Infatti, dopo che l'autenticazione si è conclusa con successo
+La \textit{HomeView} rappresenta la prima pagina visibile dopo aver effettuato il login. Infatti, dopo che l'autenticazione si è conclusa con successo,
 l'utente viene reindirizzato a questa pagina (in figura~\ref{fig:home-view}).
 La \textit{HomeView} è composta da tre sezioni principali: \textit{HeaderNav}, \textit{Sidebar} e \textit{StartPage}. Quest'ultimo è il componente visibile 
 subito dopo aver effettuato il login. Infatti quando l'utente inizia a navigare tra le varie \textit{API}, la \textit{StartPage} viene sostituita con il \textit{MainContent}.
@@ -140,7 +140,7 @@ Come si vede dall'immagine, si può notare che il menù laterale viene nascosto 
   \includegraphics[width=0.5\textwidth, alt={Pagina principale responsive dell'applicazione}]{images/frontend/HomeViewRes.jpg}
   \caption{HomeView responsive}\label{fig:home-view-responsive}
 \end{figure}
-
+\pagebreak
 
 \subsubsection{NotFoundView}\label{subsubsec:not-found-view}
 Quando un utente tenta di accedere ad una pagina non esistente, viene reindirizzato automaticamente alla pagina di errore 404 (in figura~\ref{fig:not-found-view}).
@@ -154,13 +154,13 @@ Per tornare alla \textit{HomeView} basta cliccare sul bottone \textit{Home} e l'
 \end{figure}
 \pagebreak
 \subsection{Components}\label{subsec:components}
-
+La sezione \textit{Components} contiene tutti i componenti riutilizzabili creati durante lo sviluppo del progetto di stage.
 % Home
 \subsubsection{HeaderNav}\label{subsubsec:header-nav}
 Il componente \textit{HeaderNav} rapppresenta la barra di navigazione superiore dell'applicazione (in figura~\ref{fig:header-nav-responsive}). Essa contiene il logo dell'applicazione, la \textit{chip} con il \textit{client-id}
 corrente, il bottone di ricerca e il \textit{popover} di logout. 
 La barra viene sempre visualizzata una volta che l'utente ha effettuato il login all'interno del portale.\\
-In caso di visualizzazione su schermi ridotti, l'\textit{HeaderNav} ha un \textit{design responsive}, dove viene aggiunto nell'estremità sinistra un bottone ad \textit{hamburger}
+In caso di visualizzazione su schermi ridotti, l'\textit{HeaderNav} ha un \textit{design responsive}, dove viene aggiunto, nell'estremità sinistra, un bottone ad \textit{hamburger}
 che permette di visualizzare la \textit{SideBar} a comparsa.
 
 \begin{figure}[ht]
@@ -183,7 +183,7 @@ Nell'angolo destro è stato aggiunto un bottone per il download della documentaz
 \pagebreak
 
 Cliccando su uno degli \textit{endpoint} disponibili, è presente una sezione dedicata per la visualizzazione dei dettagli di quest'ultimo (in figura~\ref{fig:try-it-out}).
-I parametri e il \textit{Try it out} sono gestiti all'interno della \textit{utility SwaggerUtils} per una migliore suddivisione della logica.
+I parametri e il \textit{try it out} sono gestiti all'interno della \textit{utility SwaggerUtils} per una migliore suddivisione della logica.
 
 \begin{figure}[ht]
   \centering
@@ -233,7 +233,7 @@ Essa contiene il nome del portale, una breve descrizione e un'immagine. Per iniz
 
 \subsubsection{SwaggerLoader}\label{subsubsec:swagger-loader}
 Il componente \textit{SwaggerLoader} rappresenta il \textit{loader} di caricamento per il \textit{MainContent} (in figura~\ref{fig:swagger-loader}). 
-Esso rappresenta un caricamento di stile \textit{skeleton}, ovvero un caricamento di contenuto che simula il contenuto finale, mentre questo viene caricato, attraverso un sfondo dinamico grigio.
+Esso rappresenta un caricamento di stile \textit{skeleton}, ovvero un caricamento di contenuto che simula il contenuto finale, mentre questo viene caricato, attraverso uno sfondo dinamico grigio.
 Il componente ha la stessa struttura del \textit{MainContent}, quindi segue lo stesso \textit{design responsive}.
 Il \textit{loader} è visibile ogni volta che l'utente clicca su una delle \textit{API} disponibili nella \textit{SideBar}, e scompare una volta che il contenuto è stato caricato correttamente.
 
@@ -245,7 +245,7 @@ Il \textit{loader} è visibile ogni volta che l'utente clicca su una delle \text
 
 \subsubsection{DownloadButton}\label{subsubsec:download-button}
 Il componente \textit{DownloadButton} rappresenta il bottone di download presente in ogni pagina di dettaglio dell'\textit{API} specifica. Esso è stato sviluppato rispettando il \textit{design system}
-aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.\\
+aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{THRON Components}.\\
 Il componente dà la possibilità di scegliere la grandezza, il testo del bottone e le icone da visualizzare.
 Il componente permette all'utente di scaricare la documentazione dell'\textit{API} in formato \textit{YAML}, con un nome predefinito a seconda 
 del servizio scaricato. Una volta cliccato, va ad aprire una finestra secondaria del \textit{browser}, e il file viene scaricato automaticamente.\\
@@ -279,8 +279,8 @@ Si tratta di un componente \textit{custom} creato da me, utilizzato per aprire l
 Il componente \textit{SearchBar} rappresenta la barra di ricerca globale dell'applicazione (in figura~\ref{fig:search-bar}). 
 Essa consiste in una barra dove poter inserire il \textit{client-id} o il nome dell'\textit{API} da cercare,
 con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{Autocomplete} descritto nel capitolo~\ref{subsubsec:autocomplete}.
-Infatti i componenti insieme, costituiscono la ricerca all'interno del portale. Inoltre La \textit{SearchBar} è accessibile anche tramite tastiera,
-infatti tramite il comando \textit{Ctrl + B} è possibile aprire la barra di ricerca.\\
+Infatti i componenti insieme, costituiscono la ricerca all'interno del portale. Inoltre La \textit{SearchBar} è accessibile tramite tastiera,
+infatti utilizzando il comando \textit{Ctrl + B} è possibile aprire la barra di ricerca.\\
 
 \begin{figure}[ht]
   \centering
@@ -294,7 +294,7 @@ Il componente \textit{Autocomplete} rappresenta l'elenco dei risultati visualizz
 Essa consiste in una lista di suggerimenti dinamici che vengono visualizzati in base al testo inserito dall'utente. 
 In caso il campo di ricerca della \textit{SearchBar} sia vuoto, viene mostrata la lista degli ultimi quattro termini cercati, se presenti.
 In caso contrario, quando è presente un termine nella barra di ricerca, viene visualizzata una lista di suggerimenti divisa per categoria.
-Nel caso in cui la ricerca non abbia prodotto risultati, viene visualizzato un messaggio di errore, gestito tramite il componente \textit{SnackBar} descritto in seguito.\\
+Nel caso in cui la ricerca non abbia prodotto risultati, viene visualizzato un messaggio di errore gestito tramite il componente \textit{SnackBar} descritto nel capitolo~\ref{subsubsec:snack-bar}.\\
 La logica della ricerca è completamente sviluppata lato \textit{backend} per estrapolare il componente di ricerca e renderlo riutilizzabile in altri progetti.
 Essendo un componente \textit{custom}, ho aggiunto la possibilità di navigare il menù e selezionare un suggerimento tramite tastiera, funzionalità 
 obbligatoria per rendere la ricerca accessibile anche a persone con disabilità.\\
@@ -331,7 +331,7 @@ Cliccando di nuovo sullo stesso filtro, il bottone torna arancione e la lista co
 Il componente \textit{OptionList} rappresenta la lista di opzioni generiche, visualizzate all'interno della \textit{SideBar}. Nel mio progetto, ho utilizzato questo componente per mostrare l'elenco completo delle \textit{API} disponibili nel sistema.
 
 \subsubsection{OptionListItem}\label{subsubsec:option-list-item}
-Il componente \textit{OptionListItem} rappresenta un singolo elemento della lista di opzioni generiche, visualizzate all'interno della \textit{SideBar}. Nel mio progetto, un \textit{item} rappresenta una singola \textit{API}.
+Il componente \textit{OptionListItem} rappresenta un singolo elemento della lista di opzioni generiche, visualizzata all'interno della \textit{SideBar}. Nel mio progetto, un \textit{item} rappresenta una singola \textit{API}.
 Quando l'utente sceglie un'opzione, viene aperta la pagina di dettaglio dell'\textit{API} selezionata.
 
 \subsubsection{SnackBar}\label{subsubsec:snack-bar}
@@ -349,7 +349,7 @@ la durata del messaggio, il testo da visualizzare, la posizione del componente e
 
 \subsubsection{Loader}\label{subsubsec:loader}
 Il componente \textit{Loader} rapppresenta il sistema di caricamento principale dell'applicazione (in figura~\ref{fig:loader}).
-Esso rappresenta un caricamento stile \textit{skeleton}, ovvero un caricamento che simula la presenza di contenuti, mentre questi vengono caricati, attraverso 
+Esso rappresenta un caricamento stile \textit{skeleton}, ovvero un caricamento che simula la presenza di contenuti mentre questi vengono caricati, attraverso 
 uno sfondo dinamico grigio.
 Il componente è stato utilizzato per il caricamento della struttura della pagina, ovvero è composto da tre sezioni: \textit{HeaderNav}, \textit{SideBar} e
 \textit{MainContent}. Il \textit{loader} è visibile subito dopo aver effettuato il login o quando la pagina viene ricaricata, e scompare una volta che i dati sono stati caricati correttamente.
@@ -366,9 +366,9 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 \pagebreak
 
 \section{Codifica backend}\label{sec:codifica-backend}
-Il capitolo descrive l'attività di codifica del progetto di stage per la parte backend, ovvero al creazione 
+Il capitolo descrive l'attività di codifica del progetto di stage per la parte backend, ovvero la creazione 
 dei servizi per la gestione delle \textit{API}, dei \textit{client-id} e dei risultati della ricerca.
-Inoltre viene descritta la funzionalità del \textit{middleware}, utilizzata per vari scopi, descritta nela sezione seguente.
+Inoltre viene descritta la funzionalità del \textit{middleware}, utilizzata per vari scopi all'interno del progetto.
 
 \subsection{Middleware}\label{subsec:middleware}
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
@@ -380,7 +380,7 @@ nel modulo principale dell'applicazione tutte le rotte che devono essere gestite
 
 \subsubsection{Validazione token JWT}\label{subsubsec:validazione-token-jwt}
 La prima funzione implementata nel \textit{middleware} è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
-La criticità consiste nel fatto che un servizio può essere accessibile direttamente, senza la necessità di passare attraverso il portale, poiché ciascun \textit{endpoint} dispone di un \textit{URL} pubblico.
+La criticità consiste nel fatto che un servizio può essere accessibile direttamente senza la necessità di passare attraverso il portale, poiché ciascun \textit{endpoint} dispone di un \textit{URL} pubblico.
 La soluzione che ho implementato è stata quella di validare il \textit{token} di autenticazione verificando che qualsiasi chiamata ai miei servizi fosse effettuata da un utente autenticato, avente un token valido nell'\textit{header} della richiesta.
 Per verificare il \textit{token} ho effettuato i seguenti passaggi:
 \begin{enumerate}
@@ -397,7 +397,7 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
 
 \subsubsection{GET Supertoken}\label{subsubsec:get-supertoken}
 La seconda funzione implementata nel \textit{middleware} è l'acquisizione del \textit{supertoken}, che avviene solamente se la validazione del \textit{token} appena discussa non genera errori.
-Per ottenere il \textit{supertoken} è necessario effettuare una chiamata verso un \textit{endpoint} aziendale, che restituisce il \textit{supertoken} in base al \textit{client-id} passato come parametro.
+Per ottenere il \textit{supertoken} è necessario effettuare una chiamata verso un \textit{endpoint} aziendale, che restituisce il \textit{supertoken} in base ad un nome utente passato come parametro.
 Per prima cosa ho creato dei parametri, aggiungendo l'\textit{username} con il valore che mi è stato fornito dall'azienda.
 Successivamente effettuo una \textit{POST} verso l'\textit{endpoint} aziendale che mi ritorna il \textit{supertoken}, e in caso di criticità viene restituito un errore.\\
 Il \textit{token} appena ottenuto viene aggiunto all'\textit{header} della richiesta, in modo tale che ogni chiamata verso i miei \textit{endpoint} ha il \textit{supertoken} aggiunto automaticamente.
@@ -435,5 +435,5 @@ Nel \textit{Controller} è presente l'\textit{endpoint} `\textit{/results}', ovv
 inserito nel \textit{body} della chiamata. Il metodo in primis ottiene le \textit{API} e i \textit{client-id} utilizzando i moduli importati. 
 Successivamente viene chiamato il metodo `\textit{getResults}' del \textit{Service}, al quale vengono passati come parametri il termine di ricerca, la lista delle \textit{API} e la lista dei \textit{client-id}.
 All'interno della funziona appena citata, è presente tutta la logica di filtraggio dei risultati.\\
-Il servizio che ho creato va a restituire una lista di risultati, ognuno dei quali è un oggetto contenente il nome del gruppo filtrato ed una lista associata ad esso.
+Il servizio che ho creato restituisce una lista di risultati, ognuno dei quali è un oggetto contenente il nome del gruppo filtrato ed una lista associata ad esso.
 Inoltre, ho impostato un limite massimo di dieci risultati per ciascun gruppo. Questo limite serve a evitare di avere una lista eccessivamente lunga di elementi, che potrebbe risultare difficile da gestire o visualizzare.
