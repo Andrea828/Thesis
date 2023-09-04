@@ -375,8 +375,8 @@ Il \textit{middleware} è un meccanismo che permette di eseguire delle operazion
 Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta [~\cite{site:middleware}].
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta.
-Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
-nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
+Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè ho specificato
+nel modulo principale dell'applicazione tutte le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
 \subsubsection{Validazione token JWT}\label{subsubsec:validazione-token-jwt}
 La prima funzione implementata nel \textit{middleware} è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
@@ -429,7 +429,7 @@ Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappres
 \subsubsection{Search}\label{susubsec:search}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di suggerimenti utilizzata per la ricerca globale del portale.
 È definito dal file \textit{Module}, dove vengono specificati i vari \textit{Controller}, \textit{Service} e gli \textit{Imports} utilizzati. 
-Quest'ultimi non sono altro che dei moduli che vengono utilizzati all'interno del \textit{Controller}. Nel mio caso sono andato ad importare il modulo \textit{APIModule}
+Quest'ultimi non sono altro che dei moduli che vengono utilizzati all'interno del \textit{Controller}. Nel mio caso ho importato il modulo \textit{APIModule}
 relativo alle \textit{API} e il modulo \textit{ClientModule} relativo ai \textit{client-id}.
 Nel \textit{Controller} è presente l'\textit{endpoint} `\textit{/results}', ovvero un metodo \textit{POST} che restituisce la lista di suggerimenti in base ad un parametro di ricerca
 inserito nel \textit{body} della chiamata. Il metodo in primis ottiene le \textit{API} e i \textit{client-id} utilizzando i moduli importati. 

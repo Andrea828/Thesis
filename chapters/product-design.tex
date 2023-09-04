@@ -15,13 +15,13 @@ Creato da \textit{Evan You}, \textit{Vue.js} è apprezzato per la sua semplicit�
 su componenti consente di organizzare il codice in moduli riutilizzabili e autonomi, semplificando la creazione di applicazioni complesse. 
 Grazie alle direttive, è possibile arricchire il \glsfirstoccur{\gls{domg}} con funzionalità reattive, mentre il sistema di \textit{routing} agevola la creazione di \glsfirstoccur{\gls{spag}}. 
 Con una crescita costante della comunità di sviluppatori, \textit{Vue.js} è diventato un'opzione popolare nel mondo dello sviluppo frontend.
-Per il mio progetto sono andato ad utilizzare la versione 3 di \textit{Vue.js}, insieme allo \textit{script setup}, che è una nuova sintassi per definire componenti progettata per semplificare la struttura del codice e migliorare la leggibilità [~\cite{site:vue.js}].
+Per il mio progetto ho utilizzato la versione 3 di \textit{Vue.js}, insieme allo \textit{script setup}, che è una nuova sintassi per definire componenti progettata per semplificare la struttura del codice e migliorare la leggibilità [~\cite{site:vue.js}].
 
 \subsubsection{TypeScript}\label{subsubsec:typeScript}
 \textit{TypeScript} è un linguaggio di programmazione \glsfirstoccur{\gls{opensourceg}} sviluppato da \textit{Microsoft}. Si basa su \textit{JavaScript} e offre tipizzazione statica opzionale, 
 consentendo agli sviluppatori di specificare tipi per variabili, parametri di funzioni e oggetti. Questa caratteristica aiuta a individuare errori e a migliorare 
 la manutenibilità del codice [~\cite{site:typescript}].\\
-All'interno del mio progetto sono andato a creare per la parte frontend una cartella chiamata \textit{types} che contiene un file \textit{TypeScript} contenente tutti i tipi utilizzati all'interno del progetto.
+All'interno del mio progetto ho creato per la parte frontend una cartella chiamata \textit{types}, che contiene un file \textit{TypeScript} con al suo interno tutti i tipi utilizzati nel progetto.
 \subsubsection{Vite.js}\label{subsubsec:vite}
 \textit{Vite.js} è un \textit{build tool} utilizzato per lo sviluppo di applicazioni web. È stato creato da \textit{Evan You}, lo stesso creatore di \textit{Vue.js}, e si basa su \glsfirstoccur{\gls{rollupjsg}}.
 \textit{Vite.js} è stato progettato per essere veloce, semplice da utilizzare e facile da configurare. La sua velocità è dovuta al fatto che utilizza la tecnica dell'\glsfirstoccur{\gls{esmg}} (\textit{ECMAScript Modules})
@@ -106,7 +106,7 @@ Ognuno dei file \textit{buildspec} è un file \textit{YAML}, che è formato dall
 \subsubsection*{\emph{Infra}}\label{subsubsec:infra}
 La cartella \textit{Infra} contiene i file di configurazione per il \textit{deploy} dell'applicazione su \textit{AWS}. È scritta utilizzando il linguaggio di programmazione \glsfirstoccur{\gls{pythong}}.\\
 La cartella è formata da due file: `\textit{app.py}' e `\textit{stack.py}'. Il primo file contiene la configurazione per il \textit{deploy} dell'applicazione, mentre il secondo file contiene la configurazione per il \textit{deploy} dell'infrastruttura.\\
-Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare e a configurare due costrutti, anche chiamati \textit{CDK Constructs} o semplicemente \textit{Constructs}, che sono delle classi che rappresentano un componente dell'infrastruttura.
+Per quanto riguarda l'infrastruttura del progetto, ho utilizzato e configurato due costrutti, anche chiamati \textit{CDK Constructs} o semplicemente \textit{Constructs}, che sono delle classi che rappresentano un componente dell'infrastruttura.
 Il primo costrutto si chiama \textit{THRONCloudFrontDistribution} e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file \textit{HTML}, \textit{CSS}, \textit{JS} e immagini, agli utenti.
 In breve questo costrutto genera il \textit{template} di \glsfirstoccur{\gls{awscloudfrontg}} ed esegue il \textit{deploy} degli \textit{asset} statici su un \glsfirstoccur{\gls{s3g}}.\\
 Il secondo costrutto che ho utilizzato si chiama \textit{THRONDockerLambda} e consente di creare una funzione \glsfirstoccur{\gls{lambdag}} in cui il gestore è un'immagine \glsfirstoccur{\gls{dockerg}}.
