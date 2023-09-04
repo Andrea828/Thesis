@@ -15,58 +15,58 @@ Creato da \textit{Evan You}, \textit{Vue.js} è apprezzato per la sua semplicit�
 su componenti consente di organizzare il codice in moduli riutilizzabili e autonomi, semplificando la creazione di applicazioni complesse. 
 Grazie alle direttive, è possibile arricchire il \glsfirstoccur{\gls{domg}} con funzionalità reattive, mentre il sistema di \textit{routing} agevola la creazione di \glsfirstoccur{\gls{spag}}. 
 Con una crescita costante della comunità di sviluppatori, \textit{Vue.js} è diventato un'opzione popolare nel mondo dello sviluppo frontend.
-Per il mio progetto sono andato ad utilizzare la versione 3 di \textit{Vue.js}, insieme allo \textit{script setup}, che è una nuova sintassi per definire componenti progettata per semplificare la struttura del codice e migliorare la leggibilità.
+Per il mio progetto sono andato ad utilizzare la versione 3 di \textit{Vue.js}, insieme allo \textit{script setup}, che è una nuova sintassi per definire componenti progettata per semplificare la struttura del codice e migliorare la leggibilità [~\cite{site:vue.js}].
 
 \subsubsection{TypeScript}\label{subsubsec:TypeScript}
 \textit{TypeScript} è un linguaggio di programmazione \glsfirstoccur{\gls{opensourceg}} sviluppato da \textit{Microsoft}. Si basa su \textit{JavaScript} e offre tipizzazione statica opzionale, 
 consentendo agli sviluppatori di specificare tipi per variabili, parametri di funzioni e oggetti. Questa caratteristica aiuta a individuare errori e a migliorare 
-la manutenibilità del codice.\\
+la manutenibilità del codice [~\cite{site:typescript}].\\
 All'interno del mio progetto sono andato a creare per la parte frontend una cartella chiamata \textit{types} che contiene un file \textit{TypeScript} contenente tutti i tipi utilizzati all'interno del progetto.
 \subsubsection{Vite.js}\label{subsubsec:vite}
 \textit{Vite.js} è un \textit{build tool} utilizzato per lo sviluppo di applicazioni web. È stato creato da \textit{Evan You}, lo stesso creatore di \textit{Vue.js}, e si basa su \glsfirstoccur{\gls{rollupjsg}}.
 \textit{Vite.js} è stato progettato per essere veloce, semplice da utilizzare e facile da configurare. La sua velocità è dovuta al fatto che utilizza la tecnica dell'\glsfirstoccur{\gls{esmg}} (\textit{ECMAScript Modules})
-che permette di caricare i moduli in modo asincrono, riducendo i tempi di compilazione e di \glsfirstoccur{\gls{hotreloadg}}.
+che permette di caricare i moduli in modo asincrono, riducendo i tempi di compilazione e di \glsfirstoccur{\gls{hotreloadg}} [~\cite{site:vite}].
 \subsubsection{Sass}\label{subsubsec:Sass}
 \textit{Sass} è un'estensione di \textit{CSS} che offre funzionalità aggiuntive e avanzate per semplificare e organizzare il modo in cui viene scritto e gestito il codice.
-Può essere considerato un preprocessore \textit{CSS}, in quanto viene compilato in \textit{CSS} prima di essere interpretato dal \textit{browser}. \textit{Sass} inoltre permette di utilizzare funzionalità non disponibili in \textit{CSS} nativo, offrendo una serie di funzioni, variabili, \textit{mixin} e altro.\\
+Può essere considerato un preprocessore \textit{CSS}, in quanto viene compilato in \textit{CSS} prima di essere interpretato dal \textit{browser}. \textit{Sass} inoltre permette di utilizzare funzionalità non disponibili in \textit{CSS} nativo, offrendo una serie di funzioni, variabili, \textit{mixin} e altro [~\cite{site:sass}].\\
 Insieme a \textit{Sass}, ho utilizzato \textit{BEM}, ovvero una metodologia di \textit{naming convention} utilizzata nel mondo dello sviluppo web.
 
 \subsection{Backend}\label{subsec:backend}
 \subsubsection{Nest.js}\label{subsubsec:nest}
 \textit{Nest.js} è un \textit{framework} per applicazioni \textit{server-side} basato su \textit{Node.js}. Si basa su \glsfirstoccur{\gls{expressjsg}} e \textit{TypeScript} ed è progettato per creare applicazioni scalabili e performanti.
-Il \textit{framework} in questione combina concetti e caratteristiche provenienti da diversi paradigmi di sviluppo, tra cui la programmazione orientata agli oggetti (OOP), la programmazione funzionale e la programmazione reattiva.
+Il \textit{framework} in questione combina concetti e caratteristiche provenienti da diversi paradigmi di sviluppo, tra cui la programmazione orientata agli oggetti (OOP), la programmazione funzionale e la programmazione reattiva [~\cite{site:nest.js}].
 
 \subsection{Altre tecnologie di supporto}\label{subsec:altre-tecnologie-di-supporto}
 \subsubsection{Node.js}\label{subsubsec:node.js}
-\textit{Node.js} è un ambiente di \textit{runtime JavaScript open-source} progettato per eseguire codice lato server. Per gestire le dipendenze del mio progetto,
+\textit{Node.js} è un ambiente di \textit{runtime JavaScript open-source} progettato per eseguire codice lato server [~\cite{site:node}]. Per gestire le dipendenze del mio progetto,
 ho deciso di utilizzare \glsfirstoccur{\gls{pnpmg}} come gestore di pacchetti. Questa selezione ha portato a un miglior utilizzo delle risorse di sistema e ha notevolmente accelerato il processo di 
 installazione delle dipendenze.
  \subsubsection{Pinia}\label{subsubsec:pinia}
- \textit{Pinia} è una libreria per la gestione dello stato per applicazioni \textit{Vue.js}. Promuove l'uso di \textit{store} modulari, ognuno dei quali gestisce uno stato specifico dell'applicazione.
+ \textit{Pinia} è una libreria per la gestione dello stato per applicazioni \textit{Vue.js}. Promuove l'uso di \textit{store} modulari, ognuno dei quali gestisce uno stato specifico dell'applicazione [~\cite{site:pinia}].
 \subsubsection{Vue-router}\label{subsubsec:vue-router}
-\textit{Vue-router} è una libreria per la gestione delle \textit{route} per le applicazioni \textit{Vue.js}. Permette di definire le \textit{route} dell'applicazione e di navigare tra le pagine.
+\textit{Vue-router} è una libreria per la gestione delle \textit{route} per le applicazioni \textit{Vue.js}. Permette di definire le \textit{route} dell'applicazione e di navigare tra le pagine [~\cite{site:vue-router}].
 
 \subsection{Versionamento}\label{subsec:versionamento}
 \subsubsection{Git}\label{subsubsec:git}
-\textit{Git} è un sistema di controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto \glsfirstoccur{\gls{softwareg}}.
+\textit{Git} è un sistema di controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto \glsfirstoccur{\gls{softwareg}} [~\cite{site:git}].
 \subsubsection{CodeCommit}\label{subsubsec:CodeCommit}
 \textit{AWS CodeCommit} rappresenta un servizio di \textit{hosting} di \textit{repository} altamente scalabile, che è gestito all'interno dell'ecosistema di \glsfirstoccur{\gls{awsg}} (\textit{Amazon Web Services}). 
-Con \textit{CodeCommit}, è possibile ospitare \textit{repository Git} privati in un ambiente sicuro e flessibile.
+Con \textit{CodeCommit}, è possibile ospitare \textit{repository Git} privati in un ambiente sicuro e flessibile [~\cite{site:code-commit}].
 
 \subsection{Verifica}\label{subsec:verifica}
 \subsubsection{ESLint}\label{subsubsec:eslint}
 \textit{ESLint} è uno strumento \textit{open-source} ampiamente utilizzato per l'analisi statica del codice \textit{JavaScript}. Esso permette di identificare e segnalare potenziali errori o pratiche non conformi durante la fase di sviluppo.
 \subsubsection{Vitest}\label{subsubsec:vitest}
 \textit{Vitest} è un \textit{framework} per l'implementazione di test di unità, utilizzato prevalentemente in progetti \textit{Vue.js}.
-Usato in coppia con \textit{Vite} permette di eseguire test di unità in modo più veloce e semplice.
+Usato in coppia con \textit{Vite} permette di eseguire test di unità in modo più veloce e semplice [~\cite{site:vitest}].
 
 \subsection{Librerie esterne utilizzate}\label{subsec:librerie-esterne}
 \subsubsection{THRON Components}\label{subsubsec:thron-components}
 La libreria \textit{THRON Components} contiene i componenti utilizzati per creare elementi comuni, come i bottoni del portale, seguendo il design aziendale.
 \subsubsection{Azure MSAL}\label{subsubsec:azure-MSAL}
-\textit{Azure MSAL} è una libreria che permette di integrare il login con \glsfirstoccur{\gls{azureadg}} (\textit{Azure Active Directory}) all'interno di un'applicazione web.
+\textit{Azure MSAL} è una libreria che permette di integrare il login con \glsfirstoccur{\gls{azureadg}} (\textit{Azure Active Directory}) all'interno di un'applicazione web [~\cite{site:msal}].
 \subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
-\textit{Swagger UI} è una libreria \textit{open-source} progettata per semplificare la visualizzazione e l'interazione con la documentazione delle \textit{API}.
+\textit{Swagger UI} è una libreria \textit{open-source} progettata per semplificare la visualizzazione e l'interazione con la documentazione delle \textit{API} [~\cite{site:swagger}].
 
 \section{Struttura principale del sistema}
 Il sistema è composto da due principali sezioni:
@@ -145,7 +145,7 @@ I componenti costituiscono la base dell'architettura di \textit{Vue}. Essi rappr
 \textit{template} scritto in \textit{HTML}, il proprio \textit{script} scritto nel mio caso in \textit{TypeScript} e i propri stili scritti nel mio caso in \textit{Scss}.
 Come già accennato in precedenza, i componenti sono riutilizzabili all'interno di un'applicazione e possono essere combinati tra loro per creare gerarchie di interfacce ancora più complesse.\\
 
-L'architettura di \textit{Vue.js} è basata sul pattern architetturale \textit{MVVM} (\textit{Model-View-ViewModel}), che è una variante del pattern \glsfirstoccur{\gls{mvcg}} (\textit{Model-View-Controller}), dove:
+L'architettura di \textit{Vue.js} è basata sul pattern architetturale \textit{MVVM} (\textit{Model-View-ViewModel}) [~\cite{site:vue-architettura}], che è una variante del pattern \glsfirstoccur{\gls{mvcg}} (\textit{Model-View-Controller}), dove:
 \begin{itemize}
   \item \textbf{\textit{Model}}: rappresenta lo stato, i dati e le regole di \textit{business} dell'applicazione, che gestiscono l'accesso e la modifica di tali dati. Lo stato viene definito tramite l'uso
   di particolari variabili di tipo reattivo, che permettono di aggiornare automaticamente la \textit{View} associata in caso di modifiche;
@@ -161,7 +161,7 @@ diverso da altri \textit{framework} è proprio il concetto di reattività, infat
 
 \subsection{Architettura backend}\label{subsec:architettura-backend}
 \subsubsection{Architettura Nest.js}\label{subsubsec:architettura-nest.js}
-L'architettura di \textit{Nest.js} si basa su diversi principi chiave e concetti fondamentali che lo rendono un \textit{framework} efficace per la creazione di applicazioni \textit{server-side}.
+L'architettura di \textit{Nest.js} [~\cite{site:nest-architettura}] si basa su diversi principi chiave e concetti fondamentali che lo rendono un \textit{framework} efficace per la creazione di applicazioni \textit{server-side}.
 La caratteristica principale di \textit{Nest.js} è la modularità, che promuove la suddivisione dell'applicazione in moduli, consentendo di organizzare il codice in unità funzionali e riutilizzabili.\\
 Di seguito i concetti base su cui si basa l'architettura:
 \begin{itemize}

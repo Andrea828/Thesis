@@ -18,7 +18,7 @@ Il file \textit{Auth} è una \textit{utility} per la gestione dell'autenticazion
 per interfacciarsi all'autenticazione verso il servizio \textit{Azure AD}.\\
 \textit{Auth} è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del \textit{token} di accesso.\\
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del \textit{token} in modo automatico con 
-l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
+l'implementazione del \textit{refresh token} [~\cite{site:token}]. Essa segue la procedura seguente:
 \begin{enumerate}
   \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
   \item In caso il \textit{token} sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo \textit{token} di accesso;
@@ -372,7 +372,7 @@ Inoltre viene descritta la funzionalità del \textit{middleware}, utilizzata per
 
 \subsection{Middleware}\label{subsec:middleware}
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
-Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
+Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta [~\cite{site:middleware}].
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta.
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
