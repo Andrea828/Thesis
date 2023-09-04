@@ -116,8 +116,8 @@ Nel caso del mio progetto, mi è servito per creare una \textit{lambda} che una 
 La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari \textit{endpoint} che utilizzo sulla parte frontend, lo \textit{script} per la configurazione
-  della \textit{lambda}, una cartella con gli \textit{helpers} e la cartella del \textit{middleware}.
-  \item La cartella test che contiene i test di unità dell'applicazione;
+  della \textit{lambda}, una cartella con gli \textit{helpers} e la cartella del \textit{middleware};
+  % \item La cartella test che contiene i test di unità dell'applicazione;
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto;
   \item Una cartella \textit{node\_modules} che contiene le dipendenze del progetto.
 \end{itemize}
@@ -133,7 +133,7 @@ La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Ne
 \subsubsection*{\emph{Dockerfile}}\label{subsubsec:dockerfile}
 Il file \textit{Dockerfile} è un file \textit{docker} che contiene le istruzioni per creare un'immagine che viene utilizzata per eseguire il \textit{middleware} all'interno di una \textit{lambda}.\\
 Utilizzando la struttura \textit{Dockerfile}, ho creato un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
-\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} \glsfirstoccur{\gls{containerg}} ed esegue il \textit{middleware} all'interno dell'ambiente \textit{containerizzato}, 
+\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} \glsfirstoccur{\gls{containerg}} ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
 garantendo che esso sia parte integrante dell'applicazione \glsfirstoccur{\gls{serverlessg}}.
 
 \section{Progettazione}\label{sec:progettazione}
