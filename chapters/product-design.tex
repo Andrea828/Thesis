@@ -62,7 +62,7 @@ Usato in coppia con \textit{Vite} permette di eseguire test di unità in modo pi
 
 \subsection{Librerie esterne utilizzate}\label{subsec:librerie-esterne}
 \subsubsection{THRON Components}\label{subsubsec:thron-components}
-La libreria \textit{THRON Components} contiene i componenti utilizzati per creare elementi comuni, come i bottoni del portale, seguendo il design aziendale.
+La libreria \textit{THRON Components} contiene i componenti utilizzati per creare elementi comuni, come i bottoni del portale, seguendo il \textit{design system} aziendale.
 \subsubsection{Azure MSAL}\label{subsubsec:azure-MSAL}
 \textit{Azure MSAL} è una libreria che permette di integrare il login con \glsfirstoccur{\gls{azureadg}} (\textit{Azure Active Directory}) all'interno di un'applicazione web [~\cite{site:msal}].
 \subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
@@ -109,7 +109,7 @@ La cartella è formata da due file: `\textit{app.py}' e `\textit{stack.py}'. Il 
 Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare e a configurare due costrutti, anche chiamati \textit{CDK Constructs} o semplicemente \textit{Constructs}, che sono delle classi che rappresentano un componente dell'infrastruttura.
 Il primo costrutto si chiama \textit{THRONCloudFrontDistribution} e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file \textit{HTML}, \textit{CSS}, \textit{JS} e immagini, agli utenti.
 In breve questo costrutto genera il \textit{template} di \glsfirstoccur{\gls{awscloudfrontg}} ed esegue il \textit{deploy} degli \textit{asset} statici su un \glsfirstoccur{\gls{s3g}}.\\
-Il secondo costrutto che sono andato ad utilizzare si chiama \textit{THRONDockerLambda} e consente di creare una funzione \glsfirstoccur{\gls{lambdag}} in cui il gestore è un'immagine \glsfirstoccur{\gls{dockerg}}.
+Il secondo costrutto che ho utilizzato si chiama \textit{THRONDockerLambda} e consente di creare una funzione \glsfirstoccur{\gls{lambdag}} in cui il gestore è un'immagine \glsfirstoccur{\gls{dockerg}}.
 Nel caso del mio progetto, mi è servito per creare una \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
 
 \subsubsection*{\emph{Middleware}}\label{subsubsec:middleware}
@@ -124,7 +124,7 @@ La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}
 \subsubsection*{\emph{Portal}}\label{subsubsec:portal}
 La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
-  \item La cartella \textit{public} che contiene il file `\textit{index.html}', che è il file principale dell'applicazione;
+  \item La cartella \textit{public} contenente il file `\textit{index.html}', ovvero il file principale dell'applicazione;
   \item Una cartella \textit{node\_modules} che contiene le dipendenze del progetto;
   \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari componenti che utilizzo, i vari \textit{store}, i vari \textit{router} e le varie \textit{utilities};
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto.
@@ -132,8 +132,8 @@ La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Ne
 
 \subsubsection*{\emph{Dockerfile}}\label{subsubsec:dockerfile}
 Il file \textit{Dockerfile} è un file \textit{docker} che contiene le istruzioni per creare un'immagine che viene utilizzata per eseguire il \textit{middleware} all'interno di una \textit{lambda}.\\
-Utilizzando la struttura \textit{Dockerfile}, sono andato a creare un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
-\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} \glsfirstoccur{\gls{containerg}} ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
+Utilizzando la struttura \textit{Dockerfile}, ho creato un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
+\textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} \glsfirstoccur{\gls{containerg}} ed esegue il \textit{middleware} all'interno dell'ambiente \textit{containerizzato}, 
 garantendo che esso sia parte integrante dell'applicazione \glsfirstoccur{\gls{serverlessg}}.
 
 \section{Progettazione}\label{sec:progettazione}
