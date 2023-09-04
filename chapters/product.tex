@@ -15,14 +15,14 @@ Di seguito sono elencati le \textit{utilities} che ho sviluppato durante il prog
 
 \subsubsection{Auth}\label{subsubsec:auth-utils}
 Il file \textit{Auth} è una \textit{utility} per la gestione dell'autenticazione utilizzando come supporto la libreria \textit{Azure MSAL}. Essa è utile
-per interfacciarsi all'autenticazione verso il servizio \textit{Azure Active Directory}.\\
+per interfacciarsi all'autenticazione verso il servizio \textit{Azure AD}.\\
 \textit{Auth} è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del \textit{token} di accesso.\\
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del \textit{token} in modo automatico con 
 l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
 \begin{enumerate}
   \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
   \item In caso il \textit{token} sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo \textit{token} di accesso;
-  \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \textit{hidden iframe} per richiedere
+  \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \glsfirstoccur{\gls{hiddeniframeg}} per richiedere
   un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, ottenendo quindi un nuovo \textit{token} di accesso e di aggiornamento. 
 \end{enumerate}
 Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
@@ -55,7 +55,7 @@ La chiamata è autenticata e viene utilizzata insieme alla funzione di \textit{d
 viene passato il testo che l'utente sta scrivendo nella barra di ricerca.
 
 \subsubsection{MsGraphApiCall}\label{subsubsec:ms-graph-api-call}
-L'\textit{utility MsGraphApiCall} contiene al suo interno due funzioni che ho creato per effettuare chiamate alle \textit{API} di \textit{Microsoft Graph}. 
+L'\textit{utility MsGraphApiCall} contiene al suo interno due funzioni che ho creato per effettuare chiamate alle \textit{API} di \glsfirstoccur{\gls{microsoftgraphg}}. 
 La prima funzione è una chiamata \textit{GET} che viene utilizzata per ottenere i dati relativi all'utente che ha effettuato l'accesso al portale.
 La seconda funzione è sempre una chiamata \textit{GET} ad un altro \textit{endpoint} di \textit{Microsoft}, per ottenere informazioni secondarie sull'utente, come ad esempio l'immagine del profilo.
 Entrambe le chiamate necessitano di un \textit{token}, diverso dal \textit{token} utilizzato per le chiamate al backend. Infatti, questo \textit{token} è specifico per le chiamate verso \textit{Microsoft Graph}.
@@ -67,7 +67,7 @@ Inoltre, al suo interno ho creato dei \textit{plugin} che semplificano la visual
 La \textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
 \subsection{Config}\label{subsec:config}
 \subsubsection{ConfigAuth}\label{subsubsec:config-auth}
-Il file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso \textit{Azure Active Directory},
+Il file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso \textit{Azure AD},
 come il \textit{clientId}, il \textit{redirectUri} o l'\textit{authority}.  
 
 \subsection{Stores}\label{subsec:store}
@@ -78,7 +78,7 @@ Di seguito sono descritti gli \textit{store} che ho sviluppato durante il proget
 \subsubsection{Auth}\label{subsubsec:auth-store}
 Lo \textit{store Auth} è stato creato per gestire lo stato dell'autenticazione dell'utente e l'interazione con un servizio di autenticazione esterno.
 Esso utilizza al suo interno l'\textit{utility Auth} precedentemente descritta, che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
-Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \textit{closure} di \textit{JavaScript}. Questo approccio consente di incapsulare
+Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \glsfirstoccur{\gls{closureg}} di \textit{JavaScript}. Questo approccio consente di incapsulare
 lo stato dell'autenticazione consentendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
 
 \subsubsection{AppState}\label{subsubsec:store}
@@ -90,7 +90,7 @@ delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend
 La cartella \textit{Router} contiene le rotte definite nel progetto, ovvero i percorsi che l'utente può visitare all'interno dell'applicazione, e un \textit{helper} per la gestione del \textit{router}.
 \subsubsection{CustomNavigation}\label{subsubsec:custom-navigation}
 Il file \textit{CustomNavigation} rappresenta una classe con due metodi: il primo è utilizzato nel flusso di autenticazione e più precisamente nelle richieste con \textit{pop-up},
-mentre il secondo è utilizzato per convertire qualsiasi \textit{URI} di reindirizzamento completo in un \textit{URI} di reindirizzamento relativo, in modo che il \textit{Router}
+mentre il secondo è utilizzato per convertire qualsiasi \glsfirstoccur{\gls{urig}} di reindirizzamento completo in un \textit{URI} di reindirizzamento relativo, in modo che il \textit{Router}
 possa gestire correttamente i \textit{redirect} in modo sicuro.
 
 \subsection{Views}\label{subsec:views}
@@ -373,7 +373,7 @@ Inoltre viene descritta la funzionalità del \textit{middleware}, utilizzata per
 \subsection{Middleware}\label{subsec:middleware}
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
 Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
-Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \textit{token JWT} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
+Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta.
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
 nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
@@ -387,11 +387,11 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
   \item Verifico che il \textit{token} di autenticazione sia presente nell'\textit{header} della richiesta. In caso non lo sia viene restituito un errore 401;
   \item Il \textit{token} viene decodificato e viene salvato solo il suo \textit{header}. In caso il risultato salvato non sia valido, viene restituito un errore 401;
   \item Estraggo il campo \textit{KID}, che identifica quale chiave pubblica viene utilizzata per la verifica;
-  \item Eseguo una \textit{GET} verso l'\textit{endpoint} di \textit{Microsoft AAD} per ottenere le informazioni di configurazione di \textit{OpenID Connect} (\textit{OIDC}). 
+  \item Eseguo una \textit{GET} verso l'\textit{endpoint} di \textit{Microsoft AAD} per ottenere le informazioni di configurazione di \glsfirstoccur{\gls{oidcg}} (\textit{OIDC}). 
   Queste informazioni includono gli \textit{URL} da dove è possibile ottenere le chiavi pubbliche per la verifica del \textit{token};
   \item Estraggo l'\textit{URL} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (\textit{JWKS}) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
   \item Effettuo un controllo con la chiave pubblica corrispondente all'intestazione del \textit{token JWT} (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso non ci sia nessuna corrispondenza viene restituito un errore 401;
-  \item La chiave pubblica viene convertita e formattata in un certificato \textit{X509} valido;
+  \item La chiave pubblica viene convertita e formattata in un \glsfirstoccur{\gls{x509g}} valido;
   \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato contiene il \textit{payload} del \textit{token JWT} se la verifica ha successo o viene generato un errore se la verifica fallisce.
 \end{enumerate}
 
