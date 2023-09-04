@@ -20,10 +20,10 @@ per interfacciarsi all'autenticazione verso il servizio \textit{Azure AD}.\\
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del \textit{token} in modo automatico con 
 l'implementazione del \textit{refresh token} [~\cite{site:token}]. Essa segue la procedura seguente:
 \begin{enumerate}
-  \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se lo trova lo restituisce;
+  \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se viene trovato, il \textit{token} viene restituito;
   \item In caso il \textit{token} sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo \textit{token} di accesso;
   \item In caso siano passate ventiquattro ore, ovvero la validità del \textit{refresh token}, la libreria \textit{Azure MSAL} apre un \glsfirstoccur{\gls{hiddeniframeg}} per richiedere
-  un nuovo codice di autorizzazione usando la sessione corrente dell'utente se esiste, ottenendo quindi un nuovo \textit{token} di accesso e di aggiornamento. 
+  un nuovo codice di autorizzazione usando la sessione corrente dell'utente, ottenendo quindi un nuovo \textit{token} di accesso e di aggiornamento. 
 \end{enumerate}
 Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
 \begin{itemize}
@@ -52,7 +52,7 @@ La chiamata necessita di un \textit{token} di autenticazione valido per la sessi
 L'\textit{utility getResults} è una funzione progettata per effettuare una richiesta \textit{POST} al backend utilizzata per ottenere i risultati della ricerca. 
 La logica della ricerca nel mio progetto è spostata lato backend, in modo da rispettare la \textit{best practice} usata in azienda.
 La chiamata è autenticata e viene utilizzata insieme alla funzione di \textit{debounce} per ritardare l'esecuzione della chiamata \textit{POST}. Come \textit{body} della chiamata
-viene passato il testo che l'utente sta scrivendo nella barra di ricerca.
+viene passato il testo inserito dall'utente nella barra di ricerca.
 
 \subsubsection{MsGraphApiCall}\label{subsubsec:ms-graph-api-call}
 L'\textit{utility MsGraphApiCall} contiene al suo interno due funzioni che ho creato per effettuare chiamate alle \textit{API} di \glsfirstoccur{\gls{microsoftgraphg}}. 
@@ -62,9 +62,9 @@ Entrambe le chiamate necessitano di un \textit{token}, diverso dal \textit{token
 
 \subsubsection{SwaggerUtils}\label{subsubsec:swagger-utils}
 L'\textit{utility SwaggerUtils} contiene al suo interno una moltitudine di funzionalità utili per la gestione della documentazione delle \textit{API} e la sua visualizzazione all'interno
-del \textit{MainContent}, spiegato in seguito.
+del \textit{MainContent}, spiegato nel capitolo~\ref{subsubsec:main-content}.
 Inoltre, al suo interno ho creato dei \textit{plugin} che semplificano la visualizzazione della documentazione, permettendo di selezionare parti specifiche del file \textit{YAML} da mostrare, come ad esempio la descrizione o la versione delle \textit{API}.
-La \textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
+L'\textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
 \subsection{Config}\label{subsec:config}
 \subsubsection{ConfigAuth}\label{subsubsec:config-auth}
 Il file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso \textit{Azure AD},
@@ -77,14 +77,14 @@ Di seguito sono descritti gli \textit{store} che ho sviluppato durante il proget
 
 \subsubsection{Auth}\label{subsubsec:auth-store}
 Lo \textit{store Auth} è stato creato per gestire lo stato dell'autenticazione dell'utente e l'interazione con un servizio di autenticazione esterno.
-Esso utilizza al suo interno l'\textit{utility Auth} precedentemente descritta, che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
+Esso utilizza al suo interno l'\textit{utility Auth} (descritta nel capitolo~\ref{subsubsec:auth-utils}), che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
 Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \glsfirstoccur{\gls{closureg}} di \textit{JavaScript}. Questo approccio consente di incapsulare
-lo stato dell'autenticazione consentendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
+lo stato dell'autenticazione garantendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
 
 \subsubsection{AppState}\label{subsubsec:app-state}
 Lo \textit{store AppState}, a differenza del precedente, utilizza \textit{Pinia}, una libreria apposita per la gestione dello stato.
-Esso è utilizzato per la gestione delle \textit{API} e \textit{client-id} disponibili nell'applicazione. Infatti lo \textit{store} inizializza le variabili reattive per la gestione
-delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utility} apposite definite in precedenza.
+Esso è utilizzato per la gestione delle \textit{API} e dei \textit{client-id} disponibili nell'applicazione. Infatti lo \textit{store} inizializza le variabili reattive per la gestione
+delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utilities} apposite definite in precedenza.
 
 \subsection{Router}\label{subsec:router}
 La cartella \textit{Router} contiene le rotte definite nel progetto, ovvero i percorsi che l'utente può visitare all'interno dell'applicazione, e un \textit{helper} per la gestione del \textit{router}.
@@ -94,7 +94,7 @@ mentre il secondo è utilizzato per convertire qualsiasi \glsfirstoccur{\gls{uri
 possa gestire correttamente i \textit{redirect} in modo sicuro.
 
 \subsection{Views}\label{subsec:views}
-La seguente sezione contiene le \textit{Views}, ovvero le pagine dell'applicazione.
+La sezione \textit{Views} contiene tutte le pagine dell'applicazione.
 Di seguito sono descritte le \textit{Views} che ho sviluppato durante il progetto di stage.
 
 \subsubsection{LoginView}\label{subsubsec:login-view}
