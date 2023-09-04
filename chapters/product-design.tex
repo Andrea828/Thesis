@@ -8,7 +8,7 @@ Inoltre verranno descritte le tecnologie utilizzate durante lo sviluppo del prog
 Di seguito viene data una panoramica delle tecnologie utilizzate durante lo sviluppo del progetto di stage.
 
 \subsection{Frontend}\label{subsec:frontend}
-\subsubsection{Vue.js}\label{subsubsec:vue}
+\subsubsection{Vue.js}\label{subsubsec:vue-js}
 \textit{Vue.js} è un \textit{framework JavaScript} progressivo e reattivo, utilizzato per lo sviluppo di interfacce utente dinamiche e moderne. 
 Creato da \textit{Evan You}, \textit{Vue.js} è apprezzato per la sua semplicità d'uso e flessibilità. Con un sistema di reattività basato su un modello di oggetti e dipendenze, 
 \textit{Vue.js} rende facile il monitoraggio e l'aggiornamento automatico dell'interfaccia utente in base ai cambiamenti di stato dei dati. La sua architettura basata 
@@ -17,7 +17,7 @@ Grazie alle direttive, è possibile arricchire il \glsfirstoccur{\gls{domg}} con
 Con una crescita costante della comunità di sviluppatori, \textit{Vue.js} è diventato un'opzione popolare nel mondo dello sviluppo frontend.
 Per il mio progetto sono andato ad utilizzare la versione 3 di \textit{Vue.js}, insieme allo \textit{script setup}, che è una nuova sintassi per definire componenti progettata per semplificare la struttura del codice e migliorare la leggibilità [~\cite{site:vue.js}].
 
-\subsubsection{TypeScript}\label{subsubsec:TypeScript}
+\subsubsection{TypeScript}\label{subsubsec:typeScript}
 \textit{TypeScript} è un linguaggio di programmazione \glsfirstoccur{\gls{opensourceg}} sviluppato da \textit{Microsoft}. Si basa su \textit{JavaScript} e offre tipizzazione statica opzionale, 
 consentendo agli sviluppatori di specificare tipi per variabili, parametri di funzioni e oggetti. Questa caratteristica aiuta a individuare errori e a migliorare 
 la manutenibilità del codice [~\cite{site:typescript}].\\
@@ -26,30 +26,30 @@ All'interno del mio progetto sono andato a creare per la parte frontend una cart
 \textit{Vite.js} è un \textit{build tool} utilizzato per lo sviluppo di applicazioni web. È stato creato da \textit{Evan You}, lo stesso creatore di \textit{Vue.js}, e si basa su \glsfirstoccur{\gls{rollupjsg}}.
 \textit{Vite.js} è stato progettato per essere veloce, semplice da utilizzare e facile da configurare. La sua velocità è dovuta al fatto che utilizza la tecnica dell'\glsfirstoccur{\gls{esmg}} (\textit{ECMAScript Modules})
 che permette di caricare i moduli in modo asincrono, riducendo i tempi di compilazione e di \glsfirstoccur{\gls{hotreloadg}} [~\cite{site:vite}].
-\subsubsection{Sass}\label{subsubsec:Sass}
+\subsubsection{Sass}\label{subsubsec:sass}
 \textit{Sass} è un'estensione di \textit{CSS} che offre funzionalità aggiuntive e avanzate per semplificare e organizzare il modo in cui viene scritto e gestito il codice.
 Può essere considerato un preprocessore \textit{CSS}, in quanto viene compilato in \textit{CSS} prima di essere interpretato dal \textit{browser}. \textit{Sass} inoltre permette di utilizzare funzionalità non disponibili in \textit{CSS} nativo, offrendo una serie di funzioni, variabili, \glsfirstoccur{\gls{mixing}} e altro [~\cite{site:sass}].\\
 Insieme a \textit{Sass}, ho utilizzato \textit{BEM}, ovvero una metodologia di \textit{naming convention} utilizzata nel mondo dello sviluppo web.
 
 \subsection{Backend}\label{subsec:backend}
-\subsubsection{Nest.js}\label{subsubsec:nest}
+\subsubsection{Nest.js}\label{subsubsec:nest-js}
 \textit{Nest.js} è un \textit{framework} per applicazioni \textit{server-side} basato su \textit{Node.js}. Si basa su \glsfirstoccur{\gls{expressjsg}} e \textit{TypeScript} ed è progettato per creare applicazioni scalabili e performanti.
 Il \textit{framework} in questione combina concetti e caratteristiche provenienti da diversi paradigmi di sviluppo, tra cui la programmazione orientata agli oggetti (OOP), la programmazione funzionale e la programmazione reattiva [~\cite{site:nest.js}].
 
 \subsection{Altre tecnologie di supporto}\label{subsec:altre-tecnologie-di-supporto}
-\subsubsection{Node.js}\label{subsubsec:node.js}
+\subsubsection{Node.js}\label{subsubsec:node-js}
 \textit{Node.js} è un ambiente di \textit{runtime JavaScript open-source} progettato per eseguire codice lato server [~\cite{site:node}]. Per gestire le dipendenze del mio progetto,
 ho deciso di utilizzare \glsfirstoccur{\gls{pnpmg}} come gestore di pacchetti. Questa selezione ha portato a un miglior utilizzo delle risorse di sistema e ha notevolmente accelerato il processo di 
 installazione delle dipendenze.
- \subsubsection{Pinia}\label{subsubsec:pinia}
- \textit{Pinia} è una libreria per la gestione dello stato per applicazioni \textit{Vue.js}. Promuove l'uso di \textit{store} modulari, ognuno dei quali gestisce uno stato specifico dell'applicazione [~\cite{site:pinia}].
+\subsubsection{Pinia}\label{subsubsec:pinia}
+\textit{Pinia} è una libreria per la gestione dello stato per applicazioni \textit{Vue.js}. Promuove l'uso di \textit{store} modulari, ognuno dei quali gestisce uno stato specifico dell'applicazione [~\cite{site:pinia}].
 \subsubsection{Vue-router}\label{subsubsec:vue-router}
 \textit{Vue-router} è una libreria per la gestione delle \textit{route} per le applicazioni \textit{Vue.js}. Permette di definire le \textit{route} dell'applicazione e di navigare tra le pagine [~\cite{site:vue-router}].
 
 \subsection{Versionamento}\label{subsec:versionamento}
 \subsubsection{Git}\label{subsubsec:git}
 \textit{Git} è un sistema di controllo versione distribuito e altamente flessibile, utile per tenere traccia delle modifiche apportate al codice sorgente durante lo sviluppo di un progetto \glsfirstoccur{\gls{softwareg}} [~\cite{site:git}].
-\subsubsection{CodeCommit}\label{subsubsec:CodeCommit}
+\subsubsection{CodeCommit}\label{subsubsec:code-commit}
 \textit{AWS CodeCommit} rappresenta un servizio di \textit{hosting} di \textit{repository} altamente scalabile, che è gestito all'interno dell'ecosistema di \glsfirstoccur{\gls{awsg}} (\textit{Amazon Web Services}). 
 Con \textit{CodeCommit}, è possibile ospitare \textit{repository Git} privati in un ambiente sicuro e flessibile [~\cite{site:code-commit}].
 
@@ -68,7 +68,7 @@ La libreria \textit{THRON Components} contiene i componenti utilizzati per crear
 \subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
 \textit{Swagger UI} è una libreria \textit{open-source} progettata per semplificare la visualizzazione e l'interazione con la documentazione delle \textit{API} [~\cite{site:swagger}].
 
-\section{Struttura principale del sistema}
+\section{Struttura principale del sistema}\label{sec:struttura-principale-sistema}
 Il sistema è composto da due principali sezioni:
 \begin{itemize}
   \item Frontend, ovvero l'interfaccia utente dell'applicazione web che permette all'utilizzatore di interagire con il sistema. È responsabile di presentare i contenuti in modo visivamente attraente e interattivo, consentendo agli utenti di navigare, inserire dati e svolgere azioni specifiche. Per lo
@@ -77,7 +77,7 @@ Il sistema è composto da due principali sezioni:
   Lo sviluppo di questa parte del sistema è stato realizzato utilizzando il \textit{framework Nest.js}. 
 \end{itemize}
 
-\subsection{Ambienti di sviluppo}
+\subsection{Ambienti di sviluppo}\label{subsec:ambienti-sviluppo}
 Gli ambienti di \textit{staging} sono ambienti di test che vengono utilizzati per testare le funzionalità dell'applicazione prima di rilasciarla in produzione.
 A livello aziendale sono stati definiti tre ambienti di cui i primi due di \textit{staging}, denominati come segue:
 \begin{itemize}
@@ -86,11 +86,11 @@ A livello aziendale sono stati definiti tre ambienti di cui i primi due di \text
   \item \textbf{\textit{Production}}: ambiente di produzione in cui viene rilasciata la funzionalità.
 \end{itemize}
 
-\subsection{Configurazione dell'ambiente per lo sviluppo del progetto}
+\subsection{Configurazione dell'ambiente per lo sviluppo del progetto}\label{subsec:configurazione-ambiente-sviluppo}
 Il progetto di stage, necessita di cartelle per la configurazione dell'ambiente di sviluppo, per la configurazione del progetto e per la configurazione del \textit{deploy}.
 Più precisamente, il progetto segue la seguente struttura:
 
-\subsubsection*{\emph{Buildspec}}
+\subsubsection*{\emph{Buildspec}}\label{subsubsec:buildspec}
 La cartella \textit{Buildspec} contiene i file di configurazione per la \textit{build} dell'applicazione su \glsfirstoccur{\gls{awscodebuildg}}.
 Questo è il primo step del processo di \textit{deploy}, in quanto viene eseguita la \textit{build} sia del \textit{middleware} che del portale.
 La cartella è formata a sua volta da tre file: \textit{buildspec\_development}, \textit{buildspec\_quality} e \textit{buildspec\_production}. 
@@ -103,7 +103,7 @@ Ognuno dei file \textit{buildspec} è un file \textit{YAML}, che è formato dall
   \item La sezione di \textit{build} dove vengono specificati i comandi per la \textit{build} del portale e del \textit{middleware}.
 \end{itemize}
 
-\subsubsection*{\emph{Infra}}
+\subsubsection*{\emph{Infra}}\label{subsubsec:infra}
 La cartella \textit{Infra} contiene i file di configurazione per il \textit{deploy} dell'applicazione su \textit{AWS}. È scritta utilizzando il linguaggio di programmazione \glsfirstoccur{\gls{pythong}}.\\
 La cartella è formata da due file: `\textit{app.py}' e `\textit{stack.py}'. Il primo file contiene la configurazione per il \textit{deploy} dell'applicazione, mentre il secondo file contiene la configurazione per il \textit{deploy} dell'infrastruttura.\\
 Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare e a configurare due costrutti, anche chiamati \textit{CDK Constructs} o semplicemente \textit{Constructs}, che sono delle classi che rappresentano un componente dell'infrastruttura.
@@ -112,7 +112,7 @@ In breve questo costrutto genera il \textit{template} di \glsfirstoccur{\gls{aws
 Il secondo costrutto che sono andato ad utilizzare si chiama \textit{THRONDockerLambda} e consente di creare una funzione \glsfirstoccur{\gls{lambdag}} in cui il gestore è un'immagine \glsfirstoccur{\gls{dockerg}}.
 Nel caso del mio progetto, mi è servito per creare una \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
 
-\subsubsection*{\emph{Middleware}}
+\subsubsection*{\emph{Middleware}}\label{subsubsec:middleware}
 La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella \textit{src} che contiene il codice sorgente dell'applicazione, dove vengono specificati i vari \textit{endpoint} che utilizzo sulla parte frontend, lo \textit{script} per la configurazione
@@ -121,7 +121,7 @@ La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto;
   \item Una cartella \textit{node\_modules} che contiene le dipendenze del progetto.
 \end{itemize}
-\subsubsection*{\emph{Portal}}
+\subsubsection*{\emph{Portal}}\label{subsubsec:portal}
 La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
 \begin{itemize}
   \item La cartella \textit{public} che contiene il file `\textit{index.html}', che è il file principale dell'applicazione;
@@ -130,7 +130,7 @@ La cartella \textit{portal} contiene il progetto frontend in \textit{Vue.js}. Ne
   \item File \textit{env} che contiene le variabili d'ambiente utilizzate nel progetto.
 \end{itemize}
 
-\subsubsection*{\emph{Dockerfile}}
+\subsubsection*{\emph{Dockerfile}}\label{subsubsec:dockerfile}
 Il file \textit{Dockerfile} è un file \textit{docker} che contiene le istruzioni per creare un'immagine che viene utilizzata per eseguire il \textit{middleware} all'interno di una \textit{lambda}.\\
 Utilizzando la struttura \textit{Dockerfile}, sono andato a creare un ambiente isolato in cui il \textit{middleware} può essere configurato e utilizzato come parte della mia funzione 
 \textit{lambda}. Quando la funzione viene invocata, avvia il \textit{Docker} \glsfirstoccur{\gls{containerg}} ed esegue il \textit{middleware} all'interno dell'ambiente containerizzato, 
@@ -139,7 +139,7 @@ garantendo che esso sia parte integrante dell'applicazione \glsfirstoccur{\gls{s
 \section{Progettazione}\label{sec:progettazione}
 
 \subsection{Architettura frontend}\label{subsec:architettura-front-end}
-\subsubsection{Architettura Vue.js}\label{subsubsec:architettura-vue.js}
+\subsubsection{Architettura Vue.js}\label{subsubsec:architettura-vue-js}
 \textit{Vue.js} è un \textit{framework} utilizzato nelle \textit{single page applications}, che permette di definire le pagine web in modo modulare, utilizzando componenti riutilizzabili.
 I componenti costituiscono la base dell'architettura di \textit{Vue}. Essi rappresentano una parte isolata dell'interfaccia, che può contenere il proprio modello, i propri stili e la propria logica, infatti ogni componente ha il proprio
 \textit{template} scritto in \textit{HTML}, il proprio \textit{script} scritto nel mio caso in \textit{TypeScript} e i propri stili scritti nel mio caso in \textit{Scss}.
@@ -160,7 +160,7 @@ In breve, l'architettura è incentrata sulla creazione e utilizzo di componenti 
 diverso da altri \textit{framework} è proprio il concetto di reattività, infatti \textit{Vue.js} è in grado di rilevare automaticamente le dipendenze tra i componenti, in modo da poter aggiornare automaticamente l'interfaccia utente.
 
 \subsection{Architettura backend}\label{subsec:architettura-backend}
-\subsubsection{Architettura Nest.js}\label{subsubsec:architettura-nest.js}
+\subsubsection{Architettura Nest.js}\label{subsubsec:architettura-nest-js}
 L'architettura di \textit{Nest.js} [~\cite{site:nest-architettura}] si basa su diversi principi chiave e concetti fondamentali che lo rendono un \textit{framework} efficace per la creazione di applicazioni \textit{server-side}.
 La caratteristica principale di \textit{Nest.js} è la modularità, che promuove la suddivisione dell'applicazione in moduli, consentendo di organizzare il codice in unità funzionali e riutilizzabili.\\
 Di seguito i concetti base su cui si basa l'architettura:

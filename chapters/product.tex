@@ -81,7 +81,7 @@ Esso utilizza al suo interno l'\textit{utility Auth} precedentemente descritta, 
 Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \glsfirstoccur{\gls{closureg}} di \textit{JavaScript}. Questo approccio consente di incapsulare
 lo stato dell'autenticazione consentendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
 
-\subsubsection{AppState}\label{subsubsec:store}
+\subsubsection{AppState}\label{subsubsec:app-state}
 Lo \textit{store AppState}, a differenza del precedente, utilizza \textit{Pinia}, una libreria apposita per la gestione dello stato.
 Esso è utilizzato per la gestione delle \textit{API} e \textit{client-id} disponibili nell'applicazione. Infatti lo \textit{store} inizializza le variabili reattive per la gestione
 delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utility} apposite definite in precedenza.
@@ -378,7 +378,7 @@ Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, eff
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
 nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
-\subsubsection{Validazione token JWT}
+\subsubsection{Validazione token JWT}\label{subsubsec:validazione-token-jwt}
 La prima funzione implementata nel \textit{middleware} è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
 La criticità consiste nel fatto che un servizio può essere accessibile direttamente, senza la necessità di passare attraverso il portale, poiché ciascun \textit{endpoint} dispone di un \textit{URL} pubblico.
 La soluzione che ho implementato è stata quella di validare il \textit{token} di autenticazione verificando che qualsiasi chiamata ai miei servizi fosse effettuata da un utente autenticato, avente un token valido nell'\textit{header} della richiesta.
@@ -395,7 +395,7 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
   \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato contiene il \textit{payload} del \textit{token JWT} se la verifica ha successo o viene generato un errore se la verifica fallisce.
 \end{enumerate}
 
-\subsubsection{GET Supertoken}
+\subsubsection{GET Supertoken}\label{subsubsec:get-supertoken}
 La seconda funzione implementata nel \textit{middleware} è l'acquisizione del \textit{supertoken}, che avviene solamente se la validazione del \textit{token} appena discussa non genera errori.
 Per ottenere il \textit{supertoken} è necessario effettuare una chiamata verso un \textit{endpoint} aziendale, che restituisce il \textit{supertoken} in base al \textit{client-id} passato come parametro.
 Per prima cosa ho creato dei parametri, aggiungendo l'\textit{username} con il valore che mi è stato fornito dall'azienda.
@@ -407,7 +407,7 @@ Le seguenti sezioni descrivono gli \textit{endpoint} che ho creato all'interno d
 sono utilizzati all'interno del progetto \textit{frontend} descritto in precedenza.
 Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettura-backend}), ogni \textit{endpoint} creato è formato da un \textit{Module}, un \textit{Controller} e un \textit{Service}.
 
-\subsubsection{Client-id}
+\subsubsection{Client-id}\label{subsubsec:client-id}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista dei \textit{client-id} disponibili nel sistema.
 È definito dal file \textit{Module}, dove vengono specificati i vari \textit{Controller} e \textit{Service} utilizzati.
 Nel \textit{Controller} è presente l'\textit{endpoint} `\textit{/clients}', ovvero un metodo \textit{GET} che restituisce la lista dei \textit{client-id} chiamando il metodo `\textit{getAllClients}' del \textit{Service}.
@@ -418,7 +418,7 @@ Inoltre la chiamata necessita del \textit{supertoken}, che grazie al \textit{mid
 dell'\textit{header} della chiamata.
 Il metodo ritorna un \textit{array} di stringhe, dove ogni stringa rappresenta un \textit{client-id} disponibile nel sistema.
 
-\subsubsection{API}
+\subsubsection{API}\label{subsubsec:api}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di \textit{API} disponibili nel sistema.
 È definito dal file \textit{Module}, dove vengono specificati i vari \textit{controller} e \textit{Service} utilizzati.
 Nel \textit{Controller} è presente l'endpoint `\textit{/apis}', ovvero un metodo \textit{GET} che restituisce la lista delle \textit{API} chiamando il metodo `\textit{getAllApis}' del \textit{Service}.
@@ -426,7 +426,7 @@ All'interno del metodo appena citato, è presente la logica necessaria per resti
 Il metodo utilizza un \textit{endpoint} aziendale per ottenere la lista di \textit{API} dei servizi THRON.
 Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappresentato dal nome del servizio e dall'\textit{URL} corrispondente.
 
-\subsubsection{Search}
+\subsubsection{Search}\label{susubsec:search}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di suggerimenti utilizzata per la ricerca globale del portale.
 È definito dal file \textit{Module}, dove vengono specificati i vari \textit{Controller}, \textit{Service} e gli \textit{Imports} utilizzati. 
 Quest'ultimi non sono altro che dei moduli che vengono utilizzati all'interno del \textit{Controller}. Nel mio caso sono andato ad importare il modulo \textit{APIModule}
