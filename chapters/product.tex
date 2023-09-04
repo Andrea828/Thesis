@@ -26,10 +26,10 @@ l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
 \end{enumerate}
 Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere la sessione attiva, può non funzionare correttamente nei seguenti casi:
 \begin{itemize}
-  \item L'utente ha cambiato la password;
-  \item Il browser blocca i \textit{cookies} di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del \textit{token};
+  \item L'utente ha cambiato la password, oppure
+  \item Il browser blocca i \textit{cookies} di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del \textit{token}.
 \end{itemize}
-In questi casi, si verificherà un errore che verrà catturato tramite un \textit{try catch} e verrà utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione.
+In questi casi, si verifica un errore che viene catturato tramite un \textit{try catch} e viene utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione.
 \subsubsection{Debounce}\label{subsubsec:debounce}
 Il file \textit{Debounce} è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non vengono eseguite chiamate ad essa.\\
@@ -99,8 +99,8 @@ Di seguito sono descritte le \textit{Views} che ho sviluppato durante il progett
 \subsubsection{LoginView}\label{subsubsec:login-view}
 La \textit{LoginView} è la prima pagina con cui l'utente interagisce (in figura~\ref{fig:login-view}). Essa contiene un bottone che permette di effettuare il login tramite \textit{pop-up}, utilizzando un \textit{account Microsoft 365}.
 La pagina consente di accedere al portale ed è l'unica di tutto il progetto che non richiede l'autenticazione.\\
-Quando un utente non autenticato tenterà di accedere a qualsiasi altra pagina del portale, verrà sempre reindirizzato
-automaticamente a questa \textit{View}. La pagina al suo interno contiene un unico componente, ovvero il \textit{LoginButton}, che verrà descritto in seguito.
+Quando un utente non autenticato tenta di accedere a qualsiasi altra pagina del portale, viene sempre reindirizzato
+automaticamente a questa \textit{View}. La pagina al suo interno contiene un unico componente, ovvero il \textit{LoginButton}, descritto nel capitolo~\ref{subsubsec:login-button}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina di login dell'applicazione}]{images/frontend/LoginView.jpg}
@@ -123,7 +123,7 @@ lo utilizzi in combinazione con altre schede del \textit{browser}.
 La \textit{HomeView} rappresenta la prima pagina visibile dopo aver effettuato il login. Infatti, dopo che l'autenticazione si è conclusa con successo
 l'utente viene reindirizzato a questa pagina (in figura~\ref{fig:home-view}).
 La \textit{HomeView} è composta da tre sezioni principali: \textit{HeaderNav}, \textit{Sidebar} e \textit{StartPage}. Quest'ultimo è il componente visibile 
-subito dopo aver effettuato il login. Infatti quando l'utente inizierà a navigare tra le varie \textit{API}, la \textit{StartPage} verrà sostituita con il \textit{MainContent}.
+subito dopo aver effettuato il login. Infatti quando l'utente inizia a navigare tra le varie \textit{API}, la \textit{StartPage} viene sostituita con il \textit{MainContent}.
 
 \begin{figure}[ht]
   \centering
@@ -132,7 +132,7 @@ subito dopo aver effettuato il login. Infatti quando l'utente inizierà a naviga
 \end{figure}
 
 Come la pagina di login, anche la pagina principale è stata sviluppata con un \textit{design responsive} (in figura~\ref{fig:home-view-responsive}).
-Come si vede dall'immagine, si può notare che il menù laterale viene nascosto automaticamente e sarà visibile cliccando l'apposito bottone a forma di \textit{hamburger}.
+Come si vede dall'immagine, si può notare che il menù laterale viene nascosto automaticamente ed è visibile cliccando l'apposito bottone a forma di \textit{hamburger}.
 
 \begin{figure}[ht]
   \centering
@@ -142,9 +142,9 @@ Come si vede dall'immagine, si può notare che il menù laterale viene nascosto 
 
 
 \subsubsection{NotFoundView}\label{subsubsec:not-found-view}
-Quando un utente tenta di accedere ad una pagina non esistente, verrà reindirizzato automaticamente alla pagina di errore 404 (in figura~\ref{fig:not-found-view}).
+Quando un utente tenta di accedere ad una pagina non esistente, viene reindirizzato automaticamente alla pagina di errore 404 (in figura~\ref{fig:not-found-view}).
 La pagina consiste in un messaggio di errore con un'immagine, dove viene informato l'utente che la pagina richiesta non esiste.
-Per tornare alla \textit{HomeView} basterà cliccare sul bottone \textit{Home} e si potrà continuare la navigazione all'interno del portale.
+Per tornare alla \textit{HomeView} basta cliccare sul bottone \textit{Home} e l'utente può continuare la navigazione all'interno del portale.
 
 \begin{figure}[ht]
   \centering
@@ -159,7 +159,7 @@ Per tornare alla \textit{HomeView} basterà cliccare sul bottone \textit{Home} e
 Il componente \textit{HeaderNav} rapppresenta la barra di navigazione superiore dell'applicazione (in figura~\ref{fig:header-nav-responsive}). Essa contiene il logo dell'applicazione, la \textit{chip} con il \textit{client-id}
 corrente, il bottone di ricerca e il \textit{popover} di logout. 
 La barra viene sempre visualizzata una volta che l'utente ha effettuato il login all'interno del portale.\\
-In caso di visualizzazione su schermi ridotti, l'\textit{HeaderNav} avrà un \textit{design responsive}, dove viene aggiunto nell'estremità sinistra un bottone ad \textit{hamburger}
+In caso di visualizzazione su schermi ridotti, l'\textit{HeaderNav} ha un \textit{design responsive}, dove viene aggiunto nell'estremità sinistra un bottone ad \textit{hamburger}
 che permette di visualizzare la \textit{SideBar} a comparsa.
 
 \begin{figure}[ht]
@@ -173,7 +173,7 @@ Il componente \textit{MainContent} rappresenta il contenuto principale dell'appl
 della libreria \textit{Swagger UI}.
 La struttura segue il \textit{layout} di \textit{Swagger Editor} per motivi di semplicità e uniformità. Inizia con una descrizione iniziale, prosegue con la lista degli \textit{endpoint} disponibili e conclude con l'elenco dei modelli.
 I colori utilizzati sono uguali a quelli utilizzati in un comune \textit{Swagger Editor} per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
-Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, che verrà discusso in seguito.
+Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, discusso nel capitolo~\ref{subsubsec:download-button}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione dei dettagli di un API}]{images/frontend/DataModelView.jpg}
@@ -181,7 +181,7 @@ Nell'angolo destro è stato aggiunto un bottone per il download della documentaz
 \end{figure}
 \pagebreak
 
-Cliccando su uno degli \textit{endpoint} disponibili, ci sarà una sezione dedicata per la visualizzazione dei dettagli di quest'ultimo (in figura~\ref{fig:try-it-out}).
+Cliccando su uno degli \textit{endpoint} disponibili, è presente una sezione dedicata per la visualizzazione dei dettagli di quest'ultimo (in figura~\ref{fig:try-it-out}).
 I parametri e il \textit{Try it out} sono gestiti all'interno della \textit{utility SwaggerUtils} per una migliore suddivisione della logica.
 
 \begin{figure}[ht]
@@ -190,7 +190,7 @@ I parametri e il \textit{Try it out} sono gestiti all'interno della \textit{util
   \caption{Try it out di un endpoint}\label{fig:try-it-out}
 \end{figure}
 
-Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzato il risultato della chiamata (in figura~\ref{fig:risposta-endpoint}).
+Inserendo i parametri e facendo quindi il \textit{try it out} viene visualizzato il risultato della chiamata (in figura~\ref{fig:risposta-endpoint}).
 
 \begin{figure}[ht]
   \centering
@@ -198,7 +198,7 @@ Inserendo i parametri e facendo quindi il \textit{try it out} verrà visualizzat
   \caption{Risposta di un endpoint}\label{fig:risposta-endpoint}
 \end{figure}
 
-Inoltre al di sotto sarà presente anche una lista delle possibili risposte che l'\textit{endpoint} può restituire (in figura~\ref{fig:response-list}).
+Inoltre al di sotto è presente anche una lista delle possibili risposte che l'\textit{endpoint} può restituire (in figura~\ref{fig:response-list}).
 
 \begin{figure}[ht]
   \centering
@@ -209,15 +209,15 @@ Inoltre al di sotto sarà presente anche una lista delle possibili risposte che 
 \pagebreak
 
 Nel caso di chiamate con necessità del parametro \textit{client-id}, ho gestito tramite l'\textit{utility SwaggerUtils} l'\textit{autofill} di esso.
-Infatti, il campo verrà compilato con il \textit{client-id} presente nella \textit{chip}, evitando che si inseriscano valori non presenti per 
+Infatti, il campo viene compilato con il \textit{client-id} presente nella \textit{chip}, evitando che si inseriscano valori non presenti per 
 quell'ambiente di sviluppo.
 
 
 \subsubsection{SideBar}\label{subsubsec:side-bar}
 Il componente \textit{SideBar} rappresenta la barra di navigazione laterale dell'applicazione che contiene la lista di tutte le \textit{API} disponibili nel portale (in figura~\ref{fig:side-bar-responsive}).
-Attraverso la barra sarà possibile navigare tra le varie \textit{API}, andando a visualizzare i dettagli di ognuna di esse. 
+Attraverso la barra è possibile navigare tra le varie \textit{API}, andando a visualizzare i dettagli di ognuna di esse. 
 Il componente è stato sviluppato utilizzando un \textit{design responsive}, che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti, 
-infatti il menù andrà a nascondersi automaticamente e sarà visibile cliccando l'apposito bottone a forma di \textit{hamburger} situato nell'\textit{HeaderNav}.\\
+infatti il menù si nasconde automaticamente e per visualizzarlo basta cliccare l'apposito bottone a forma di \textit{hamburger} situato nell'\textit{HeaderNav}.\\
 
 \begin{figure}[ht]
   \centering
@@ -247,7 +247,7 @@ Il componente \textit{DownloadButton} rappresenta il bottone di download present
 aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{Components} THRON.\\
 Il componente dà la possibilità di scegliere la grandezza, il testo del bottone e le icone da visualizzare.
 Il componente permette all'utente di scaricare la documentazione dell'\textit{API} in formato \textit{YAML}, con un nome predefinito a seconda 
-del servizio scaricato. Una volta cliccato, andrà ad aprire una finestra secondaria del \textit{browser}, e il file verrà scaricato automaticamente.\\
+del servizio scaricato. Una volta cliccato, va ad aprire una finestra secondaria del \textit{browser}, e il file viene scaricato automaticamente.\\
 
 \subsubsection{LogoutButton}\label{subsubsec:logout-button}
 Il componente \textit{LogoutButton} rappresenta il bottone di logout presente nella barra di navigazione superiore 
@@ -277,9 +277,9 @@ Si tratta di un componente \textit{custom} creato da me, utilizzato per aprire l
 \subsubsection{SearchBar}\label{subsubsec:search-bar}
 Il componente \textit{SearchBar} rappresenta la barra di ricerca globale dell'applicazione (in figura~\ref{fig:search-bar}). 
 Essa consiste in una barra dove poter inserire il \textit{client-id} o il nome dell'\textit{API} da cercare,
-con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{autocomplete} descritto in seguito.
+con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{Autocomplete} descritto nel capitolo~\ref{subsubsec:autocomplete}.
 Infatti i componenti insieme, costituiscono la ricerca all'interno del portale. Inoltre La \textit{SearchBar} è accessibile anche tramite tastiera,
-infatti tramite il comando \textit{Ctrl + B} sarà possibile aprire la barra di ricerca.\\
+infatti tramite il comando \textit{Ctrl + B} è possibile aprire la barra di ricerca.\\
 
 \begin{figure}[ht]
   \centering
@@ -291,9 +291,9 @@ infatti tramite il comando \textit{Ctrl + B} sarà possibile aprire la barra di 
 \subsubsection{Autocomplete}\label{subsubsec:autocomplete}
 Il componente \textit{Autocomplete} rappresenta l'elenco dei risultati visualizzato sotto la barra di ricerca dell'applicazione (in figura~\ref{fig:autocomplete}).
 Essa consiste in una lista di suggerimenti dinamici che vengono visualizzati in base al testo inserito dall'utente. 
-In caso il campo di ricerca della \textit{SearchBar} sia vuoto, verrà mostrata la lista degli ultimi quattro termini cercati, se presenti.
-In caso contrario, quando è presente un termine nella barra di ricerca, verrà visualizzata una lista di suggerimenti divisa per categoria.
-Nel caso in cui la ricerca non abbia prodotto risultati, verrà visualizzato un messaggio di errore, gestito tramite il componente \textit{SnackBar} descritto in seguito.\\
+In caso il campo di ricerca della \textit{SearchBar} sia vuoto, viene mostrata la lista degli ultimi quattro termini cercati, se presenti.
+In caso contrario, quando è presente un termine nella barra di ricerca, viene visualizzata una lista di suggerimenti divisa per categoria.
+Nel caso in cui la ricerca non abbia prodotto risultati, viene visualizzato un messaggio di errore, gestito tramite il componente \textit{SnackBar} descritto in seguito.\\
 La logica della ricerca è completamente sviluppata lato \textit{backend} per estrapolare il componente di ricerca e renderlo riutilizzabile in altri progetti.
 Essendo un componente \textit{custom}, ho aggiunto la possibilità di navigare il menù e selezionare un suggerimento tramite tastiera, funzionalità 
 obbligatoria per rendere la ricerca accessibile anche a persone con disabilità.\\
@@ -309,9 +309,9 @@ Il componente infine supporta la gestione di più liste di elementi per la ricer
 \subsubsection{Chip}\label{subsubsec:chip}
 Il componente \textit{Chip} rappresenta la \textit{chip} situata nella barra di navigazione superiore dell'applicazione (in figura~\ref{fig:chip}).
 Essa è utile a visualizzare il \textit{client-id} corrente, ovvero il \textit{client-id} che l'utente ha selezionato tramite la barra di ricerca globale.
-Se l'utente non ha ancora effettuato alcuna selezione, verrà visualizzato il \textit{client-id} predefinito dell'ambiente di sviluppo, ovvero \textit{devxsetup} per l'ambiente di \textit{Develop}, \textit{qaxsetup} per l'ambiente di \textit{Quality} e \textit{setup} per l'ambiente di \textit{Production}.
+Se l'utente non ha ancora effettuato alcuna selezione, viene visualizzato il \textit{client-id} predefinito dell'ambiente di sviluppo, ovvero \textit{devxsetup} per l'ambiente di \textit{Develop}, \textit{qaxsetup} per l'ambiente di \textit{Quality} e \textit{setup} per l'ambiente di \textit{Production}.
 Inoltre è possibile reimpostare il \textit{client-id} corrente cliccando sull'icona di reset a forma di \textit{X}, che riporta la \textit{chip} al valore di default.
-In caso il \textit{client-id} fosse già al valore predefinito, verrà visualizzato un messaggio di errore tramite il componente \textit{SnackBar} (descritto nel capitolo~\ref{subsubsec:snack-bar}).
+In caso il \textit{client-id} fosse già al valore predefinito, viene visualizzato un messaggio di errore tramite il componente \textit{SnackBar} (descritto nel capitolo~\ref{subsubsec:snack-bar}).
 
 \begin{figure}[ht]
   \centering
@@ -351,7 +351,7 @@ Il componente \textit{Loader} rapppresenta il sistema di caricamento principale 
 Esso rappresenta un caricamento stile \textit{skeleton}, ovvero un caricamento che simula la presenza di contenuti, mentre questi vengono caricati, attraverso 
 uno sfondo dinamico grigio.
 Il componente è stato utilizzato per il caricamento della struttura della pagina, ovvero è composto da tre sezioni: \textit{HeaderNav}, \textit{SideBar} e
-\textit{MainContent}. Il \textit{loader} sarà visibile subito dopo aver effettuato il login o quando la pagina viene ricaricata, e scomparirà una volta che i dati saranno stati caricati correttamente.
+\textit{MainContent}. Il \textit{loader} è visibile subito dopo aver effettuato il login o quando la pagina viene ricaricata, e scompare una volta che i dati saranno stati caricati correttamente.
 Inoltre il componente è stato sviluppato utilizzando un \textit{design responsive}, infatti segue la stessa struttura della pagina, andando a nascodere la sezione 
 \textit{SideBar} in caso di schermi di piccole dimensioni.
 Ho preferito utilizzare un caricamento di tipo \textit{skeleton} rispetto ad un classico \textit{loader} circolare, perchè secondo me migliora l'esperienza utente 
@@ -371,7 +371,7 @@ Il \textit{middleware} è un meccanismo che permette di eseguire delle operazion
 Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \textit{token JWT} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta.
-Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato e che verranno descritti in seguito, passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
+Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè sono andato a specificare
 nel modulo principale dell'applicazione le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
 \subsubsection{Validazione token JWT}
@@ -388,7 +388,7 @@ Per verificare il \textit{token} ho effettuato i seguenti passaggi:
   \item Estraggo l'\textit{URL} che specifica dove trovare le chiavi pubbliche \textit{JSON Web Key Set} (\textit{JWKS}) e faccio una seconda \textit{GET} verso l'\textit{endpoint} appena descritto;
   \item Effettuo un controllo con la chiave pubblica corrispondente all'intestazione del \textit{token JWT} (identificata dal campo `\textit{kid}') nell'elenco delle chiavi ottenute da \textit{Azure AD}. Nel caso non ci sia nessuna corrispondenza viene restituito un errore 401;
   \item La chiave pubblica viene convertita e formattata in un certificato \textit{X509} valido;
-  \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato conterrà il \textit{payload} del \textit{token JWT} se la verifica ha successo o genererà un errore se la verifica fallisce.
+  \item Effettuo la validazione del \textit{token} utilizzando la chiave pubblica convertita. Il risultato contiene il \textit{payload} del \textit{token JWT} se la verifica ha successo o viene generato un errore se la verifica fallisce.
 \end{enumerate}
 
 \subsubsection{GET Supertoken}
@@ -396,12 +396,12 @@ La seconda funzione implementata nel \textit{middleware} è l'acquisizione del \
 Per ottenere il \textit{supertoken} è necessario effettuare una chiamata verso un \textit{endpoint} aziendale, che restituisce il \textit{supertoken} in base al \textit{client-id} passato come parametro.
 Per prima cosa ho creato dei parametri, aggiungendo l'\textit{username} con il valore che mi è stato fornito dall'azienda.
 Successivamente effettuo una \textit{POST} verso l'\textit{endpoint} aziendale che mi ritorna il \textit{supertoken}, e in caso di criticità viene restituito un errore.\\
-Il \textit{token} appena ottenuto viene aggiunto all'\textit{header} della richiesta, in modo tale che ogni chiamata verso i miei \textit{endpoint}, avrà il \textit{supertoken} aggiunto automaticamente.
+Il \textit{token} appena ottenuto viene aggiunto all'\textit{header} della richiesta, in modo tale che ogni chiamata verso i miei \textit{endpoint} ha il \textit{supertoken} aggiunto automaticamente.
 
 \subsection{Endpoints}\label{subsec:endpoints}
 Le seguenti sezioni descrivono gli \textit{endpoint} che ho creato all'interno del mio progetto. Tutti gli \textit{endpoint} sviluppati 
 sono utilizzati all'interno del progetto \textit{frontend} descritto in precedenza.
-Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettura-backend}), ogni \textit{endpoint} creato sarà formato da un \textit{Module}, un \textit{Controller} e un \textit{Service}.
+Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettura-backend}), ogni \textit{endpoint} creato è formato da un \textit{Module}, un \textit{Controller} e un \textit{Service}.
 
 \subsubsection{Client-id}
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista dei \textit{client-id} disponibili nel sistema.
@@ -410,7 +410,7 @@ Nel \textit{Controller} è presente l'\textit{endpoint} `\textit{/clients}', ovv
 All’interno del metodo appena citato, viene chiamato un altro \textit{endpoint} sviluppato dall'azienda, che restituisce 
 la lista dei \textit{client-id} disponibili per l'ambiente di sviluppo in cui ci si trova.
 Per chiamare questo \textit{endpoint}, sono state configurate all'interno dell'applicativo le variabili d'ambiente.
-Inoltre la chiamata necessita del \textit{supertoken}, che grazie al \textit{middleware} sarà aggiunto automaticamente all'interno 
+Inoltre la chiamata necessita del \textit{supertoken}, che grazie al \textit{middleware} è aggiunto automaticamente all'interno 
 dell'\textit{header} della chiamata.
 Il metodo ritorna un \textit{array} di stringhe, dove ogni stringa rappresenta un \textit{client-id} disponibile nel sistema.
 
@@ -418,7 +418,7 @@ Il metodo ritorna un \textit{array} di stringhe, dove ogni stringa rappresenta u
 L'\textit{endpoint} rappresenta il punto di accesso per ottenere la lista di \textit{API} disponibili nel sistema.
 È definito dal file \textit{Module}, dove vengono specificati i vari \textit{controller} e \textit{Service} utilizzati.
 Nel \textit{Controller} è presente l'endpoint `\textit{/apis}', ovvero un metodo \textit{GET} che restituisce la lista delle \textit{API} chiamando il metodo `\textit{getAllApis}' del \textit{Service}.
-All'interno del metodo appena citato, è presente la logica necessaria per restituire la lista completa di \textit{API} disponibili, che poi sarà visibile nel portale.
+All'interno del metodo appena citato, è presente la logica necessaria per restituire la lista completa di \textit{API} disponibili.
 Il metodo utilizza un \textit{endpoint} aziendale per ottenere la lista di \textit{API} dei servizi THRON.
 Il metodo restituisce un \textit{array} di oggetti, dove ogni oggetto è rappresentato dal nome del servizio e dall'\textit{URL} corrispondente.
 
