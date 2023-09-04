@@ -57,12 +57,12 @@ Con \textit{CodeCommit}, è possibile ospitare \textit{repository Git} privati i
 \subsubsection{ESLint}\label{subsubsec:eslint}
 \textit{ESLint} è uno strumento \textit{open-source} ampiamente utilizzato per l'analisi statica del codice \textit{JavaScript}. Esso permette di identificare e segnalare potenziali errori o pratiche non conformi durante la fase di sviluppo.
 \subsubsection{Vitest}\label{subsubsec:vitest}
-\textit{Vitest} è un \textit{framework} per l'implementazione di test di unità, utilizzato maggiormente in progetti \textit{Vue.js}.
+\textit{Vitest} è un \textit{framework} per l'implementazione di test di unità, utilizzato prevalentemente in progetti \textit{Vue.js}.
 Usato in coppia con \textit{Vite} permette di eseguire test di unità in modo più veloce e semplice.
 
 \subsection{Librerie esterne utilizzate}\label{subsec:librerie-esterne}
 \subsubsection{THRON Components}\label{subsubsec:thron-components}
-Libreria THRON contenente i componenti del \textit{design system} aziendale. Questa libreria è stata utilizzata per la creazione di componenti comuni come bottoni del portale.
+La libreria \textit{THRON Components} contiene i componenti utilizzati per creare elementi comuni, come i bottoni del portale, seguendo il design aziendale.
 \subsubsection{Azure MSAL}\label{subsubsec:azure-MSAL}
 \textit{Azure MSAL} è una libreria che permette di integrare il login con \textit{Azure Active Directory} all'interno di un'applicazione web.
 \subsubsection{Swagger UI}\label{subsubsec:swagger-ui}
@@ -86,7 +86,7 @@ A livello aziendale sono stati definiti tre ambienti di cui i primi due di \text
   \item \textbf{\textit{Production}}: ambiente di produzione in cui viene rilasciata la funzionalità.
 \end{itemize}
 
-\subsection{Configurazione ambiente del progetto}
+\subsection{Configurazione dell'ambiente per lo sviluppo del progetto}
 Il progetto di stage, necessita di cartelle per la configurazione dell'ambiente di sviluppo, per la configurazione del progetto e per la configurazione del \textit{deploy}.
 Più precisamente, il progetto segue la seguente struttura:
 
@@ -110,7 +110,7 @@ Per quanto riguarda l'infrastruttura del progetto, sono andato ad utilizzare e a
 Il primo costrutto si chiama \textit{THRONCloudFrontDistribution} e consente di accelerare la distribuzione dei contenuti web statici e dinamici, come file \textit{HTML}, \textit{CSS}, \textit{JS} e immagini, agli utenti.
 In breve questo costrutto genera il \textit{template} di \textit{AWS CloudFront} ed esegue il \textit{deploy} degli \textit{asset} statici su un \textit{bucket S3}.\\
 Il secondo costrutto che sono andato ad utilizzare si chiama \textit{THRONDockerLambda} e consente di creare una funzione \textit{lambda} in cui il gestore è un'immagine \textit{docker}.
-Nel caso del mio progetto, mi è servito per creare un \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
+Nel caso del mio progetto, mi è servito per creare una \textit{lambda} che una volta invocata avvia un \textit{docker} con all'interno il progetto backend.\\
 
 \subsubsection*{\emph{Middleware}}
 La cartella \textit{Middleware} contiene il progetto backend in \textit{Nest.js}. Nello specifico la cartella è formata dalle seguenti sezioni:
@@ -168,5 +168,5 @@ Di seguito i concetti base su cui si basa l'architettura:
   \item \textbf{\textit{Module}}: rappresenta un'unità organizzativa dell'applicazione che contiene un gruppo di elementi correlati come \textit{Controller}, \textit{Service} e \textit{Provider}. Questa struttura modulare 
   favorisce la separazione delle responsabilità rendendo il codice più leggibile;
   \item \textbf{\textit{Controller}}: sono interfacce tra la rete e la logica dell'applicazione responsabili della gestione delle richieste \textit{HTTP} in ingresso. Ogni \textit{Controller} è associato a un percorso specifico e a uno o più metodi che rappresentano le diverse azioni eseguibili sul percorso;
-  \item \textbf{\textit{Service}}: contiene la logica di \textit{business} dell'applicazione. I \textit{Service} sono responsabili della gestione dei dati e dell'interazione con le risorse esterne.
+  \item \textbf{\textit{Service}}: contiene la logica di \textit{business} dell'applicazione. I \textit{Service} si occupano della gestione dei dati e dell'interazione con le risorse esterne.
 \end{itemize}
