@@ -18,7 +18,7 @@ Il file \textit{Auth} è una \textit{utility} per la gestione dell'autenticazion
 per interfacciarsi all'autenticazione verso il servizio \textit{Azure AD}.\\
 \textit{Auth} è composto da più metodi, a partire dalla funzione di login fino alla funzione di acquisizione del \textit{token} di accesso.\\
 Una funzione importante che ho implementato con l'aiuto della libreria \textit{Azure MSAL} è la funzionalità di recupero del \textit{token} in modo automatico con 
-l'implementazione del \textit{refresh token} [~\cite{site:token}]. Essa segue la procedura seguente:
+l'implementazione del \textit{refresh token}. Essa segue la procedura seguente:
 \begin{enumerate}
   \item Innanzitutto viene controllata la \textit{cache} nell'archivio del \textit{browser} per verificare se esiste un \textit{token} di accesso ancora valido per la sessione corrente. Se viene trovato, il \textit{token} viene restituito;
   \item In caso il \textit{token} sia scaduto o non esista proprio, viene tentato l'utilizzo del \textit{refresh token} per ottenere un nuovo \textit{token} di accesso;
@@ -30,7 +30,7 @@ Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere
   \item L'utente ha cambiato la password, oppure
   \item Il browser blocca i \textit{cookies} di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del \textit{token}.
 \end{itemize}
-In questi casi, si verifica un errore che viene catturato tramite un \textit{try catch} e viene utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione.
+In questi casi, si verifica un errore che viene catturato tramite un \textit{try catch} e viene utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione (riferimenti in~\cite{site:token}).
 \subsubsection{Debounce}\label{subsubsec:debounce}
 Il file \textit{Debounce} è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non vengono eseguite chiamate ad essa.\\
@@ -376,9 +376,9 @@ della funzionalità del \textit{middleware} e alla creazione dei servizi necessa
 
 \subsection{Middleware}\label{subsec:middleware}
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
-Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta [~\cite{site:middleware}].
+Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
-Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta.
+Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta (riferimenti in~\cite{site:middleware}).
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè ho specificato
 nel modulo principale dell'applicazione tutte le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
