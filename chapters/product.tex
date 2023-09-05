@@ -5,8 +5,8 @@ Per questioni di chiarezza e di ordine, questo capitolo è suddiviso in due part
 }
 
 \section{Codifica frontend}\label{sec:codifica-front-end}
-Il capitolo descrive l'attività di codifica del progetto di stage per la parte frontend, ovvero la creazione del portale per la consultazione delle \textit{API}.
-
+Il capitolo descrive la fase di codifica relativa al progetto di stage, focalizzandosi sullo sviluppo del frontend. Questa sezione riguarda la realizzazione 
+del portale destinato alla consultazione delle \textit{API}.
 \subsection{Utils}\label{subsec:utils}
 La cartella \textit{Utils} contiene una serie di file \textit{TypeScript} che rappresentano funzioni, \textit{utilities} o moduli che forniscono funzionalità di supporto a varie parti dell'applicazione.
 Questi file sono progettati per semplificare compiti ripetitivi, astrazioni complesse o per fornire funzionalità condivise in più componenti. Ogni \textit{utility} è accompagnata 
@@ -65,7 +65,11 @@ L'\textit{utility SwaggerUtils} contiene al suo interno una moltitudine di funzi
 del \textit{MainContent}, spiegato nel capitolo~\ref{subsubsec:main-content}.
 Inoltre, al suo interno ho creato dei \textit{plugin} che semplificano la visualizzazione della documentazione, permettendo di selezionare parti specifiche del file \textit{YAML} da mostrare, come ad esempio la descrizione o la versione delle \textit{API}.
 L'\textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
+\pagebreak
+
+
 \subsection{Config}\label{subsec:config}
+La cartella \textit{Config} contiene i file di configurazione per l'applicazione. Di seguito sono descritti i file che ho sviluppato durante il progetto di stage.
 \subsubsection{ConfigAuth}\label{subsubsec:config-auth}
 Il file rappresenta un modulo di configurazione per l'autenticazione. Esso contiene le configurazioni per l'autenticazione verso \textit{Azure AD},
 come il \textit{clientId}, il \textit{redirectUri} o l'\textit{authority}.  
@@ -84,7 +88,7 @@ lo stato dell'autenticazione garantendo un maggiore controllo sull'accesso alle 
 \subsubsection{AppState}\label{subsubsec:app-state}
 Lo \textit{store AppState}, a differenza del precedente, utilizza \textit{Pinia}, una libreria apposita per la gestione dello stato.
 Esso è utilizzato per la gestione delle \textit{API} e dei \textit{client-id} disponibili nell'applicazione. Infatti lo \textit{store} inizializza le variabili reattive per la gestione
-delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utilities} apposite definite in precedenza.
+delle \textit{API} e dei \textit{client-id}, effettuando una chiamata al backend utilizzando le \textit{utilities} apposite definite nel capitolo~\ref{subsec:utils}.
 
 \subsection{Router}\label{subsec:router}
 La cartella \textit{Router} contiene le rotte definite nel progetto, ovvero i percorsi che l'utente può visitare all'interno dell'applicazione, e un \textit{helper} per la gestione del \textit{router}.
@@ -248,7 +252,7 @@ Il componente \textit{DownloadButton} rappresenta il bottone di download present
 aziendale, infatti non è un componente \textit{custom} creato da zero, ma è stato sviluppato utilizzando il componente \textit{Button} della libreria \textit{THRON Components}.\\
 Il componente dà la possibilità di scegliere la grandezza, il testo del bottone e le icone da visualizzare.
 Il componente permette all'utente di scaricare la documentazione dell'\textit{API} in formato \textit{YAML}, con un nome predefinito a seconda 
-del servizio scaricato. Una volta cliccato, va ad aprire una finestra secondaria del \textit{browser}, e il file viene scaricato automaticamente.\\
+del servizio scaricato. Una volta cliccato, il bottone apre una nuova finestra del \textit{browser} e il file viene scaricato automaticamente.\\
 
 \subsubsection{LogoutButton}\label{subsubsec:logout-button}
 Il componente \textit{LogoutButton} rappresenta il bottone di logout presente nella barra di navigazione superiore 
@@ -366,9 +370,9 @@ conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 \pagebreak
 
 \section{Codifica backend}\label{sec:codifica-backend}
-Il capitolo descrive l'attività di codifica del progetto di stage per la parte backend, ovvero la creazione 
-dei servizi per la gestione delle \textit{API}, dei \textit{client-id} e dei risultati della ricerca.
-Inoltre viene descritta la funzionalità del \textit{middleware}, utilizzata per vari scopi all'interno del progetto.
+Il capitolo descrive la fase di codifica relativa al progetto di stage, focalizzandosi sullo sviluppo del backend. Questa sezione è dedicata alla discussione 
+della funzionalità del \textit{middleware} e alla creazione dei servizi necessari per gestire le \textit{API}, i \textit{client-id} e i risultati della ricerca.
+
 
 \subsection{Middleware}\label{subsec:middleware}
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
@@ -404,7 +408,7 @@ Il \textit{token} appena ottenuto viene aggiunto all'\textit{header} della richi
 
 \subsection{Endpoints}\label{subsec:endpoints}
 Le seguenti sezioni descrivono gli \textit{endpoint} che ho creato all'interno del mio progetto. Tutti gli \textit{endpoint} sviluppati 
-sono utilizzati all'interno del progetto \textit{frontend} descritto in precedenza.
+sono utilizzati all'interno del progetto \textit{frontend} descritto nel capitolo~\ref{sec:codifica-front-end}.
 Come descritto nel capitolo dell'architettura (in sezione~\ref{subsec:architettura-backend}), ogni \textit{endpoint} creato è formato da un \textit{Module}, un \textit{Controller} e un \textit{Service}.
 
 \subsubsection{Client-id}\label{subsubsec:client-id}
