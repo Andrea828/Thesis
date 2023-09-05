@@ -13,10 +13,10 @@ Ciascun test di unità è identificato da un codice univoco, che segue la seguen
 \end{center}
 dove:
 \begin{itemize}
-  \item \textbf{TU}: definisce che il seguente test è di unità;
+  \item \textbf{TU}: definisce che il test è di unità;
   \item \textbf{Codice}: definisce un numero progressivo che identifica il test.
 \end{itemize}
-Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
+Ad ogni test di unità corrisponde un risultato, che può essere di due tipi:
 \begin{itemize}
   \item \textbf{S}: il test è stato superato;
   \item \textbf{NS}: il test non è stato superato.
@@ -43,14 +43,14 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
 \subsection*{\emph{Components}}\label{subsec:test-unita-components}
 
 \begin{center}
-  \captionof{table}{Tabella del tracciamento dei test di unità dei componenti}\label{tab:test-unita-componenti}
+  \captionof{table}{Tabella del tracciamento dei test di unità dei Components}\label{tab:test-unita-componenti}
   \begin{longtable}{|c|c|p{0.5\textwidth}|c|}
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
   TU-4 &HeaderNav &Verifica la corretta visualizazione della barra, verificando inoltre la visualizzazione dei dati dell'utente loggato  &S \\
   \hline
-  TU-5 &MainContent &Verifica la corretta visualizzazione dei dati relativi all'\textit{API} e al funzionamento del \textit{try it out} di un \textit{endpoint} &S \\
+  TU-5 &MainContent &Verifica la corretta visualizzazione dei dati relativi all'\textit{API} e il corretto funzionamento del \textit{try it out} di un \textit{endpoint} &S \\
   \hline
   TU-6 &SideBar &Verifica la corretta visualizzazione della barra laterale, mostrando le \textit{API} disponibili correttamente &S \\
   \hline
@@ -72,13 +72,13 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
   \hline
   TU-14 &Chip &Verifica la corretta visualizzazione del \textit{client-id} corrente, verificando inoltre la funzionalità di reset &S \\
   \hline
-  TU-15 &Filter &Verifica il corretto funzionamento del filtraggio, in base al filtro selezionato &S \\
+  TU-15 &Filter &Verifica il corretto funzionamento del filtraggio in base al filtro selezionato &S \\
   \hline
   TU-16 &OptionList &Verifica la corretta visualizzazione delle \textit{API} disponibili &S \\
   \hline
   TU-17 &OptionListItem &Verifica il corretto funzionamento del reindirizzamento all'\textit{API} selezionata &S \\
   \hline
-  TU-18 &SnackBar &Verifica la corretta visualizzazione del messaggio di errore corretto &S \\
+  TU-18 &SnackBar &Verifica la corretta visualizzazione del messaggio di errore &S \\
   \hline
 \end{longtable}
 \end{center}
@@ -87,14 +87,14 @@ Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
 
 
 \begin{center}
-  \captionof{table}{Tabella del tracciamento dei test di unità delle utilities}\label{tab:test-unita-utils}
+  \captionof{table}{Tabella del tracciamento dei test di unità delle Utilities}\label{tab:test-unita-utils}
   \begin{longtable}{|c|c|p{0.5\textwidth}|c|}
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
   TU-19 &Auth &Verifica il corretta funzionamento di tutte le funzionalità riguardanti l'autenticazione & S \\
   \hline
-  TU-20 &Debounce &Verifica il corretto funzionamento del \textit{delay}, verificando che un'azione sia eseguita solo dopo un tempo specificato &S \\
+  TU-20 &Debounce &Verifica il corretto funzionamento del \textit{delay}, verificando che un'azione sia eseguita solo dopo un determinato periodo di tempo &S \\
   \hline
   TU-21 &EndpointsApiCall &Verifica il corretto funzionamento della chiamata \textit{GET} all'\textit{endpoint} creato lato server &S \\
   \hline
@@ -115,10 +115,10 @@ Ciascun test di unità è identificato da un codice univoco, che segue la seguen
 \end{center}
 dove:
 \begin{itemize}
-  \item \textbf{TB}: definisce che il seguente test è di compatibilità \textit{cross-browser};
+  \item \textbf{TB}: definisce che il test è di compatibilità \textit{cross-browser};
   \item \textbf{Codice}: definisce un numero progressivo che identifica il test.
 \end{itemize}
-Ad ogni test di unità corrisponderà un risultato, che può essere di due tipi:
+Ad ogni test di unità corrisponde un risultato, che può essere di due tipi:
 \begin{itemize}
   \item \textbf{S}: il test è stato superato;
   \item \textbf{NS}: il test non è stato superato.
@@ -157,7 +157,7 @@ Nel dettaglio le documentazioni sono composte dalle seguenti caratteristiche:
 \begin{itemize}
   \item \textbf{Documentazione tecnica}: la documentazione in primis espone tutto ciò che è necessario per iniziare a lavorare da subito al progetto, come la locazione della \textit{repository}, i link 
   alle applicazioni distribuite nei vari ambienti di sviluppo o indicazioni su come effettuare il \textit{deploy} del progetto.\\
-  Successivamente vengono affrontati vari punti come la struttura del progetto, i comandi per avviare il progetto in locale o informazioni ancora più dettagliate come l'aggiunta di un nuovo \textit{endpoint} all'interno del progetto backend.
+  Successivamente vengono affrontati vari punti, come la struttura del progetto, i comandi per avviare il progetto in locale o informazioni ancora più dettagliate, come l'aggiunta di un nuovo \textit{endpoint} all'interno del progetto backend.
   Grazie a tutte queste informazioni, un nuovo sviluppatore può lavorare in completa autonomia sul progetto;
   \item \textbf{Documentazione funzionale}: la documentazione funzionale è stata scritta in modo da essere comprensibile anche a persone che non hanno conoscenze tecniche.
   Essa infatti, fornisce una panoramica generale dell'utilizzo del progetto, fornendo una guida completa su come utilizzare le varie funzionalità che possono
@@ -173,7 +173,7 @@ Questi incontri settimanali erano un momento fondamentale per monitorare l'andam
 
 \section{Presentazione finale}\label{sec:presentazione-finale}
 Nell'ultima settimana di stage è stata organizzata una presentazione finale, in cui ho illustrato il lavoro svolto e i risultati ottenuti.
-La presentazione è stata fatta davanti a tutta l'azienda, in modo che tutti i dipendenti potessero avere una panoramica del progetto.\\
+La presentazione è stata fatta davanti a tutta l'azienda, in modo che tutti i dipendenti potessero avere una panoramica completa del progetto.\\
 L'esito della presentazione è stato più che positivo e non sono state evidenziate criticità a seguito delle domande poste dai presenti.\\
 La presentazione ha contribuito ad una validazione finale del lavoro svolto ad alto livello.
 
