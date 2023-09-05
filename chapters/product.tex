@@ -114,7 +114,7 @@ automaticamente a questa \textit{View}. La pagina al suo interno contiene un uni
 
 Inoltre, per permettere un uso comodo anche in schermi di piccole dimensioni, o comunque utilizzando una scheda del \textit{browser} ristretta, ho sviluppato
 un \textit{design responsive} (in figura~\ref{fig:login-view-responsive}), che permette di visualizzare il contenuto in maniera ottimale anche su spazi ridotti.
-Ciò secondo me è necessario perchè trattandosi di un portale per la consultazione di documentazione, è possibile che l'utente 
+Ciò secondo me è necessario perché trattandosi di un portale per la consultazione di documentazione, è possibile che l'utente 
 lo utilizzi in combinazione con altre schede del \textit{browser}.
 
 \begin{figure}[ht]
@@ -359,7 +359,7 @@ Il componente è stato utilizzato per il caricamento della struttura della pagin
 \textit{MainContent}. Il \textit{loader} è visibile subito dopo aver effettuato il login o quando la pagina viene ricaricata, e scompare una volta che i dati sono stati caricati correttamente.
 Inoltre il componente è stato sviluppato utilizzando un \textit{design responsive}, infatti segue la stessa struttura della pagina, andando a nascodere la sezione 
 \textit{SideBar} in caso di schermi di piccole dimensioni.
-Ho preferito utilizzare un caricamento di tipo \textit{skeleton} rispetto ad un classico \textit{loader} circolare, perchè secondo me migliora l'esperienza utente 
+Ho preferito utilizzare un caricamento di tipo \textit{skeleton} rispetto ad un classico \textit{loader} circolare, perché secondo me migliora l'esperienza utente 
 conferendo una sensazione migliore durante l'attesa del caricamento dei dati.
 
 \begin{figure}[ht]
@@ -379,11 +379,11 @@ Il \textit{middleware} è un meccanismo che permette di eseguire delle operazion
 Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
 Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta (riferimenti in~\cite{site:middleware}).
-Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perchè ho specificato
+Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perché ho specificato
 nel modulo principale dell'applicazione tutte le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
 \subsubsection{Validazione token JWT}\label{subsubsec:validazione-token-jwt}
-La prima funzione implementata nel \textit{middleware} è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perchè all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
+La prima funzione implementata nel \textit{middleware} è la validazione del \textit{token JWT} di autenticazione. Questa funzionalità è necessaria perché all'interno del portale è presente un sistema di autenticazione, quindi sicuramente le chiamate verso i servizi \textit{backend} creati sono protetti dal login del portale.
 La criticità consiste nel fatto che un servizio può essere accessibile direttamente senza la necessità di passare attraverso il portale, poiché ciascun \textit{endpoint} dispone di un \textit{URL} pubblico.
 La soluzione che ho implementato è stata quella di validare il \textit{token} di autenticazione verificando che qualsiasi chiamata ai miei servizi fosse effettuata da un utente autenticato, avente un token valido nell'\textit{header} della richiesta.
 Per verificare il \textit{token} ho effettuato i seguenti passaggi:
