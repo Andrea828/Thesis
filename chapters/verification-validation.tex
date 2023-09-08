@@ -1,7 +1,7 @@
 \chapter{Attività di verifica e validazione}\label{cap:verifica-validazione}
 
-\intro{In questo capitolo saranno descritti i processi di verifica e validazione del prodotto.
-In particolare verranno illustrati i test implementati, i risultati ottenuti e le possibili migliorie future del prodotto.
+\intro{In questo capitolo sono descritti i processi di verifica e validazione del prodotto.
+In particolare sono illustrati i test implementati, i risultati ottenuti e le possibili migliorie future del prodotto.
 }
 
 \section{Test di unità}\label{sec:test-unita}
@@ -32,11 +32,11 @@ Le tabelle~\ref{tab:test-unita-views},~\ref{tab:test-unita-componenti} e~\ref{ta
   \hline
   \textbf{Codice} & \textbf{Oggetto} & \textbf{Descrizione} & \textbf{Stato}\\
   \hline
-  TU-1 &LoginView &Verifica del corretto funzionamento dell'autenticazione, con successivo \textit{redirect} alla pagina principale &S \\
+  TU-1 &LoginView &Verifica del corretto funzionamento dell'au\-ten\-ti\-ca\-zio\-ne, con successivo \textit{redirect} alla pagina principale &S \\
   \hline
-  TU-2 &HomeView &Verifica la corretta visualizzazione della pagina e la corretta validazione dei parametri dell'\textit{URL} &S \\
+  TU-2 &HomeView &Verifica la corretta visualizzazione della pa\-gi\-na e la corretta validazione dei parametri dell'\textit{URL} &S \\
   \hline
-  TU-3 &NotFoundView &Verifica la corretta visualizzazione della pagina e il funzionamento del reindirizzamento alla \textit{home} &S \\
+  TU-3 &NotFoundView &Verifica la corretta visualizzazione della pa\-gi\-na e il funzionamento del reindirizzamento alla \textit{home} &S \\
   \hline
 \end{longtable}
 \end{center}
@@ -55,7 +55,7 @@ Le tabelle~\ref{tab:test-unita-views},~\ref{tab:test-unita-componenti} e~\ref{ta
   \hline
   TU-6 &SideBar &Verifica la corretta visualizzazione della barra laterale, mostrando le \textit{API} disponibili correttamente &S \\
   \hline
-  TU-7 &StartPage &Verifica la corretta visualizzazione della pagina, controllando i parametri nell'\textit{URL} &S \\
+  TU-7 &StartPage &Verifica la corretta visualizzazione della pa\-gi\-na, controllando i parametri nell'\textit{URL} &S \\
   \hline
   TU-8 &DownloadButton &Verifica il corretto funzionamento del download di una singola \textit{API} &S \\
   \hline
@@ -69,7 +69,7 @@ Le tabelle~\ref{tab:test-unita-views},~\ref{tab:test-unita-componenti} e~\ref{ta
   \hline
   TU-12 &SearchBar &Verifica la corretta visualizzazione della barra di ricerca &S \\
   \hline
-  TU-13 &Autocomplete &Verifica la corretta visualizzazione della lista aggiornata in base all'input corrente nella barra di ricerca. Inoltre verifica l'accessibilità del menù a tendina  &S \\
+  TU-13 &Autocomplete &Verifica la corretta visualizzazione della lista aggiornata in base all'input corrente nella barra di ricerca. Inoltre verifica l'ac\-ces\-si\-bi\-lità del menù a tendina  &S \\
   \hline
   TU-14 &Chip &Verifica la corretta visualizzazione del \textit{client-id} corrente, verificando inoltre la funzionalità di reset &S \\
   \hline
@@ -77,7 +77,7 @@ Le tabelle~\ref{tab:test-unita-views},~\ref{tab:test-unita-componenti} e~\ref{ta
   \hline
   TU-16 &OptionList &Verifica la corretta visualizzazione delle \textit{API} disponibili &S \\
   \hline
-  TU-17 &OptionListItem &Verifica il corretto funzionamento del reindirizzamento all'\textit{API} selezionata &S \\
+  TU-17 &OptionListItem &Verifica il corretto funzionamento del re\-in\-di\-ri\-za\-men\-to all'\textit{API} selezionata &S \\
   \hline
   TU-18 &SnackBar &Verifica la corretta visualizzazione del messaggio di errore &S \\
   \hline
@@ -124,7 +124,7 @@ Ad ogni test di unità corrisponde un risultato, che può essere di due tipi:
   \item \textbf{S}: il test è stato superato;
   \item \textbf{NS}: il test non è stato superato.
 \end{itemize}
-La tabella~\ref{tab:test-compatibilita-cross-browser} riporta i test di compatibilità \textit{cross-browser} implementati.
+La tabella~\ref{tab:test-compatibilita-cross-browser} riporta i test di compatibilità \textit{cross-browser} implementati. Tutti i test sono stati superati con successo, garantendo un'esperienza uniforme per gli utenti su diverse piattaforme e \textit{browser}.
 
 \begin{center}
   \captionof{table}{Tabella del tracciamento dei test di compatibilità cross-browser}\label{tab:test-compatibilita-cross-browser}
@@ -141,6 +141,8 @@ La tabella~\ref{tab:test-compatibilita-cross-browser} riporta i test di compatib
   TB-4 &Applicazione &Si verifica la corretta visualizzazione e il corretto funzionamento dell'applicazione  sul \textit{browser Safari} &S \\
   \hline
   TB-5 &Applicazione &Si verifica la corretta visualizzazione e il corretto funzionamento dell'applicazione  sul \textit{browser Brave} &S \\
+  \hline\pagebreak\hline
+  \multicolumn{4}{|c|}{\textbf{Continuazione della tabella~\ref{tab:test-compatibilita-cross-browser}}} \\
   \hline
   TB-6 &Applicazione &Si verifica la corretta visualizzazione e il corretto funzionamento dell'applicazione  sul \textit{browser Opera} &S \\
   \hline
@@ -151,7 +153,7 @@ La tabella~\ref{tab:test-compatibilita-cross-browser} riporta i test di compatib
 Un obiettivo obbligatorio dello stage era quello di produrre una documentazione sul progetto svolto, sia tecnica che funzionale.
 La prima delle due è focalizzata sugli aspetti tecnici e implementativi del progetto, andando a rivolgersi principalmente agli sviluppatori.
 Questo tipo di documentazione infatti, include informazioni dettagliate su componenti e tecnologie utilizzate, in modo che una persona che deve iniziare a lavorare sul progetto
-può farlo in autonomia.
+possa farlo in autonomia.
 D'altro canto, la documentazione funzionale è orientata verso gli utenti finali del prodotto, ai clienti o agli \textit{stakeholder}.
 Essa infatti, fornisce una panoramica degli scenari di utilizzo, delle interazioni dell'utente e delle risposte attese dal sistema, creando un guida che affronta i problemi più comuni.\\
 La validazione della documentazione è stata effettuata tramite un confronto con il tutor aziendale, che ha fornito un \textit{feedback} sulle parti da migliorare e su quelle da approfondire.\\

@@ -1,6 +1,6 @@
 \chapter{Codifica}\label{cap:codifica}
 
-\intro{In questo capitolo verranno descritti i componenti e le funzionalità sviluppate durante il progetto di stage. 
+\intro{In questo capitolo sono descritti i componenti e le funzionalità sviluppate durante il progetto di stage. 
 Per questioni di chiarezza e di ordine, questo capitolo è suddiviso in due parti: la prima rappresenta la parte frontend, mentre la seconda rappresenta la parte backend.
 }
 
@@ -30,7 +30,7 @@ Questo procedimento per il recupero del \textit{token} con lo scopo di mantenere
   \item L'utente ha cambiato la password, oppure
   \item Il browser blocca i \textit{cookies} di terze parti, che prevengono l'utilizzo del \textit{hidden iframe} per il recupero del \textit{token}.
 \end{itemize}
-In questi casi, si verifica un errore che viene catturato tramite un \textit{try catch} e viene utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione (riferimenti in~\cite{site:token}).
+In questi casi, si verifica un errore che viene catturato tramite un \textit{try catch} e viene utilizzato il metodo di login con \textit{pop-up} per effettuare nuovamente l'autenticazione~\cite{site:token}.
 \subsubsection{Debounce}\label{subsubsec:debounce}
 Il file \textit{Debounce} è una \textit{utility} che ho creato per ritardare l'esecuzione di una funzione fino a quando non si verifica
 un certo intervallo di tempo in cui non vengono eseguite chiamate ad essa.\\
@@ -62,7 +62,7 @@ Entrambe le chiamate necessitano di un \textit{token}, diverso dal \textit{token
 
 \subsubsection{SwaggerUtils}\label{subsubsec:swagger-utils}
 L'\textit{utility SwaggerUtils} contiene al suo interno una moltitudine di funzionalità utili per la gestione della documentazione delle \textit{API} e la sua visualizzazione all'interno
-del \textit{MainContent}, spiegato nel capitolo~\ref{subsubsec:main-content}.
+del \textit{MainContent}, spiegato nella sezione~\ref{subsubsec:main-content}.
 Inoltre, al suo interno ho creato dei \textit{plugin} che semplificano la visualizzazione della documentazione, permettendo di selezionare parti specifiche del file \textit{YAML} da mostrare, come ad esempio la descrizione o la versione delle \textit{API}.
 L'\textit{utility} gestisce anche il \textit{try it out} di un \textit{endpoint} e le funzionalità relative ad esso, spostando la logica in un unico file centralizzato.
 \pagebreak
@@ -80,8 +80,8 @@ in modo da poterlo condividere tra più componenti.\\
 Di seguito sono descritti gli \textit{store} che ho sviluppato durante il progetto di stage.
 
 \subsubsection{Auth}\label{subsubsec:auth-store}
-Lo \textit{store Auth} è stato creato per gestire lo stato dell'autenticazione dell'utente e l'interazione con un servizio di autenticazione esterno.
-Esso utilizza al suo interno l'\textit{utility Auth} (descritta nel capitolo~\ref{subsubsec:auth-utils}), che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
+Lo \textit{store Auth} è stato creato per gestire lo stato dell'autenticazione dell'utente e l'in\-te\-ra\-zio\-ne con un servizio di autenticazione esterno.
+Esso utilizza al suo interno l'\textit{utility Auth} (descritta nella sezione~\ref{subsubsec:auth-utils}), che include variabili reattive per gestire lo stato dell'autenticazione e la gestione dei \textit{token}.\\
 Ho scritto lo \textit{store Auth} utilizzando uno stile di programmazione basato su funzioni \glsfirstoccur{\gls{closureg}} di \textit{JavaScript}. Questo approccio consente di incapsulare
 lo stato dell'autenticazione garantendo un maggiore controllo sull'accesso alle variabili e alle funzioni all'interno del modulo.
 
@@ -105,7 +105,7 @@ Di seguito sono descritte le \textit{Views} che ho sviluppato durante il progett
 La \textit{LoginView} è la prima pagina con cui l'utente interagisce (in figura~\ref{fig:login-view}). Essa contiene un bottone che permette di effettuare il login tramite \textit{pop-up}, utilizzando un \textit{account Microsoft 365}.
 La pagina consente di accedere al portale ed è l'unica di tutto il progetto che non richiede l'autenticazione.\\
 Quando un utente non autenticato tenta di accedere a qualsiasi altra pagina del portale, viene sempre reindirizzato
-automaticamente a questa \textit{View}. La pagina al suo interno contiene un unico componente, ovvero il \textit{LoginButton}, descritto nel capitolo~\ref{subsubsec:login-button}.
+automaticamente a questa \textit{View}. La pagina al suo interno contiene un unico componente, ovvero il \textit{LoginButton}, descritto nella sezione~\ref{subsubsec:login-button}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Pagina di login dell'applicazione}]{images/frontend/LoginView.jpg}
@@ -178,7 +178,7 @@ Il componente \textit{MainContent} rappresenta il contenuto principale dell'appl
 della libreria \textit{Swagger UI}.
 La struttura segue il \textit{layout} di \textit{Swagger Editor} per motivi di semplicità e uniformità. Inizia con una descrizione iniziale, prosegue con la lista degli \textit{endpoint} disponibili e conclude con l'elenco dei modelli.
 I colori utilizzati sono uguali a quelli utilizzati in un comune \textit{Swagger Editor} per dare un senso di familiarità all'utente ed è stata una richiesta avanzata dal team.
-Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, discusso nel capitolo~\ref{subsubsec:download-button}.
+Nell'angolo destro è stato aggiunto un bottone per il download della documentazione, discusso nella sezione~\ref{subsubsec:download-button}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.6\textwidth, alt={Sezione per la visualizzazione dei dettagli di un API}]{images/frontend/DataModelView.jpg}
@@ -282,7 +282,7 @@ Si tratta di un componente \textit{custom} creato da me, utilizzato per aprire l
 \subsubsection{SearchBar}\label{subsubsec:search-bar}
 Il componente \textit{SearchBar} rappresenta la barra di ricerca globale dell'applicazione (in figura~\ref{fig:search-bar}). 
 Essa consiste in una barra dove poter inserire il \textit{client-id} o il nome dell'\textit{API} da cercare,
-con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{Autocomplete} descritto nel capitolo~\ref{subsubsec:autocomplete}.
+con un'icona di ricerca a fianco. Per una migliore esperienza di ricerca, è necessario utilizzare il componente insieme al componente \textit{Autocomplete} descritto nella sezione~\ref{subsubsec:autocomplete}.
 Infatti i componenti insieme, costituiscono la ricerca all'interno del portale. Inoltre La \textit{SearchBar} è accessibile tramite tastiera,
 infatti utilizzando il comando \textit{Ctrl + B} è possibile aprire la barra di ricerca.\\
 
@@ -298,11 +298,11 @@ Il componente \textit{Autocomplete} rappresenta l'elenco dei risultati visualizz
 Essa consiste in una lista di suggerimenti dinamici che vengono visualizzati in base al testo inserito dall'utente. 
 In caso il campo di ricerca della \textit{SearchBar} sia vuoto, viene mostrata la lista degli ultimi quattro termini cercati, se presenti.
 In caso contrario, quando è presente un termine nella barra di ricerca, viene visualizzata una lista di suggerimenti divisa per categoria.
-Nel caso in cui la ricerca non abbia prodotto risultati, viene visualizzato un messaggio di errore gestito tramite il componente \textit{SnackBar} descritto nel capitolo~\ref{subsubsec:snack-bar}.\\
+Nel caso in cui la ricerca non abbia prodotto risultati, viene visualizzato un messaggio di errore gestito tramite il componente \textit{SnackBar} descritto nella sezione~\ref{subsubsec:snack-bar}.\\
 La logica della ricerca è completamente sviluppata lato \textit{backend} per estrapolare il componente di ricerca e renderlo riutilizzabile in altri progetti.
 Essendo un componente \textit{custom}, ho aggiunto la possibilità di navigare il menù e selezionare un suggerimento tramite tastiera, funzionalità 
 obbligatoria per rendere la ricerca accessibile anche a persone con disabilità.\\
-Dopo aver selezionato un suggerimento, viene aperta la pagina di dettaglio dell'\textit{API} corrispondente se l'utente ha scelto un'\textit{API} specifica.  In caso contrario, il \textit{client-id} corrente viene impostato e la \textit{Chip} (descritta in capitolo~\ref{subsubsec:chip}) viene aggiornata con il nuovo valore.
+Dopo aver selezionato un suggerimento, viene aperta la pagina di dettaglio dell'\textit{API} corrispondente se l'utente ha scelto un'\textit{API} specifica.  In caso contrario, il \textit{client-id} corrente viene impostato e la \textit{Chip} (descritta nella sezione~\ref{subsubsec:chip}) viene aggiornata con il nuovo valore.
 Il componente infine supporta la gestione di più liste di elementi per la ricerca globale, non limitandosi a soli due elenchi. Questo significa che è possibile avere un numero variabile di liste di elementi con cui effettuare la ricerca globale. 
 
 \begin{figure}[ht]
@@ -316,7 +316,7 @@ Il componente \textit{Chip} rappresenta la \textit{chip} situata nella barra di 
 Essa è utile a visualizzare il \textit{client-id} corrente, ovvero il \textit{client-id} che l'utente ha selezionato tramite la barra di ricerca globale.
 Se l'utente non ha ancora effettuato alcuna selezione, viene visualizzato il \textit{client-id} predefinito dell'ambiente di sviluppo, ovvero \textit{devxsetup} per l'ambiente di \textit{Develop}, \textit{qaxsetup} per l'ambiente di \textit{Quality} e \textit{setup} per l'ambiente di \textit{Production}.
 Inoltre è possibile reimpostare il \textit{client-id} corrente cliccando sull'icona di reset a forma di \textit{X}, che riporta la \textit{chip} al valore di default.
-In caso il \textit{client-id} fosse già al valore predefinito, viene visualizzato un messaggio di errore tramite il componente \textit{SnackBar} (descritto nel capitolo~\ref{subsubsec:snack-bar}).
+In caso il \textit{client-id} fosse già al valore predefinito, viene visualizzato un messaggio di errore tramite il componente \textit{SnackBar} (descritto nella sezione~\ref{subsubsec:snack-bar}).
 
 \begin{figure}[ht]
   \centering
@@ -378,7 +378,7 @@ della funzionalità del \textit{middleware} e alla creazione dei servizi necessa
 Il \textit{middleware} è un meccanismo che permette di eseguire delle operazioni specifiche durante il ciclo di vita di una richiesta \textit{HTTP}. 
 Nel mio caso ho utilizzato questa funzionalità per eseguire parte della logica prima che la richiesta venga inoltrata al \textit{Controller} e generi una risposta.
 Il \textit{middleware} è stato utilizzato per due scopi principali: la validazione del \glsfirstoccur{\gls{tokenjwtg}} di autenticazione e l'acquisizione del \textit{supertoken} utile per eseguire delle chiamate.
-Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta (riferimenti in~\cite{site:middleware}).
+Basandoci sul ciclo di vita, il \textit{middleware} intercetta le richieste, effettua le funzionalità appena descritte e successivamente inoltra la richiesta al \textit{Controller} che si occupa di restituire una risposta~\cite{site:middleware}.
 Quindi ogni chiamata verso gli \textit{endpoint} che ho sviluppato passa prima dal \textit{middleware}. Questo perché ho specificato
 nel modulo principale dell'applicazione tutte le rotte che devono essere gestite dal \textit{middleware}, ovvero i \textit{Controller} di \textit{client-id}, \textit{API} e \textit{search}.
 
