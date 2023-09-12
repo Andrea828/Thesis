@@ -15,4 +15,9 @@
 
 \input{config/thesis-config}
 
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+\makeatother
+
 \input{structure}
