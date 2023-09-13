@@ -2,13 +2,20 @@
     \frontmatter
     \input{preface/title-page}
     \input{preface/copyright}
-    % \input{preface/dedication}
     \input{preface/summary}
     \input{preface/acknowledgements}
+
+    \fancyhead[L]{\fontsize{10}{14.5}\selectfont \textit{ \ }}
+    \fancyhead[R]{\fontsize{10}{14.5}\selectfont\textit{ \ }}
+    
     \input{preface/table-of-contents}
     \cleardoublepage
 
     \mainmatter
+
+    % \renewcommand{\headrulewidth}{0.4pt}
+    \fancyhead[L]{\fontsize{10}{14.5}\selectfont\textit{\MakeUppercase{\chaptername}} \ \thechapter}
+    \fancyhead[R]{\fontsize{10}{14.5}\textit{\MakeUppercase{\Chaptername}}}
     \input{chapters/introduction}
     \input{chapters/stage-description}
     \input{chapters/requirements-analysis}
@@ -18,6 +25,9 @@
     \input{chapters/conclusion}
 
     \backmatter
+
+    \fancyhead[L]{\fontsize{10}{14.5}\selectfont\textit{ \ }}
+    \fancyhead[R]{\fontsize{10}{14.5}\selectfont\textit{ \ }}
     % \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
     \printglossary[type=main, title=Glossario, toctitle=Glossario]
 
